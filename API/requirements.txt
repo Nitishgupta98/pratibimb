@@ -1,0 +1,9 @@
+youtube-transcript-api
+google-generativeai
+fastapi
+uvicorn
+google-generativeai
+youtube-transcript-api
+pydantic
+requests
+python-dotenv

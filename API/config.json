@@ -1,0 +1,13 @@
+{
+  "logging": {
+    "log_file": "../Output_files/api_logs.txt"
+  },
+  "output": {
+    "folder": "Output_files",
+    "raw_transcript_file": "raw_transcript.txt",
+    "enhanced_transcript_file": "enhanced_transcript_for_blind.txt"
+  },
+  "google": {
+    "api_key": "AIzaSyCTC-QmjJ4j_oBBfnCgta9M7K3ro89gbqg"
+  }
+}
