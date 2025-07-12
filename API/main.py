@@ -487,13 +487,7 @@ async def get_latest_report_data():
                 "type": "BRF Format",
                 "format": "Embosser Ready"
             },
-            {
-                "title": "Session Log File",
-                "description": "Complete workflow log with timestamps, step-by-step progress, and detailed operation history.",
-                "icon": "📋",
-                "type": "System Log", 
-                "format": "Detailed History"
-            },
+            
             {
                 "title": "Request Log File",
                 "description": "Request-specific log file showing the complete workflow from YouTube transcript to Braille conversion.",
