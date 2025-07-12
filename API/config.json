@@ -1,13 +1,41 @@
 {
-  "logging": {
-    "log_file": "../Output_files/api_logs.txt"
-  },
   "output": {
     "folder": "Output_files",
     "raw_transcript_file": "raw_transcript.txt",
-    "enhanced_transcript_file": "enhanced_transcript_for_blind.txt"
+    "enhanced_transcript_file": "enhanced_transcript_for_braille.txt"
   },
   "google": {
     "api_key": "AIzaSyCTC-QmjJ4j_oBBfnCgta9M7K3ro89gbqg"
-  }
+  },
+  "input_file": "Output_files\\enhanced_transcript_for_braille.txt",
+    "output_file": "output/braille_output.txt",
+    "embosser_file": "output/embosser_ready.brf",
+    "encoding": "utf-8",
+    "braille_settings": {
+        "tab_width": 4,
+        "preserve_line_breaks": true,
+        "skip_carriage_returns": true
+    },
+    "embosser_settings": {
+        "line_length": 40,
+        "page_length": 25,
+        "include_page_numbers": true,
+        "tab_spaces": 2,
+        "validate_output": true
+    },
+    "test_settings": {
+        "run_comprehensive_tests": true,
+        "generate_html_report": true,
+        "reports_folder": "reports",
+        "include_round_trip_test": true,
+        "test_batch_conversion": true,
+        "validate_embosser_compliance": true
+    },
+    "logging_settings": {
+        "log_file": "logs/pratibimb.log",
+        "log_level": "INFO",
+        "max_file_size_mb": 10,
+        "backup_count": 5,
+        "include_console_output": true
+    }
 }

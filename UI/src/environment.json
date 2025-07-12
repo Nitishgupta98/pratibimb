@@ -1,0 +1,13 @@
+{
+  "apiBaseUrl": "http://localhost:8000",
+  "endpoints": {
+    "processTranscript": "/process_transcript",
+    "getRawTranscript": "/get_raw_transcript",
+    "getEnhanceTranscript": "/get_enhance_transcript",
+    "getLatestReport": "/api/latest-report",
+    "getLatestReportData": "/api/latest-report-data",
+    "downloadFile": "/api/download",
+    "streamLogs": "/api/stream-logs",
+    "requestLog": "/api/request-log"
+  }
+}

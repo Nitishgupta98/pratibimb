@@ -1,0 +1,1 @@
+enhance_transcript_for_blind_users(transcript)

@@ -1,0 +1,13 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with exact same gradient as header -->
+  <rect width="192" height="192" rx="38.4" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Lucide Eye icon scaled up -->
+  <path d="M15 96S42 39 96 39s81 57 81 57-27 57-81 57-81-57-81-57z" stroke="white" stroke-width="12" fill="none"/>
+  <circle cx="96" cy="96" r="18" stroke="white" stroke-width="12" fill="none"/>
+</svg>
