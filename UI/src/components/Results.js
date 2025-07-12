@@ -69,7 +69,6 @@ const Results = ({ data }) => {
         'Input Text File': 'enhanced_transcript',
         'Unicode Braille File': 'braille',
         'Embosser BRF File': 'embosser',
-        'Session Log File': 'log',
         'Request Log File': 'request_logs'
       };
       
@@ -243,7 +242,7 @@ const Results = ({ data }) => {
               <div className="pratibimb-report">
                 {/* Report Header */}
                 <div className="report-header">
-                  <h1>🔤 Pratibimb Test Report</h1>
+                  <h1>Pratibimb Test Report</h1>
                   <div className="report-date">{reportData.timestamp}</div>
                 </div>
 
