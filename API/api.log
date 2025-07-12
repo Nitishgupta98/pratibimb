@@ -1,0 +1,109 @@
+============================================================
+[0;35m🌟 PRATIBIMB - True Reflection of Digital World 🌟[0m
+Starting API Server on macOS...
+============================================================
+[0;34m🔧 Activating virtual environment...[0m
+[0;32m✅ Virtual environment activated[0m
+[0;34m📁 Ensuring output directories exist...[0m
+[0;34m⚙️  Checking configuration...[0m
+[0;34m🚀 Starting API server...[0m
+
+============================================================
+[0;32m📍 Server will be available at: http://localhost:8000[0m
+[0;32m📖 API Documentation: http://localhost:8000/docs[0m
+[0;34m🔧 Available endpoints:[0m
+   • POST /process_transcript - Complete processing
+   • POST /get_raw_transcript - Get YouTube transcript
+   • POST /get_enhance_transcript - Enhance for blind users
+   • GET /api/reports/{name} - Get report file
+   • GET /api/latest-report - Get latest report
+   • GET /api/latest-report-data - Get latest report as JSON
+   • GET /api/download/{file_type} - Download generated files
+   • GET /api/request-log/{request_id} - Get request-specific log
+   • GET /api/stream-logs/{request_id} - Stream real-time progress
+============================================================
+
+[1;33mPress Ctrl+C to stop the server[0m
+
+INFO:     Will watch for changes in these directories: ['/Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [89497] using WatchFiles
+INFO:     Started server process [89499]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:49708 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49710 - "GET / HTTP/1.1" 404 Not Found
+2025-07-12 12:54:29,387 [STEP-01] INFO: 🌟 Starting Braille conversion process...
+2025-07-12 12:54:29,387 INFO 🌟 Starting Braille conversion process...
+2025-07-12 12:54:29,389 [STEP-02] INFO: 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 12:54:29,389 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 12:54:29,389 [STEP-03] INFO: 🔄 Extracting video transcript...
+2025-07-12 12:54:29,389 INFO 🔄 Extracting video transcript...
+2025-07-12 12:54:31,093 [STEP-03] INFO: ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 12:54:31,093 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 12:54:31,093 [STEP-04] INFO: 💾 Saving original transcript...
+2025-07-12 12:54:31,093 INFO 💾 Saving original transcript...
+2025-07-12 12:54:31,094 [STEP-04] INFO: ✅ Original transcript saved successfully
+2025-07-12 12:54:31,094 INFO ✅ Original transcript saved successfully
+2025-07-12 12:54:31,094 [STEP-05] INFO: 🎯 Enhancing content for accessibility...
+2025-07-12 12:54:31,094 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 12:54:50,647 [STEP-05] INFO: ✅ Content enhanced for blind users (3485 characters)
+2025-07-12 12:54:50,647 INFO ✅ Content enhanced for blind users (3485 characters)
+2025-07-12 12:54:50,648 [STEP-06] INFO: 💾 Saving enhanced content...
+2025-07-12 12:54:50,648 INFO 💾 Saving enhanced content...
+2025-07-12 12:54:50,649 [STEP-06] INFO: ✅ Enhanced content saved successfully
+2025-07-12 12:54:50,649 INFO ✅ Enhanced content saved successfully
+2025-07-12 12:54:50,649 [STEP-07] INFO: 🔤 Starting Braille conversion engine...
+2025-07-12 12:54:50,649 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 12:54:50 | INFO | ============================================================
+2025-07-12 12:54:50,650 INFO ============================================================
+2025-07-12 12:54:50 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:54:50,650 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:54:50 | INFO | ============================================================
+2025-07-12 12:54:50,650 INFO ============================================================
+2025-07-12 12:54:50 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50,650 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 12:54:50,650 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 12:54:50 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:54:50,651 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:54:50 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 12:54:50,651 INFO ⚙️ Configuration loaded successfully
+2025-07-12 12:54:50 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 12:54:50,651 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 12:54:50 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50,651 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 12:54:50,651 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 12:54:50 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:54:50,651 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:54:50,651 [STEP-08] INFO: ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 12:54:50,651 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 12:54:50,651 [STEP-09] INFO: 🖨️ Generating embosser-ready BRF file...
+2025-07-12 12:54:50,651 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 12:54:50,651 [STEP-10] INFO: ✅ Braille conversion completed successfully
+2025-07-12 12:54:50,651 INFO ✅ Braille conversion completed successfully
+2025-07-12 12:54:50,652 [STEP-11] INFO: 📦 Preparing files for download...
+2025-07-12 12:54:50,652 INFO 📦 Preparing files for download...
+2025-07-12 12:54:50,652 [STEP-11] INFO: ✅ All files ready for download
+2025-07-12 12:54:50,652 INFO ✅ All files ready for download
+2025-07-12 12:54:50,652 [STEP-12] INFO: 🎉 Braille conversion process completed successfully!
+2025-07-12 12:54:50,652 INFO 🎉 Braille conversion process completed successfully!
+🔤 Pratibimb - All-in-One Braille Converter
+============================================================
+Professional Grade 1 Braille conversion with embosser output
+
+📋 Configuration Loaded:
+   • Input file: Output_files\enhanced_transcript_for_braille.txt
+   • Braille output: output/braille_output.txt
+   • Embosser file: output/embosser_ready.brf
+
+📖 Step 1: Reading input file...
+❌ Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+💡 Please check the file path in config.json
+INFO:     127.0.0.1:49723 - "POST /process_transcript HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49723 - "GET /api/stream-logs/c9adaf69 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49723 - "GET /api/latest-report-data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49723 - "GET /api/latest-report-data HTTP/1.1" 200 OK

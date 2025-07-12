@@ -4069,3 +4069,782 @@
 2025-07-12 11:58:50,770 INFO 📦 Preparing files for download...
 2025-07-12 11:58:50,771 INFO ✅ All files ready for download
 2025-07-12 11:58:50,772 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 12:46:21,432 INFO 🌟 Starting Braille conversion process...
+2025-07-12 12:46:21,432 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 12:46:21,432 INFO 🔄 Extracting video transcript...
+2025-07-12 12:46:23,469 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 12:46:23,469 INFO 💾 Saving original transcript...
+2025-07-12 12:46:23,470 INFO ✅ Original transcript saved successfully
+2025-07-12 12:46:23,470 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 12:46:46,230 INFO ✅ Content enhanced for blind users (4188 characters)
+2025-07-12 12:46:46,231 INFO 💾 Saving enhanced content...
+2025-07-12 12:46:46,231 INFO ✅ Enhanced content saved successfully
+2025-07-12 12:46:46,231 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 12:46:46 | INFO | ============================================================
+2025-07-12 12:46:46,232 INFO ============================================================
+2025-07-12 12:46:46 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:46:46,232 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:46:46 | INFO | ============================================================
+2025-07-12 12:46:46,232 INFO ============================================================
+2025-07-12 12:46:46 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:46:46,232 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:46:46 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 12:46:46,232 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 12:46:46 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:46:46,232 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:46:46 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 12:46:46,233 INFO ⚙️ Configuration loaded successfully
+2025-07-12 12:46:46 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 12:46:46,233 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 12:46:46 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:46:46,233 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:46:46 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 12:46:46,233 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 12:46:46 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:46:46,233 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:46:46,233 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 12:46:46,233 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 12:46:46,233 INFO ✅ Braille conversion completed successfully
+2025-07-12 12:46:46,233 INFO 📦 Preparing files for download...
+2025-07-12 12:46:46,233 INFO ✅ All files ready for download
+2025-07-12 12:46:46,233 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 12:47:52,141 INFO 🌟 Starting Braille conversion process...
+2025-07-12 12:47:52,143 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 12:47:52,143 INFO 🔄 Extracting video transcript...
+2025-07-12 12:47:53,570 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 12:47:53,571 INFO 💾 Saving original transcript...
+2025-07-12 12:47:53,571 INFO ✅ Original transcript saved successfully
+2025-07-12 12:47:53,573 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 12:48:19,393 INFO ✅ Content enhanced for blind users (5474 characters)
+2025-07-12 12:48:19,394 INFO 💾 Saving enhanced content...
+2025-07-12 12:48:19,395 INFO ✅ Enhanced content saved successfully
+2025-07-12 12:48:19,395 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 12:48:19 | INFO | ============================================================
+2025-07-12 12:48:19,397 INFO ============================================================
+2025-07-12 12:48:19 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:48:19,397 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:48:19 | INFO | ============================================================
+2025-07-12 12:48:19,397 INFO ============================================================
+2025-07-12 12:48:19 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:48:19,397 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:48:19 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 12:48:19,397 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 12:48:19 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:48:19,398 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:48:19 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 12:48:19,398 INFO ⚙️ Configuration loaded successfully
+2025-07-12 12:48:19 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 12:48:19,398 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 12:48:19 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:48:19,398 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:48:19 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 12:48:19,398 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 12:48:19 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:48:19,399 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:48:19,399 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 12:48:19,399 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 12:48:19,400 INFO ✅ Braille conversion completed successfully
+2025-07-12 12:48:19,400 INFO 📦 Preparing files for download...
+2025-07-12 12:48:19,400 INFO ✅ All files ready for download
+2025-07-12 12:48:19,400 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 12:54:29,387 INFO 🌟 Starting Braille conversion process...
+2025-07-12 12:54:29,389 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 12:54:29,389 INFO 🔄 Extracting video transcript...
+2025-07-12 12:54:31,093 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 12:54:31,093 INFO 💾 Saving original transcript...
+2025-07-12 12:54:31,094 INFO ✅ Original transcript saved successfully
+2025-07-12 12:54:31,094 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 12:54:50,647 INFO ✅ Content enhanced for blind users (3485 characters)
+2025-07-12 12:54:50,648 INFO 💾 Saving enhanced content...
+2025-07-12 12:54:50,649 INFO ✅ Enhanced content saved successfully
+2025-07-12 12:54:50,649 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 12:54:50 | INFO | ============================================================
+2025-07-12 12:54:50,650 INFO ============================================================
+2025-07-12 12:54:50 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:54:50,650 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 12:54:50 | INFO | ============================================================
+2025-07-12 12:54:50,650 INFO ============================================================
+2025-07-12 12:54:50 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50,650 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 12:54:50,650 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 12:54:50 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:54:50,651 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 12:54:50 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 12:54:50,651 INFO ⚙️ Configuration loaded successfully
+2025-07-12 12:54:50 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 12:54:50,651 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 12:54:50 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50,651 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 12:54:50 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 12:54:50,651 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 12:54:50 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:54:50,651 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 12:54:50,651 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 12:54:50,651 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 12:54:50,651 INFO ✅ Braille conversion completed successfully
+2025-07-12 12:54:50,652 INFO 📦 Preparing files for download...
+2025-07-12 12:54:50,652 INFO ✅ All files ready for download
+2025-07-12 12:54:50,652 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 13:50:19,948 INFO 🌟 Starting Braille conversion process...
+2025-07-12 13:50:19,949 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 13:50:19,949 INFO 🔄 Extracting video transcript...
+2025-07-12 13:50:21,231 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 13:50:21,232 INFO 💾 Saving original transcript...
+2025-07-12 13:50:21,232 INFO ✅ Original transcript saved successfully
+2025-07-12 13:50:21,233 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 13:50:47,927 INFO ✅ Content enhanced for blind users (4608 characters)
+2025-07-12 13:50:47,929 INFO 💾 Saving enhanced content...
+2025-07-12 13:50:47,930 INFO ✅ Enhanced content saved successfully
+2025-07-12 13:50:47,930 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 13:50:47 | INFO | ============================================================
+2025-07-12 13:50:47,934 INFO ============================================================
+2025-07-12 13:50:47 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 13:50:47,935 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 13:50:47 | INFO | ============================================================
+2025-07-12 13:50:47,935 INFO ============================================================
+2025-07-12 13:50:47 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 13:50:47,936 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 13:50:47 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 13:50:47,936 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 13:50:47 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 13:50:47,936 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 13:50:47 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 13:50:47,936 INFO ⚙️ Configuration loaded successfully
+2025-07-12 13:50:47 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 13:50:47,936 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 13:50:47 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 13:50:47,937 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 13:50:47 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 13:50:47,937 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 13:50:47 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 13:50:47,937 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 13:50:47,937 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 13:50:47,937 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 13:50:47,937 INFO ✅ Braille conversion completed successfully
+2025-07-12 13:50:47,937 INFO 📦 Preparing files for download...
+2025-07-12 13:50:47,938 INFO ✅ All files ready for download
+2025-07-12 13:50:47,938 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:13:41,309 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:13:41,310 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:13:41,310 INFO 🔄 Extracting video transcript...
+2025-07-12 14:13:42,823 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:13:42,823 INFO 💾 Saving original transcript...
+2025-07-12 14:13:42,824 INFO ✅ Original transcript saved successfully
+2025-07-12 14:13:42,824 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:14:05,037 INFO ✅ Content enhanced for blind users (4016 characters)
+2025-07-12 14:14:05,039 INFO 💾 Saving enhanced content...
+2025-07-12 14:14:05,041 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:14:05,041 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:14:05 | INFO | ============================================================
+2025-07-12 14:14:05,043 INFO ============================================================
+2025-07-12 14:14:05 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:14:05,045 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:14:05 | INFO | ============================================================
+2025-07-12 14:14:05,045 INFO ============================================================
+2025-07-12 14:14:05 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:05,045 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:05 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:14:05,045 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:14:05 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:14:05,045 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:14:05 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:14:05,045 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:14:05 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:14:05,046 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:14:05 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:05,046 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:05 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:14:05,046 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:14:05 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:14:05,046 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:14:05,046 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:14:05,047 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:14:05,047 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:14:05,047 INFO 📦 Preparing files for download...
+2025-07-12 14:14:05,047 INFO ✅ All files ready for download
+2025-07-12 14:14:05,047 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:14:05,055 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:14:05,055 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:14:05,055 INFO 🔄 Extracting video transcript...
+2025-07-12 14:14:07,157 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:14:07,157 INFO 💾 Saving original transcript...
+2025-07-12 14:14:07,158 INFO ✅ Original transcript saved successfully
+2025-07-12 14:14:07,158 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:14:27,689 INFO ✅ Content enhanced for blind users (5040 characters)
+2025-07-12 14:14:27,691 INFO 💾 Saving enhanced content...
+2025-07-12 14:14:27,692 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:14:27,692 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:14:27 | INFO | ============================================================
+2025-07-12 14:14:27,694 INFO ============================================================
+2025-07-12 14:14:27 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:14:27,694 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:14:27 | INFO | ============================================================
+2025-07-12 14:14:27,694 INFO ============================================================
+2025-07-12 14:14:27 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:27,694 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:27 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:14:27,694 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:14:27 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:14:27,694 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:14:27 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:14:27,694 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:14:27 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:14:27,694 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:14:27 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:27,694 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:14:27 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:14:27,694 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:14:27 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:14:27,694 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:14:27,694 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:14:27,694 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:14:27,694 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:14:27,694 INFO 📦 Preparing files for download...
+2025-07-12 14:14:27,695 INFO ✅ All files ready for download
+2025-07-12 14:14:27,695 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:17:52,073 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:17:52,074 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:17:52,074 INFO 🔄 Extracting video transcript...
+2025-07-12 14:17:53,682 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:17:53,685 INFO 💾 Saving original transcript...
+2025-07-12 14:17:53,686 INFO ✅ Original transcript saved successfully
+2025-07-12 14:17:53,686 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:18:19,818 INFO ✅ Content enhanced for blind users (3837 characters)
+2025-07-12 14:18:19,820 INFO 💾 Saving enhanced content...
+2025-07-12 14:18:19,821 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:18:19,821 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:18:19 | INFO | ============================================================
+2025-07-12 14:18:19,822 INFO ============================================================
+2025-07-12 14:18:19 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:18:19,822 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:18:19 | INFO | ============================================================
+2025-07-12 14:18:19,822 INFO ============================================================
+2025-07-12 14:18:19 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:18:19,822 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:18:19 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:18:19,822 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:18:19 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:18:19,822 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:18:19 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:18:19,822 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:18:19 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:18:19,823 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:18:19 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:18:19,823 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:18:19 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:18:19,823 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:18:19 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:18:19,823 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:18:19,823 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:18:19,823 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:18:19,823 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:18:19,823 INFO 📦 Preparing files for download...
+2025-07-12 14:18:19,823 INFO ✅ All files ready for download
+2025-07-12 14:18:19,823 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:21:32,458 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:21:32,459 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:21:32,459 INFO 🔄 Extracting video transcript...
+2025-07-12 14:21:33,592 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:21:33,592 INFO 💾 Saving original transcript...
+2025-07-12 14:21:33,592 INFO ✅ Original transcript saved successfully
+2025-07-12 14:21:33,592 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:22:01,552 INFO ✅ Content enhanced for blind users (5811 characters)
+2025-07-12 14:22:01,553 INFO 💾 Saving enhanced content...
+2025-07-12 14:22:01,553 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:22:01,553 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:22:01 | INFO | ============================================================
+2025-07-12 14:22:01,555 INFO ============================================================
+2025-07-12 14:22:01 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:22:01,555 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:22:01 | INFO | ============================================================
+2025-07-12 14:22:01,555 INFO ============================================================
+2025-07-12 14:22:01 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:22:01,555 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:22:01 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:22:01,555 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:22:01 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:22:01,555 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:22:01 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:22:01,555 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:22:01 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:22:01,555 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:22:01 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:22:01,555 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:22:01 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:22:01,555 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:22:01 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:22:01,555 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:22:01,555 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:22:01,556 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:22:01,556 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:22:01,556 INFO 📦 Preparing files for download...
+2025-07-12 14:22:01,556 INFO ✅ All files ready for download
+2025-07-12 14:22:01,556 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:24:26,429 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:24:26,430 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:24:26,433 INFO 🔄 Extracting video transcript...
+2025-07-12 14:24:27,600 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:24:27,600 INFO 💾 Saving original transcript...
+2025-07-12 14:24:27,601 INFO ✅ Original transcript saved successfully
+2025-07-12 14:24:27,602 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:24:55,891 INFO ✅ Content enhanced for blind users (5172 characters)
+2025-07-12 14:24:55,895 INFO 💾 Saving enhanced content...
+2025-07-12 14:24:55,896 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:24:55,896 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:24:55 | INFO | ============================================================
+2025-07-12 14:24:55,899 INFO ============================================================
+2025-07-12 14:24:55 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:24:55,899 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:24:55 | INFO | ============================================================
+2025-07-12 14:24:55,899 INFO ============================================================
+2025-07-12 14:24:55 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:24:55,899 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:24:55 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:24:55,899 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:24:55 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:24:55,899 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:24:55 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:24:55,899 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:24:55 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:24:55,899 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:24:55 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:24:55,899 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:24:55 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:24:55,900 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:24:55 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:24:55,900 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:24:55,900 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:24:55,900 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:24:55,901 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:24:55,901 INFO 📦 Preparing files for download...
+2025-07-12 14:24:55,901 INFO ✅ All files ready for download
+2025-07-12 14:24:55,902 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:28:27,479 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:28:27,480 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:28:27,481 INFO 🔄 Extracting video transcript...
+2025-07-12 14:28:28,529 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:28:28,529 INFO 💾 Saving original transcript...
+2025-07-12 14:28:28,530 INFO ✅ Original transcript saved successfully
+2025-07-12 14:28:28,530 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:28:54,242 INFO ✅ Content enhanced for blind users (5657 characters)
+2025-07-12 14:28:54,242 INFO 💾 Saving enhanced content...
+2025-07-12 14:28:54,244 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:28:54,244 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:28:54 | INFO | ============================================================
+2025-07-12 14:28:54,246 INFO ============================================================
+2025-07-12 14:28:54 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:28:54,246 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:28:54 | INFO | ============================================================
+2025-07-12 14:28:54,246 INFO ============================================================
+2025-07-12 14:28:54 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:28:54,246 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:28:54 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:28:54,246 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:28:54 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:28:54,246 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:28:54 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:28:54,246 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:28:54 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:28:54,247 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:28:54 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:28:54,247 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:28:54 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:28:54,247 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:28:54 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:28:54,247 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:28:54,248 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:28:54,248 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:28:54,249 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:28:54,249 INFO 📦 Preparing files for download...
+2025-07-12 14:28:54,249 INFO ✅ All files ready for download
+2025-07-12 14:28:54,249 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:31:06,945 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:31:06,946 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:31:06,946 INFO 🔄 Extracting video transcript...
+2025-07-12 14:31:08,193 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:31:08,193 INFO 💾 Saving original transcript...
+2025-07-12 14:31:08,195 INFO ✅ Original transcript saved successfully
+2025-07-12 14:31:08,195 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:31:27,376 INFO ✅ Content enhanced for blind users (5195 characters)
+2025-07-12 14:31:27,376 INFO 💾 Saving enhanced content...
+2025-07-12 14:31:27,377 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:31:27,377 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:31:27 | INFO | ============================================================
+2025-07-12 14:31:27,379 INFO ============================================================
+2025-07-12 14:31:27 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:31:27,379 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:31:27 | INFO | ============================================================
+2025-07-12 14:31:27,379 INFO ============================================================
+2025-07-12 14:31:27 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:31:27,379 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:31:27 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:31:27,379 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:31:27 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:31:27,380 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:31:27 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:31:27,380 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:31:27 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:31:27,380 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:31:27 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:31:27,380 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:31:27 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:31:27,380 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:31:27 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:31:27,380 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:31:27,380 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:31:27,380 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:31:27,381 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:31:27,381 INFO 📦 Preparing files for download...
+2025-07-12 14:31:27,381 INFO ✅ All files ready for download
+2025-07-12 14:31:27,381 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:35:10,814 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:35:10,815 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:35:10,815 INFO 🔄 Extracting video transcript...
+2025-07-12 14:35:12,146 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:35:12,146 INFO 💾 Saving original transcript...
+2025-07-12 14:35:12,148 INFO ✅ Original transcript saved successfully
+2025-07-12 14:35:12,148 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:35:27,865 INFO ✅ Content enhanced for blind users (5644 characters)
+2025-07-12 14:35:27,866 INFO 💾 Saving enhanced content...
+2025-07-12 14:35:27,866 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:35:27,866 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:35:27 | INFO | ============================================================
+2025-07-12 14:35:27,867 INFO ============================================================
+2025-07-12 14:35:27 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:35:27,867 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:35:27 | INFO | ============================================================
+2025-07-12 14:35:27,867 INFO ============================================================
+2025-07-12 14:35:27 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:35:27,867 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:35:27 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:35:27,867 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:35:27 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:35:27,867 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:35:27 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:35:27,867 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:35:27 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:35:27,867 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:35:27 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:35:27,867 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:35:27 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:35:27,867 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:35:27 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:35:27,867 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:35:27,867 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:35:27,867 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:35:27,867 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:35:27,867 INFO 📦 Preparing files for download...
+2025-07-12 14:35:27,868 INFO ✅ All files ready for download
+2025-07-12 14:35:27,868 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:35:40,065 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:35:40,065 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:35:40,065 INFO 🔄 Extracting video transcript...
+2025-07-12 14:35:41,598 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:35:41,598 INFO 💾 Saving original transcript...
+2025-07-12 14:35:41,599 INFO ✅ Original transcript saved successfully
+2025-07-12 14:35:41,599 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:36:10,643 INFO ✅ Content enhanced for blind users (4268 characters)
+2025-07-12 14:36:10,644 INFO 💾 Saving enhanced content...
+2025-07-12 14:36:10,645 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:36:10,645 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:36:10 | INFO | ============================================================
+2025-07-12 14:36:10,648 INFO ============================================================
+2025-07-12 14:36:10 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:36:10,648 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:36:10 | INFO | ============================================================
+2025-07-12 14:36:10,648 INFO ============================================================
+2025-07-12 14:36:10 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:36:10,648 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:36:10 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:36:10,648 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:36:10 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:36:10,648 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:36:10 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:36:10,648 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:36:10 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:36:10,648 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:36:10 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:36:10,648 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:36:10 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:36:10,650 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:36:10 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:36:10,650 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:36:10,650 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:36:10,650 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:36:10,650 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:36:10,652 INFO 📦 Preparing files for download...
+2025-07-12 14:36:10,652 INFO ✅ All files ready for download
+2025-07-12 14:36:10,653 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:37:36,774 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:37:36,775 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:37:36,775 INFO 🔄 Extracting video transcript...
+2025-07-12 14:37:37,981 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:37:37,982 INFO 💾 Saving original transcript...
+2025-07-12 14:37:37,983 INFO ✅ Original transcript saved successfully
+2025-07-12 14:37:37,983 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:37:52,585 INFO ✅ Content enhanced for blind users (5610 characters)
+2025-07-12 14:37:52,585 INFO 💾 Saving enhanced content...
+2025-07-12 14:37:52,586 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:37:52,587 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:37:52 | INFO | ============================================================
+2025-07-12 14:37:52,589 INFO ============================================================
+2025-07-12 14:37:52 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:37:52,589 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:37:52 | INFO | ============================================================
+2025-07-12 14:37:52,589 INFO ============================================================
+2025-07-12 14:37:52 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:37:52,589 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:37:52 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:37:52,590 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:37:52 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:37:52,590 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:37:52 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:37:52,590 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:37:52 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:37:52,591 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:37:52 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:37:52,591 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:37:52 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:37:52,592 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:37:52 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:37:52,592 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:37:52,592 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:37:52,593 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:37:52,593 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:37:52,593 INFO 📦 Preparing files for download...
+2025-07-12 14:37:52,593 INFO ✅ All files ready for download
+2025-07-12 14:37:52,593 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:40:18,106 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:40:18,107 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:40:18,107 INFO 🔄 Extracting video transcript...
+2025-07-12 14:40:19,185 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:40:19,185 INFO 💾 Saving original transcript...
+2025-07-12 14:40:19,187 INFO ✅ Original transcript saved successfully
+2025-07-12 14:40:19,187 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:40:40,958 INFO ✅ Content enhanced for blind users (4267 characters)
+2025-07-12 14:40:40,960 INFO 💾 Saving enhanced content...
+2025-07-12 14:40:40,960 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:40:40,960 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:40:40 | INFO | ============================================================
+2025-07-12 14:40:40,962 INFO ============================================================
+2025-07-12 14:40:40 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:40:40,962 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:40:40 | INFO | ============================================================
+2025-07-12 14:40:40,962 INFO ============================================================
+2025-07-12 14:40:40 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:40:40,962 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:40:40 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:40:40,962 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:40:40 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:40:40,962 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:40:40 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:40:40,962 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:40:40 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:40:40,963 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:40:40 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:40:40,963 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:40:40 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:40:40,963 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:40:40 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:40:40,963 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:40:40,963 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:40:40,963 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:40:40,963 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:40:40,963 INFO 📦 Preparing files for download...
+2025-07-12 14:40:40,963 INFO ✅ All files ready for download
+2025-07-12 14:40:40,964 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:43:30,428 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:43:30,429 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:43:30,429 INFO 🔄 Extracting video transcript...
+2025-07-12 14:43:31,646 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:43:31,647 INFO 💾 Saving original transcript...
+2025-07-12 14:43:31,647 INFO ✅ Original transcript saved successfully
+2025-07-12 14:43:31,648 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:43:54,142 INFO ✅ Content enhanced for blind users (4805 characters)
+2025-07-12 14:43:54,144 INFO 💾 Saving enhanced content...
+2025-07-12 14:43:54,145 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:43:54,145 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:43:54 | INFO | ============================================================
+2025-07-12 14:43:54,147 INFO ============================================================
+2025-07-12 14:43:54 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:43:54,147 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:43:54 | INFO | ============================================================
+2025-07-12 14:43:54,147 INFO ============================================================
+2025-07-12 14:43:54 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:43:54,147 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:43:54 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:43:54,147 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:43:54 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:43:54,148 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:43:54 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:43:54,148 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:43:54 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:43:54,148 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:43:54 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:43:54,148 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:43:54 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:43:54,148 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:43:54 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:43:54,148 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:43:54,148 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:43:54,148 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:43:54,148 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:43:54,149 INFO 📦 Preparing files for download...
+2025-07-12 14:43:54,151 INFO ✅ All files ready for download
+2025-07-12 14:43:54,151 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:44:02,891 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:44:02,892 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:44:02,892 INFO 🔄 Extracting video transcript...
+2025-07-12 14:44:04,072 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:44:04,072 INFO 💾 Saving original transcript...
+2025-07-12 14:44:04,073 INFO ✅ Original transcript saved successfully
+2025-07-12 14:44:04,073 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:44:27,379 INFO ✅ Content enhanced for blind users (7023 characters)
+2025-07-12 14:44:27,380 INFO 💾 Saving enhanced content...
+2025-07-12 14:44:27,380 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:44:27,380 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:44:27 | INFO | ============================================================
+2025-07-12 14:44:27,381 INFO ============================================================
+2025-07-12 14:44:27 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:44:27,381 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:44:27 | INFO | ============================================================
+2025-07-12 14:44:27,381 INFO ============================================================
+2025-07-12 14:44:27 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:44:27,381 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:44:27 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:44:27,381 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:44:27 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:44:27,381 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:44:27 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:44:27,381 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:44:27 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:44:27,382 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:44:27 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:44:27,382 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:44:27 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:44:27,382 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:44:27 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:44:27,382 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:44:27,382 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:44:27,382 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:44:27,382 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:44:27,382 INFO 📦 Preparing files for download...
+2025-07-12 14:44:27,382 INFO ✅ All files ready for download
+2025-07-12 14:44:27,382 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:46:50,000 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:46:50,001 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:46:50,001 INFO 🔄 Extracting video transcript...
+2025-07-12 14:46:51,454 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:46:51,454 INFO 💾 Saving original transcript...
+2025-07-12 14:46:51,455 INFO ✅ Original transcript saved successfully
+2025-07-12 14:46:51,455 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:47:08,004 INFO ✅ Content enhanced for blind users (6420 characters)
+2025-07-12 14:47:08,005 INFO 💾 Saving enhanced content...
+2025-07-12 14:47:08,005 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:47:08,006 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:47:08 | INFO | ============================================================
+2025-07-12 14:47:08,006 INFO ============================================================
+2025-07-12 14:47:08 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:47:08,007 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:47:08 | INFO | ============================================================
+2025-07-12 14:47:08,007 INFO ============================================================
+2025-07-12 14:47:08 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:47:08,007 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:47:08 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:47:08,007 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:47:08 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:47:08,007 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:47:08 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:47:08,007 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:47:08 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:47:08,007 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:47:08 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:47:08,007 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:47:08 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:47:08,007 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:47:08 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:47:08,008 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:47:08,008 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:47:08,008 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:47:08,008 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:47:08,008 INFO 📦 Preparing files for download...
+2025-07-12 14:47:08,008 INFO ✅ All files ready for download
+2025-07-12 14:47:08,008 INFO 🎉 Braille conversion process completed successfully!
+2025-07-12 14:48:01,378 INFO 🌟 Starting Braille conversion process...
+2025-07-12 14:48:01,379 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 14:48:01,379 INFO 🔄 Extracting video transcript...
+2025-07-12 14:48:02,763 INFO ✅ Transcript extracted successfully (10100 characters)
+2025-07-12 14:48:02,764 INFO 💾 Saving original transcript...
+2025-07-12 14:48:02,765 INFO ✅ Original transcript saved successfully
+2025-07-12 14:48:02,765 INFO 🎯 Enhancing content for accessibility...
+2025-07-12 14:48:22,163 INFO ✅ Content enhanced for blind users (4338 characters)
+2025-07-12 14:48:22,164 INFO 💾 Saving enhanced content...
+2025-07-12 14:48:22,165 INFO ✅ Enhanced content saved successfully
+2025-07-12 14:48:22,166 INFO 🔤 Starting Braille conversion engine...
+2025-07-12 14:48:22 | INFO | ============================================================
+2025-07-12 14:48:22,168 INFO ============================================================
+2025-07-12 14:48:22 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:48:22,168 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
+2025-07-12 14:48:22 | INFO | ============================================================
+2025-07-12 14:48:22,168 INFO ============================================================
+2025-07-12 14:48:22 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:48:22,168 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:48:22 | INFO | 📄 Output File: output/braille_output.txt
+2025-07-12 14:48:22,168 INFO 📄 Output File: output/braille_output.txt
+2025-07-12 14:48:22 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:48:22,168 INFO 🖨️ Embosser File: output/embosser_ready.brf
+2025-07-12 14:48:22 | INFO | ⚙️ Configuration loaded successfully
+2025-07-12 14:48:22,169 INFO ⚙️ Configuration loaded successfully
+2025-07-12 14:48:22 | INFO | 
+🚀 Step 1: Reading input file
+2025-07-12 14:48:22,169 INFO 
+🚀 Step 1: Reading input file
+2025-07-12 14:48:22 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:48:22,169 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 14:48:22 | ERROR | ❌ Step 1 Failed: Reading input file
+2025-07-12 14:48:22,169 ERROR ❌ Step 1 Failed: Reading input file
+2025-07-12 14:48:22 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:48:22,169 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
+2025-07-12 14:48:22,169 INFO ⠃ Converting text to Grade 1 Braille format...
+2025-07-12 14:48:22,169 INFO 🖨️ Generating embosser-ready BRF file...
+2025-07-12 14:48:22,169 INFO ✅ Braille conversion completed successfully
+2025-07-12 14:48:22,169 INFO 📦 Preparing files for download...
+2025-07-12 14:48:22,170 INFO ✅ All files ready for download
+2025-07-12 14:48:22,171 INFO 🎉 Braille conversion process completed successfully!

@@ -94,13 +94,24 @@ def log_step(logger, step_number: int, message: str, level: str = "INFO"):
 
 app = FastAPI()
 
-# Add CORS middleware
+# Add CORS middleware for local and deployed environments
+# For security, allow all origins in development, restrict in production as needed
+import os
+ENV = os.environ.get("PRATIBIMB_ENV", "development")
+
+if ENV == "production":
+    # In production, set allowed origins from environment variable or config
+    allowed_origins = config.get('cors_allowed_origins', ["https://your-production-domain.com"])
+else:
+    # In development, allow all origins for local testing
+    allowed_origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
-    allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_origins=allowed_origins,
+    allow_credentials=False if allowed_origins == ["*"] else True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class TranscriptRequest(BaseModel):
@@ -660,6 +671,60 @@ async def stream_logs(request_id: str):
         else:
             return {"request_id": request_id, "progress_steps": [], "total_steps": 12, "current_step": 0, "is_complete": False}
         
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": f"Error streaming logs: {str(e)}"})
+
+@app.get("/api/stream-logs")
+async def stream_logs_latest():
+    """Stream logs for the latest process in real-time (no request_id needed). Always returns current log state immediately and is fully independent of process_transcript."""
+    try:
+        logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "requests")
+        log_files = [f for f in os.listdir(logs_dir) if f.endswith('.log')]
+        if not log_files:
+            return {"progress_steps": [], "total_steps": 12, "current_step": 0, "is_complete": False}
+        latest_log = sorted(log_files)[-1]
+        log_path = os.path.join(logs_dir, latest_log)
+        progress_steps = []
+        seen_steps = set()
+        from datetime import datetime
+        # Read the log file in a non-blocking, non-waiting way
+        if os.path.exists(log_path):
+            try:
+                # Read only the last 100 lines for speed (in case log is large)
+                with open(log_path, 'r', encoding='utf-8') as f:
+                    log_lines = f.readlines()[-100:]
+            except Exception as e:
+                return {"progress_steps": [], "total_steps": 12, "current_step": 0, "is_complete": False, "error": f"Could not read log: {str(e)}"}
+            for line in log_lines:
+                if '[STEP-' in line and ('] INFO:' in line or '] ERROR:' in line):
+                    try:
+                        step_part = line.split('[STEP-')[1].split(']')[0]
+                        message_part = line.split('] INFO: ')[1] if '] INFO: ' in line else line.split('] ERROR: ')[1] if '] ERROR: ' in line else ""
+                        step_num = int(step_part)
+                        if step_num not in seen_steps:
+                            seen_steps.add(step_num)
+                            timestamp_str = line.split(' [STEP-')[0]
+                            try:
+                                parsed_time = datetime.fromisoformat(timestamp_str.replace(',', '.'))
+                                formatted_timestamp = parsed_time.strftime("%H:%M:%S")
+                            except:
+                                formatted_timestamp = datetime.now().strftime("%H:%M:%S")
+                            progress_steps.append({
+                                "step": step_num,
+                                "message": message_part,
+                                "status": "error" if '] ERROR: ' in line else "completed",
+                                "timestamp": formatted_timestamp
+                            })
+                    except Exception:
+                        continue
+            progress_steps.sort(key=lambda x: x["step"])
+        # Always return immediately, even if log is empty or process is ongoing
+        return {
+            "progress_steps": progress_steps,
+            "total_steps": 12,
+            "current_step": len(progress_steps),
+            "is_complete": len(progress_steps) >= 12 or any(step["status"] == "error" for step in progress_steps)
+        }
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": f"Error streaming logs: {str(e)}"})
 

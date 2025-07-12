@@ -58,8 +58,10 @@ export const buildApiUrl = (endpoint) => {
 };
 
 // Helper function to build streaming logs URL
-export const buildStreamLogsUrl = (requestId) => {
-  return `${API_CONFIG.baseUrl}/api/stream-logs/${requestId}`;
+
+// Helper function to build streaming logs URL (no requestId needed)
+export const buildStreamLogsUrl = () => {
+  return `${API_CONFIG.baseUrl}/api/stream-logs`;
 };
 
 // Helper function to build download URL

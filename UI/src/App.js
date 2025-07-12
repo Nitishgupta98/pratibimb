@@ -18,6 +18,8 @@ function App() {
   const [displayedSteps, setDisplayedSteps] = useState([]);
   const [animatingStep, setAnimatingStep] = useState(null);
   const progressStepsRef = useRef(null);
+  // Ref to track polling state and timeout
+  const pollingRef = useRef({ active: false, timeoutId: null });
   const [currentRequestId, setCurrentRequestId] = useState(null);
   
   // YouTube state
@@ -37,29 +39,35 @@ function App() {
     setCurrentRequestId(null);
   };
 
-  const pollProgress = async (requestId) => {
+  // Poll progress for the latest process (no requestId needed)
+  const pollProgress = async () => {
+    // Prevent multiple pollers
+    if (!pollingRef.current.active) return;
     try {
-      const response = await fetch(buildStreamLogsUrl(requestId));
+      const response = await fetch(buildStreamLogsUrl());
       if (response.ok) {
         const progressData = await response.json();
         const newSteps = progressData.progress_steps || [];
-        
-        // Update progressSteps with new data
         setProgressSteps(newSteps);
-        
-        // Continue polling if not complete
-        if (!progressData.is_complete) {
-          setTimeout(() => pollProgress(requestId), 1000); // Poll every 1 second
+        // Stop polling if 12 steps are complete or is_complete is true
+        if (newSteps.length >= 12 || progressData.is_complete) {
+          pollingRef.current.active = false;
+          pollingRef.current.timeoutId = null;
+          return;
         }
+        // Continue polling every 1s
+        pollingRef.current.timeoutId = setTimeout(pollProgress, 1000);
+      } else {
+        // Retry after 3s on error
+        pollingRef.current.timeoutId = setTimeout(pollProgress, 3000);
       }
     } catch (err) {
       console.error('Failed to fetch progress:', err);
-      // In case of network error, retry after a longer interval
-      setTimeout(() => pollProgress(requestId), 3000);
+      pollingRef.current.timeoutId = setTimeout(pollProgress, 3000);
     }
   };
 
-  // Effect to handle progressive step animation
+  // Effect to sync displayedSteps with progressSteps in real-time (no animation, always up-to-date)
   useEffect(() => {
     if (progressSteps.length > displayedSteps.length) {
       const nextStepIndex = displayedSteps.length;
@@ -186,7 +194,13 @@ function App() {
     setDisplayedSteps([]);
     setAnimatingStep(null);
     setCurrentRequestId(null);
-    
+
+    // Start polling after 2 seconds, prevent multiple pollers
+    if (!pollingRef.current.active) {
+      pollingRef.current.active = true;
+      pollingRef.current.timeoutId = setTimeout(pollProgress, 2000);
+    }
+
     try {
       const response = await fetch(buildApiUrl(API_CONFIG.endpoints.processTranscript), {
         method: 'POST',
@@ -201,20 +215,29 @@ function App() {
       }
 
       const data = await response.json();
-      
-      // Start polling for progress if we have a request ID
-      if (data.request_id) {
-        setCurrentRequestId(data.request_id);
-        pollProgress(data.request_id);
-      }
-      
       setResults(data);
     } catch (err) {
       setError(err.message || 'An error occurred while processing the video');
+      // Stop polling on error
+      pollingRef.current.active = false;
+      if (pollingRef.current.timeoutId) {
+        clearTimeout(pollingRef.current.timeoutId);
+        pollingRef.current.timeoutId = null;
+      }
     } finally {
       setIsLoading(false);
     }
   };
+  // Cleanup polling on unmount
+  useEffect(() => {
+    return () => {
+      pollingRef.current.active = false;
+      if (pollingRef.current.timeoutId) {
+        clearTimeout(pollingRef.current.timeoutId);
+        pollingRef.current.timeoutId = null;
+      }
+    };
+  }, []);
 
   const handleFileUpload = async (file) => {
     setIsLoading(true);
@@ -340,7 +363,7 @@ function App() {
                     <div className="progress-step pending pulse">
                       <div className="step-number">⏳ {(displayedSteps.length + 1).toString().padStart(2, '0')}</div>
                       <div className="step-content">
-                        <div className="step-message">Waiting for next step...</div>
+                        <div className="step-message">Processing the request...</div>
                         <div className="step-timestamp">Pending</div>
                       </div>
                     </div>

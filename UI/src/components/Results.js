@@ -202,6 +202,24 @@ const Results = ({ data }) => {
                 ✨ Enhanced Transcript
               </a>
             )}
+            {/* Braille Text File download button */}
+            <a
+              href={buildDownloadUrl('braille')}
+              className="download-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ⠃ Braille Text File
+            </a>
+            {/* BRF File download button */}
+            <a
+              href={buildDownloadUrl('embosser')}
+              className="download-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              🖨️ BRF File
+            </a>
           </div>
         </div>
 
