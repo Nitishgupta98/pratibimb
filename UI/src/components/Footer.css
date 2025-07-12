@@ -1,0 +1,151 @@
+.footer {
+  background: #1e293b;
+  color: #e2e8f0;
+  margin-top: auto;
+  border-top: 1px solid #334155;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-section h3 {
+  color: #f8fafc;
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.footer-section p {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 280px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin: 8px 0;
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.contact-item:hover {
+  color: #e2e8f0;
+}
+
+.contact-item svg {
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid #334155;
+  padding: 20px 24px;
+  background: #0f172a;
+}
+
+.footer-bottom-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.heart {
+  color: #ef4444;
+  margin: 0 3px;
+  display: inline-block;
+  font-size: 1rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.copyright {
+  margin-left: 0;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 40px 20px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 16px 24px;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.125rem;
+  }
+  
+  .footer-section p {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 24px 12px 20px;
+    gap: 24px;
+  }
+  
+  .footer-bottom {
+    padding: 16px 12px;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}

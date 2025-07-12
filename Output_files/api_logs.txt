@@ -5,8 +5,104 @@
 2025-07-11 21:25:38,008 INFO Raw transcript written successfully.
 2025-07-11 21:25:38,008 INFO Enhancing transcript for blind users...
 2025-07-11 21:26:01,538 INFO Transcript enhanced successfully.
-2025-07-11 21:26:01,539 INFO Writing enhanced transcript to Output_files/enhanced_transcript_for_blind.txt...
+2025-07-11 21:26:01,539 INFO Writing enhanced transcript to Output_files/enhanced_transcript_for_braille.txt...
 2025-07-11 21:26:01,540 INFO Enhanced transcript written successfully.
 2025-07-11 21:26:01,540 INFO Preparing file responses for download...
 2025-07-11 21:26:01,540 INFO File responses prepared successfully.
 2025-07-11 21:26:01,540 INFO Returning process_transcript response.
+2025-07-12 00:44:45 | INFO | ============================================================
+2025-07-12 00:44:45 | INFO | 🚀 PRATIBIMB API SERVER - Starting New Session
+2025-07-12 00:44:45 | INFO | ============================================================
+2025-07-12 00:44:45 | INFO | 📊 Google API Key configured: ✅ Yes
+2025-07-12 00:44:45 | INFO | 🔧 Configuration loaded from: C:\Users\nitish.gupta01\Documents\D drive contents\Infy Global Hackathon 2025\pratibimb-main\pratibimb-main\API\config.json
+2025-07-12 00:44:45 | INFO | 🌐 FastAPI server initializing...
+2025-07-12 00:44:45 | INFO | 
+2025-07-12 00:53:24 | INFO | ============================================================
+2025-07-12 00:53:24 | INFO | 🚀 PRATIBIMB API SERVER - Starting New Session
+2025-07-12 00:53:24 | INFO | ============================================================
+2025-07-12 00:53:24 | INFO | 📊 Google API Key configured: ✅ Yes
+2025-07-12 00:53:24 | INFO | 🔧 Configuration loaded from: C:\Users\nitish.gupta01\Documents\D drive contents\Infy Global Hackathon 2025\pratibimb-main\pratibimb-main\API\config.json
+2025-07-12 00:53:24 | INFO | 🌐 FastAPI server initializing...
+2025-07-12 00:53:24 | INFO | 
+2025-07-12 00:53:32 | INFO | ==================================================
+2025-07-12 00:53:32 | INFO | 📥 NEW REQUEST: Get Raw Transcript
+2025-07-12 00:53:32 | INFO | ==================================================
+2025-07-12 00:53:32 | INFO | 🔗 YouTube URL: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 00:53:32 | INFO | 🎬 Step 1: Fetching YouTube transcript...
+2025-07-12 00:53:32 | ERROR | ❌ Transcript fetch failed: Error fetching transcript: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=Ie2WRraxdPs (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))
+2025-07-12 00:53:32 | ERROR | ❌ Failed to fetch YouTube transcript: Error fetching transcript: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=Ie2WRraxdPs (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))
+2025-07-12 00:58:01 | INFO | ============================================================
+2025-07-12 00:58:01 | INFO | 🔄 NEW REQUEST: Complete Transcript Processing
+2025-07-12 00:58:01 | INFO | ============================================================
+2025-07-12 00:58:01 | INFO | 🔗 YouTube URL: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 00:58:01 | INFO | 🎬 Step 1: Fetching YouTube transcript...
+2025-07-12 00:58:01 | ERROR | ❌ Transcript fetch failed: Error fetching transcript: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=Ie2WRraxdPs (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))
+2025-07-12 00:58:01 | ERROR | ❌ Failed to fetch YouTube transcript: Error fetching transcript: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=Ie2WRraxdPs (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1028)')))
+2025-07-12 01:01:40 | INFO | ============================================================
+2025-07-12 01:01:40 | INFO | 🚀 PRATIBIMB API SERVER - Starting New Session
+2025-07-12 01:01:40 | INFO | ============================================================
+2025-07-12 01:01:40 | INFO | 📊 Google API Key configured: ✅ Yes
+2025-07-12 01:01:40 | INFO | 🔧 Configuration loaded from: C:\Users\nitish.gupta01\Documents\D drive contents\Infy Global Hackathon 2025\pratibimb-main\pratibimb-main\API\config.json
+2025-07-12 01:01:40 | INFO | 🌐 FastAPI server initializing...
+2025-07-12 01:01:40 | INFO | 
+2025-07-12 01:01:45 | INFO | ============================================================
+2025-07-12 01:01:45 | INFO | 🔄 NEW REQUEST: Complete Transcript Processing
+2025-07-12 01:01:45 | INFO | ============================================================
+2025-07-12 01:01:45 | INFO | 🔗 YouTube URL: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 01:01:45 | INFO | 🎬 Step 1: Fetching YouTube transcript...
+2025-07-12 01:01:45 | INFO | ✅ Step 1 Completed: Transcript fetched successfully
+2025-07-12 01:01:45 | INFO | 💾 Step 2: Writing raw transcript to Output_files\raw_transcript.txt
+2025-07-12 01:01:45 | INFO | ✅ Step 2 Completed: Raw transcript file saved successfully
+2025-07-12 01:01:45 | INFO | 🤖 Step 3: Enhancing transcript for visually impaired users...
+2025-07-12 01:01:45 | INFO | ✅ Step 3 Completed: Transcript enhanced successfully
+2025-07-12 01:01:45 | INFO | 💾 Step 4: Writing enhanced transcript to Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 01:01:45 | INFO | ✅ Step 4 Completed: Enhanced transcript file saved successfully
+2025-07-12 01:01:45 | INFO | 📦 Step 5: Preparing file responses for download...
+2025-07-12 01:01:45 | INFO | ✅ Step 5 Completed: File responses prepared successfully
+2025-07-12 01:01:45 | INFO | 🎯 Complete transcript processing finished successfully
+2025-07-12 01:01:45 | INFO | 
+2025-07-12 01:01:45 | INFO | 🔤 Step 6: Starting Pratibimb Braille conversion workflow...
+2025-07-12 01:01:45 | INFO | ✅ Step 6 Completed: Pratibimb Braille conversion completed successfully
+2025-07-12 01:04:11 | INFO | ============================================================
+2025-07-12 01:04:11 | INFO | 🔄 NEW REQUEST: Complete Transcript Processing
+2025-07-12 01:04:11 | INFO | ============================================================
+2025-07-12 01:04:11 | INFO | 🔗 YouTube URL: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 01:04:11 | INFO | 🎬 Step 1: Fetching YouTube transcript...
+2025-07-12 01:04:11 | INFO | ✅ Step 1 Completed: Transcript fetched successfully
+2025-07-12 01:04:11 | INFO | 💾 Step 2: Writing raw transcript to Output_files\raw_transcript.txt
+2025-07-12 01:04:11 | INFO | ✅ Step 2 Completed: Raw transcript file saved successfully
+2025-07-12 01:04:11 | INFO | 🤖 Step 3: Enhancing transcript for visually impaired users...
+2025-07-12 01:04:11 | INFO | ✅ Step 3 Completed: Transcript enhanced successfully
+2025-07-12 01:04:11 | INFO | 💾 Step 4: Writing enhanced transcript to Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 01:04:11 | INFO | ✅ Step 4 Completed: Enhanced transcript file saved successfully
+2025-07-12 01:04:11 | INFO | 📦 Step 5: Preparing file responses for download...
+2025-07-12 01:04:11 | INFO | ✅ Step 5 Completed: File responses prepared successfully
+2025-07-12 01:04:11 | INFO | 🎯 Complete transcript processing finished successfully
+2025-07-12 01:04:11 | INFO | 
+2025-07-12 01:04:11 | INFO | 🔤 Step 6: Starting Pratibimb Braille conversion workflow...
+2025-07-12 01:04:12 | INFO | ✅ Step 6 Completed: Pratibimb Braille conversion completed successfully
+2025-07-12 01:05:42 | INFO | ============================================================
+2025-07-12 01:05:42 | INFO | 🚀 PRATIBIMB API SERVER - Starting New Session
+2025-07-12 01:05:42 | INFO | ============================================================
+2025-07-12 01:05:42 | INFO | 📊 Google API Key configured: ✅ Yes
+2025-07-12 01:05:42 | INFO | 🔧 Configuration loaded from: C:\Users\nitish.gupta01\Documents\D drive contents\Infy Global Hackathon 2025\pratibimb-main\pratibimb-main\API\config.json
+2025-07-12 01:05:42 | INFO | 🌐 FastAPI server initializing...
+2025-07-12 01:05:42 | INFO | 
+2025-07-12 01:05:46 | INFO | ============================================================
+2025-07-12 01:05:46 | INFO | 🔄 NEW REQUEST: Complete Transcript Processing
+2025-07-12 01:05:46 | INFO | ============================================================
+2025-07-12 01:05:46 | INFO | 🔗 YouTube URL: https://www.youtube.com/watch?v=Ie2WRraxdPs
+2025-07-12 01:05:46 | INFO | 🎬 Step 1: Fetching YouTube transcript...
+2025-07-12 01:05:46 | INFO | ✅ Step 1 Completed: Transcript fetched successfully
+2025-07-12 01:05:46 | INFO | 💾 Step 2: Writing raw transcript to Output_files\raw_transcript.txt
+2025-07-12 01:05:46 | INFO | ✅ Step 2 Completed: Raw transcript file saved successfully
+2025-07-12 01:05:46 | INFO | 🤖 Step 3: Enhancing transcript for visually impaired users...
+2025-07-12 01:05:46 | INFO | ✅ Step 3 Completed: Transcript enhanced successfully
+2025-07-12 01:05:46 | INFO | 💾 Step 4: Writing enhanced transcript to Output_files\enhanced_transcript_for_braille.txt
+2025-07-12 01:05:46 | INFO | ✅ Step 4 Completed: Enhanced transcript file saved successfully
+2025-07-12 01:05:46 | INFO | 📦 Step 5: Preparing file responses for download...
+2025-07-12 01:05:46 | INFO | ✅ Step 5 Completed: File responses prepared successfully
+2025-07-12 01:05:46 | INFO | 🎯 Complete transcript processing finished successfully
+2025-07-12 01:05:46 | INFO | 
+2025-07-12 01:05:46 | INFO | 🔤 Step 6: Starting Pratibimb Braille conversion workflow...
+2025-07-12 01:05:46 | INFO | ✅ Step 6 Completed: Pratibimb Braille conversion completed successfully

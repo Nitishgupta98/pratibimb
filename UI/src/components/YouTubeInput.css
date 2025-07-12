@@ -1,0 +1,158 @@
+.youtube-input {
+  width: 100%;
+}
+
+.youtube-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  color: #6c63ff;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.youtube-url-input {
+  width: 100%;
+  padding: 15px 15px 15px 50px;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  font-family: inherit;
+}
+
+.youtube-url-input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.youtube-url-input::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+.youtube-url-input.valid {
+  border-color: #28a745;
+  background: #f8fff8;
+}
+
+.youtube-url-input.invalid {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.youtube-url-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #e9ecef;
+}
+
+.validation-indicator {
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.validation-indicator.valid {
+  color: #28a745;
+}
+
+.validation-indicator.invalid {
+  color: #dc3545;
+}
+
+.validation-message {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.validation-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.validation-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.input-help {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6c757d;
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+
+.input-help svg {
+  opacity: 0.7;
+}
+
+/* Animation for focus state */
+.youtube-url-input:focus + .validation-indicator {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .youtube-url-input {
+    padding: 12px 12px 12px 45px;
+    font-size: 0.9rem;
+  }
+  
+  .input-icon {
+    left: 12px;
+  }
+  
+  .validation-indicator {
+    right: 12px;
+  }
+  
+  .input-help {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .youtube-url-input {
+    padding: 10px 10px 10px 40px;
+  }
+  
+  .input-icon {
+    left: 10px;
+  }
+  
+  .validation-indicator {
+    right: 10px;
+  }
+}
