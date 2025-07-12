@@ -5,7 +5,7 @@
     "enhanced_transcript_file": "enhanced_transcript_for_braille.txt"
   },
   "google": {
-    "api_key": "AIzaSyCTC-QmjJ4j_oBBfnCgta9M7K3ro89gbqg"
+    "api_key": "YOUR_GOOGLE_AI_STUDIO_API_KEY"
   },
   "input_file": "Output_files\\enhanced_transcript_for_braille.txt",
     "output_file": "output/braille_output.txt",
