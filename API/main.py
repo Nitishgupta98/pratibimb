@@ -50,6 +50,7 @@ logging.basicConfig(
 def create_request_logger(request_id: str):
     """Create a separate logger for each request with timestamped log file"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    request_id = 'default'
     log_filename = f"request_{request_id}_{timestamp}.log"
     log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs", "requests", log_filename)
     
@@ -149,7 +150,7 @@ You are an accessibility-focused editor.
 
 Your task is to enhance a raw transcript of a spoken YouTube video so it is suitable for blind and visually impaired users. The enhanced output will be used in a braille transcription system, so formatting must be plain text only. Follow these instructions carefully:
 
-1. Start your response with a simple, descriptive title summarizing the topic. It should be one line only, like "Phases of the Moon - Enhanced Transcript for Visually Impaired Users".
+1. Start your response with a simple, descriptive title summarizing the topic. It should be one line only, like "Phases of the Moon", do not mention it is for visually impaired users.
 2. Remove all informal chatter, greetings, first-person expressions, or irrelevant side comments (such as "Hey everyone", "I'm excited", "Mr. Whiskers", etc.).
 3. Eliminate all visual-only references like "look at this", "as you can see", "notice the shape", "see here", etc.
 4. If something visual is essential for understanding, describe it clearly in words suitable for a blind user (e.g., "The crescent moon resembles a thin curve").
@@ -447,7 +448,7 @@ async def get_latest_report_data():
         # Extract timestamp
         timestamp_pattern = r'<div class="report-date">([^<]+)</div>'
         timestamp_match = re.search(timestamp_pattern, html_content)
-        timestamp = timestamp_match.group(1) if timestamp_match else "Unknown"
+        timestamp = timestamp_match.group(1) if timestamp_match else ""
         
         # Format the data
         test_results = []
