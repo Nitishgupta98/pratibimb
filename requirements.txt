@@ -1,0 +1,10 @@
+yt-dlp
+youtube-transcript-api
+faster-whisper
+transformers
+torch
+scikit-image
+Pillow
+numpy
+tqdm
+av
