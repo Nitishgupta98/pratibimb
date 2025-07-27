@@ -1,3 +1,4 @@
+
 import os
 import shutil
 import argparse
@@ -13,7 +14,8 @@ from PIL import Image
 from tqdm import tqdm
 from skimage.metrics import structural_similarity as ssim
 import numpy as np
-
+import json
+from dotenv import load_dotenv
 # --- Dependency Check ---
 try:
     from yt_dlp import YoutubeDL
@@ -35,12 +37,37 @@ try:
 except ImportError:
     raise ImportError("transformers is not installed. Please install it with 'pip install transformers'")
 
+try:
+    import google.generativeai as genai
+except ImportError:
+    raise ImportError("google-generativeai is not installed. Please install it with 'pip install google-generativeai'")
+
+# --- Gemini API Setup ---
+load_dotenv()  # This loads variables from .env into the environment
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+if not GEMINI_API_KEY:
+    raise RuntimeError("GEMINI_API_KEY not set in .env file")
+genai.configure(api_key=GEMINI_API_KEY)
+
+try:
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+except ImportError:
+    raise ImportError("concurrent.futures is not available. This is a standard library module in Python 3.2 and later.")
+
+try:
+    from translation_utils import translate_figure_tagged_transcript
+except ImportError as e:
+    raise ImportError("translation_utils module not found. Ensure it is in the same directory as this script.")
+
 # --- Constants ---
 VIDEO_FILENAME = "downloaded_video.mp4"
 FRAMES_DIR = "temp_frames"
 SSIM_THRESHOLD = 0.95
-AUDIO_TRANSCRIPT_FILENAME = "audio_transcript.txt"
-VISUAL_DESCRIPTION_FILENAME = "visual_description.txt"
+AUDIO_TRANSCRIPT_FILENAME = "output/audio_transcript.txt"
+VISUAL_DESCRIPTION_FILENAME = "output/visual_description.txt"
+MERGED_TRANSCRIPT_FILENAME = "output/merged_audio_visual_transcript.txt"
+VISUAL_OBJECTS_FILENAME = "output/relevant_visual_objects.json"
+FIGURE_TAGGED_TRANSCRIPT_FILENAME = "output/transcript_with_figure_tags.txt"
 
 # --- Setup ---
 def setup_logging():
@@ -87,7 +114,9 @@ def get_audio_transcript(url: str, video_path: str) -> str:
     logging.info("Attempting to fetch transcript from YouTube API...")
     try:
         video_id = parse_qs(urlparse(url).query).get("v")[0]
-        transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
+        ytt_api = YouTubeTranscriptApi()
+        fetched_transcript = ytt_api.fetch(video_id)
+        transcript_list = fetched_transcript.to_raw_data()
         
         # Format with timestamps
         formatted_transcript = []
@@ -269,32 +298,108 @@ def get_timestamp_from_frame(frame_path: str) -> str:
         logging.warning(f"Could not parse timestamp from {frame_path}. Defaulting to 00:00:00.")
         return "00:00:00"
 
-def generate_visual_descriptions(frame_paths: list[str], video_title: str, model, processor, device) -> list[str]:
-    """Generates detailed captions for a list of image frames using BLIP."""
+def process_single_frame(frame_path, prompt, model, processor, device):
+    try:
+        raw_image = Image.open(frame_path).convert('RGB')
+        inputs = processor(raw_image, text=prompt, return_tensors="pt").to(device)
+        with torch.no_grad():
+            out = model.generate(**inputs, max_new_tokens=50)
+        caption = processor.decode(out[0], skip_special_tokens=True)
+        timestamp = get_timestamp_from_frame(frame_path)
+        return f"[{timestamp}] {caption.capitalize()}"
+    except Exception as e:
+        logging.error(f"Could not generate caption for {frame_path}: {e}")
+        return None
+
+def generate_visual_descriptions(frame_paths: list[str], video_title: str, model, processor, device, max_workers=4) -> list[str]:
+    """Generates detailed captions for a list of image frames using BLIP in parallel."""
     descriptions = []
-    # The original prompt was an instruction, which doesn't work well with this model.
-    # A simple, descriptive prefix like "a photo of" is much more effective for captioning.
-    # This allows the model to complete the sentence with a description of the image.
-    prompt = f""
+    prompt = ""  # Leave empty or dynamically generate
     logging.info(f"Using prompt for captioning: '{prompt}' (Video context: '{video_title}')")
 
-    for frame_path in tqdm(frame_paths, desc="Generating Visual Descriptions"):
-        try:
-            raw_image = Image.open(frame_path).convert('RGB')
-            
-            # For conditional captioning, we provide the image and the prefix text.
-            inputs = processor(raw_image, text=prompt, return_tensors="pt").to(device)
-            out = model.generate(**inputs, max_new_tokens=50)
-            # The output includes the prompt, so we decode the full sequence.
-            caption = processor.decode(out[0], skip_special_tokens=True)
-            
-            timestamp = get_timestamp_from_frame(frame_path)
-            descriptions.append(f"[{timestamp}] {caption.capitalize()}")
-        except Exception as e:
-            logging.error(f"Could not generate caption for {frame_path}: {e}")
-            continue
-            
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_frame = {
+            executor.submit(process_single_frame, frame, prompt, model, processor, device): frame
+            for frame in frame_paths
+        }
+
+        for future in tqdm(as_completed(future_to_frame), total=len(frame_paths), desc="Generating Visual Descriptions"):
+            result = future.result()
+            if result:
+                descriptions.append(result)
+
     return descriptions
+
+
+def generate_merged_transcript(audio_transcript_path: str, visual_description_path: str) -> str:
+    """
+    Merges audio and visual transcripts into a single, enhanced narrative using the Gemini API.
+
+    This function reads the content from the audio and visual transcript files,
+    sends them to the Gemini 2.5 Pro model with a specialized prompt, and returns
+    a single, formatted string that is accessible for visually impaired users.
+
+    Note:
+        This function requires the GOOGLE_API_KEY environment variable to be set.
+        For very large files, the combined content might exceed the API's context
+        limit. This implementation does not currently handle chunking.
+
+    Args:
+        audio_transcript_path (str): Path to the audio transcript file.
+        visual_transcript_path (str): Path to the visual description file.
+
+    Returns:
+        str: The enhanced, merged transcript as a single string.
+    """
+    logging.info("Generating merged audio-visual transcript with Gemini 2.5 Pro...")
+    # if "GOOGLE_API_KEY" not in os.environ:
+    #     logging.error("GOOGLE_API_KEY environment variable not set. Cannot generate merged transcript.")
+    #     return "Merged transcript generation failed: GOOGLE_API_KEY is not configured."
+
+    try:
+        model = genai.GenerativeModel('gemini-2.5-pro')
+    except Exception as e:
+        logging.error(f"Failed to configure or initialize Gemini model: {e}")
+        return f"Merged transcript generation failed: {e}"
+
+    try:
+        with open(audio_transcript_path, 'r', encoding='utf-8') as f:
+            audio_content = f.read()
+        with open(visual_description_path, 'r', encoding='utf-8') as f:
+            visual_content = f.read()
+    except FileNotFoundError as e:
+        logging.error(f"Could not read input files for merging: {e}")
+        return f"Merged transcript generation failed: {e}"
+
+    prompt = f"""Your task is to merge a raw transcript of a spoken YouTube video with visual descriptions so that it is clear, engaging, and suitable for blind and visually impaired readers. The merged version will be used for Braille transcription and should be plain text only.
+
+        Follow these exact instructions:
+
+        1. Begin with a one-line title that clearly summarizes the topic of the video. Do not mention accessibility or visual impairment.
+        2. Rewrite the transcript into clean, fluent, and simple language that follows a natural storytelling style. Assume the reader has no prior knowledge of the topic.
+        3. Remove all informal chatter, greetings, personal comments, side conversations, and sound effects. Stay focused on the actual content and ideas.
+        4. **Do not include any visual references** like “see this”, “look here”, “as shown above”, “picture this”, or “watch closely”. If a visual element contains information essential to understanding (e.g., a diagram of the moon phases), describe it concisely in plain language — otherwise ignore it.
+        5. If a visual transcript is available, use it **only if it adds new, meaningful information that is not already stated in the audio**. Do not duplicate what's already explained verbally.
+        6. Avoid any formatting such as bullet points, asterisks, emojis, markdown, or code.
+        7. The output should be readable aloud and easy to follow — as if someone is narrating the content clearly for someone who can’t see or rewind.
+
+        Only use the transcript(s) provided and do not add your own facts, opinions, or examples. Just make the original video content more readable, smooth, and understandable.
+
+        --- AUDIO TRANSCRIPT ---
+        {audio_content}
+
+        --- VISUAL DESCRIPTIONS ---
+        {visual_content}
+        """
+
+    try:
+        response = model.generate_content(prompt)
+        merged_transcript = response.text
+        logging.info("Successfully generated merged audio-visual transcript.")
+        return merged_transcript
+    except Exception as e:
+        logging.error(f"An error occurred while calling the Gemini API: {e}")
+        return f"Merged transcript generation failed due to an API error: {e}"
 
 def save_output(filename: str, content: str | list[str]):
     """Saves content to a text file."""
@@ -316,6 +421,146 @@ def cleanup(paths: list[str]):
         elif path_obj.is_file():
             path_obj.unlink(missing_ok=True)
     logging.info("Cleanup complete.")
+
+
+def extract_relevant_visual_objects(audio_transcript_path: str, visual_transcript_path: str) -> list[dict]:
+    """
+    Uses Gemini to extract relevant visual objects with descriptions for Braille representation.
+
+    :param audio_transcript_path: Path to audio transcript text file.
+    :param visual_transcript_path: Path to visual transcript text file.
+    :return: List of dicts with keys: 'timestamp', 'object', 'description', 'relevance'
+    """
+    logging.info("Extracting relevant visual objects using Gemini...")
+
+    try:
+        with open(audio_transcript_path, 'r', encoding='utf-8') as f:
+            audio_content = f.read()
+        with open(visual_transcript_path, 'r', encoding='utf-8') as f:
+            visual_content = f.read()
+    except Exception as e:
+        logging.error(f"Could not read transcript files: {e}")
+        return []
+
+    prompt = f"""
+        You are an AI assistant helping design accessible educational content for blind users.
+        You are given two transcripts:
+
+        AUDIO TRANSCRIPT:
+        {audio_content}
+
+        VISUAL TRANSCRIPT:
+        {visual_content}
+
+        Based on the context of the video, extract a chronological list of meaningful visual objects or concepts that can be represented as Braille art.
+
+        For each object, return:
+        - the timestamp (from the visual transcript),
+        - the name of the object or concept,
+        - a short description of why it matters,
+        - and a relevance tag ("critical", "high", "medium").
+
+        Ignore unrelated objects like desks, people, or background items unless they support the explanation.
+
+        Output the result as JSON in the following format:
+        [
+        {{
+            "id": "Fig_1",
+            "timestamp": "00:00:21",
+            "object": "Telescope",
+            "description": "Used to introduce the concept of observing the moon in the sky.",
+            "relevance": "high"
+        }},
+        ...
+        ]
+        """
+
+    try:
+        model = genai.GenerativeModel('gemini-2.5-pro')
+        response = model.generate_content(prompt)
+        response_text = response.text
+
+        # Try to extract JSON from the response robustly
+        json_start = response_text.find('[')
+        json_end = response_text.rfind(']')
+        if json_start == -1 or json_end == -1:
+            logging.error("Could not find JSON array in Gemini response.")
+            return []
+        json_data = response_text[json_start:json_end+1]
+        visual_objects = json.loads(json_data)
+        logging.info(f"Extracted {len(visual_objects)} relevant visual objects.")
+        return visual_objects
+
+    except Exception as e:
+        logging.error(f"Error extracting relevant visual objects: {e}")
+        return []
+
+def enrich_transcript_with_figures(
+    enhanced_transcript_path: str,
+    objects_json_path: str,
+    output_path: str,
+    ) -> None:
+    """
+    Enriches a transcript with inline object figure tags based on context.
+
+    Parameters:
+        enhanced_transcript_path: Path to the cleaned full transcript (no timestamps, ready for user).
+        objects_json_path: Path to the JSON list of visual objects (with id, name, description).
+        output_path: File to write enriched transcript to.
+
+    Returns:
+        None – Writes the enriched transcript to disk.
+    """
+
+    # Load inputs
+    with open(enhanced_transcript_path, 'r', encoding='utf-8') as f:
+        transcript_text = f.read()
+
+    with open(objects_json_path, 'r', encoding='utf-8') as f:
+        objects = json.load(f)
+
+    # Final production-safe Gemini prompt
+    prompt = f"""
+        You are an accessibility AI assistant helping adapt educational content for visually impaired users.
+
+        You are given:
+        - A plain English transcript of an educational video
+        - A list of important visual objects (e.g., diagrams, scenes, labeled images) with a unique ID and description
+
+        Your task:
+        - Carefully read the transcript
+        - Identify semantically appropriate locations to insert figure references inline
+        - For each object, insert it in this format:
+        [Fig_1: Lunar Cycle Diagram]
+
+        Guidelines:
+        - Insert each figure reference **only once**, at the **most relevant** position
+        - The insertion must be **natural**, helpful, and not interrupt the reading flow
+        - Do **not** add explanations — only insert the tag
+        - Preserve the original structure of the transcript as much as possible
+
+        --- Transcript:
+        {transcript_text}
+
+        --- Visual Objects:
+        {json.dumps(objects, indent=2)}
+        """
+
+    # Send to Gemini API
+    try:
+        model = genai.GenerativeModel("gemini-2.5-pro")
+        response = model.generate_content(prompt)
+
+        enriched_text = response.text.strip()
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(enriched_text)
+
+        print(f"✅ Enriched transcript saved to: {output_path}")
+
+    except Exception as e:
+        print("❌ Gemini API enrichment failed:", str(e))
+
 
 def main():
     """Main function to run the YouTube analysis pipeline."""
@@ -364,7 +609,30 @@ def main():
         # 6. Save Visual Descriptions
         save_output(VISUAL_DESCRIPTION_FILENAME, visual_descriptions)
 
-        logging.info(f"Analysis complete! Check the output files: {AUDIO_TRANSCRIPT_FILENAME} and {VISUAL_DESCRIPTION_FILENAME}")
+
+        # 7. Generate Merged Audio-Visual Transcript
+        merged_transcript = generate_merged_transcript(
+            AUDIO_TRANSCRIPT_FILENAME,
+            VISUAL_DESCRIPTION_FILENAME
+        )
+
+        save_output(MERGED_TRANSCRIPT_FILENAME, merged_transcript)
+        logging.info(f"Merged audio-visual transcript saved to {MERGED_TRANSCRIPT_FILENAME}")
+
+        # 8. Extract Relevant Visual Objects
+        visual_objects = extract_relevant_visual_objects(AUDIO_TRANSCRIPT_FILENAME, VISUAL_DESCRIPTION_FILENAME)
+        with open(VISUAL_OBJECTS_FILENAME, 'w', encoding='utf-8') as f:
+            json.dump(visual_objects, f, indent=2)
+        logging.info(f"Relevant visual objects saved to {VISUAL_OBJECTS_FILENAME}")
+
+        # 9. Insert Figure Tags into Transcript
+        enrich_transcript_with_figures(MERGED_TRANSCRIPT_FILENAME, VISUAL_OBJECTS_FILENAME, FIGURE_TAGGED_TRANSCRIPT_FILENAME)
+        logging.info(f"Transcript with figure tags saved to {FIGURE_TAGGED_TRANSCRIPT_FILENAME}")
+
+        # 10. Translate the figure-tagged transcript to Telugu and Kannada
+        translate_figure_tagged_transcript(FIGURE_TAGGED_TRANSCRIPT_FILENAME)
+
+        #logging.info(f"Analysis complete! Check the output files: {AUDIO_TRANSCRIPT_FILENAME}, {VISUAL_DESCRIPTION_FILENAME}, and {ENHANCED_TRANSCRIPT_FILENAME}")
 
     except Exception as e:
         logging.error(f"An unexpected error occurred in the main pipeline: {e}", exc_info=True)

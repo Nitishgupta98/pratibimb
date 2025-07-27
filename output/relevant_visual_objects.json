@@ -1,0 +1,93 @@
+[
+  {
+    "id": "Fig_1",
+    "timestamp": "00:00:21",
+    "object": "Telescope",
+    "description": "Used to introduce the concept of observing the moon and noticing its changing appearance in the sky.",
+    "relevance": "high"
+  },
+  {
+    "id": "Fig_2",
+    "timestamp": "00:00:41",
+    "object": "Lunar Cycle Diagram",
+    "description": "An overview diagram showing all eight phases of the moon in their cyclical order, illustrating the entire process at a glance.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_3",
+    "timestamp": "00:01:18",
+    "object": "New Moon",
+    "description": "The first phase. Visually represented as a blank or dark circle to show that the moon is not visible from Earth.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_4",
+    "timestamp": "00:01:32",
+    "object": "Sun-Moon-Earth Alignment",
+    "description": "A diagram showing the Sun, Moon, and Earth in a line (Sun-Moon-Earth) to explain why the New Moon is not illuminated from our perspective.",
+    "relevance": "high"
+  },
+  {
+    "id": "Fig_5",
+    "timestamp": "01:56",
+    "object": "Waxing Process Diagram",
+    "description": "A diagram illustrating the concept of 'waxing,' where the visible, illuminated portion of the moon grows from right to left (in the Northern Hemisphere).",
+    "relevance": "high"
+  },
+  {
+    "id": "Fig_6",
+    "timestamp": "03:00",
+    "object": "Waxing Crescent Moon",
+    "description": "The second phase. A thin sliver of the moon is illuminated on the right side.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_7",
+    "timestamp": "03:31",
+    "object": "First Quarter Moon",
+    "description": "The third phase. Exactly the right half of the moon is illuminated.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_8",
+    "timestamp": "04:52",
+    "object": "Waxing Gibbous Moon",
+    "description": "The fourth phase. More than half of the moon is illuminated on the right side, but it is not yet full.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_9",
+    "timestamp": "05:48",
+    "object": "Full Moon",
+    "description": "The fifth phase. The entire face of the moon is illuminated, appearing as a complete circle.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_10",
+    "timestamp": "06:35",
+    "object": "Waning Process Diagram",
+    "description": "A diagram illustrating the concept of 'waning,' where the illuminated portion of the moon shrinks, with the left side remaining lit (in the Northern Hemisphere).",
+    "relevance": "high"
+  },
+  {
+    "id": "Fig_11",
+    "timestamp": "07:10",
+    "object": "Waning Gibbous Moon",
+    "description": "The sixth phase. More than half of the moon is illuminated, but the light is now receding from the right, leaving the left side lit.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_12",
+    "timestamp": "08:09",
+    "object": "Last Quarter Moon",
+    "description": "The seventh phase. Exactly the left half of the moon is illuminated.",
+    "relevance": "critical"
+  },
+  {
+    "id": "Fig_13",
+    "timestamp": "08:52",
+    "object": "Waning Crescent Moon",
+    "description": "The eighth and final phase. A thin sliver of the moon is illuminated on the left side before it disappears into the New Moon phase again.",
+    "relevance": "critical"
+  }
+]

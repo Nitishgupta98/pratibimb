@@ -1,0 +1,132 @@
+=== Fig_1 ===
+ASCII ART:
+@@@@@@
+@@@@@@@
+@@@@@@@
+@@@@@@@XX
+@@@
+@   @
+@     @
+#       #
+
+=== Fig_2 ===
+ASCII ART:
+OOO   O#O   O##O  O###O
+O   O O# O  O## O O####O
+O   O O# O  O## O O####O
+OOO   O#O   O##O  O###O
+XXX   X##O  XX#O  X# O
+XXXXX X## O XX #O X # O
+XXXXX X## O XX #O X # O
+XXX   X##O  XX#O  X# O
+
+=== Fig_3 ===
+ASCII ART:
+OOOOO
+O     O
+O       O
+O       O
+O       O
+O     O
+OOOOO
+
+=== Fig_4 ===
+ASCII ART:
+@@@@@@@
+@@@@@@@@@       OOO         XXXXXX
+@@@@@@@@@@@     O   O       XXXXXXXX
+@@@@@@@@@       OOO       XXXXXXXX
+@@@@@@@                   XXXXXX
+
+=== Fig_5 ===
+ASCII ART:
+@@   ##   @@@@   ##   @@@@@@
+@@@  #### @@@@@@  #### @@@@@@@@
+@@@@ ###### @@@@@@ ###### @@@@@@@@
+@@@  #### @@@@@@  #### @@@@@@@@
+@@   ##   @@@@   ##   @@@@@@
+
+=== Fig_6 ===
+ASCII ART:
+@@@
+@@@@
+@@@@@
+@@@@@
+@@@@
+@@@
+
+=== Fig_7 ===
+ASCII ART:
+@@@@@@
+@@@@@@@@
+@@@@@@@@@@
+@@@@@@@@@@
+@@@@@@@@
+@@@@@@
+
+=== Fig_8 ===
+ASCII ART:
+XXXXXX
+XXXXXXXXX
+X XXXXXXXXX
+X  XXXXXXXXXX
+X  XXXXXXXXXX
+X XXXXXXXXX
+XXXXXXXXX
+XXXXXX
+
+=== Fig_9 ===
+ASCII ART:
+@@@@@@
+@@@@@@@@@@
+@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@
+@@@@@@@@@@
+@@@@@@
+
+=== Fig_10 ===
+ASCII ART:
+######
+##XXXX##
+##XXXXXX##
+###XX  XX###
+###XX  XX###
+##XXXXXX##
+##XXXX##
+######
+
+=== Fig_11 ===
+ASCII ART:
+@@@@@@
+@@@@@@@@@@
+@@@@@@@@@@@
+@@@@@@@@@@@@
+@@@@@@@@@@@@
+@@@@@@@@@@@
+@@@@@@@@@@
+@@@@@@
+
+=== Fig_12 ===
+ASCII ART:
+@@
+@@@@
+@@@@@@
+@@@@@@@
+@@@@@@@
+@@@@@@
+@@@@
+@@
+
+=== Fig_13 ===
+ASCII ART:
+@@
+@@
+@@
+@@
+@@
+@@
+@@
+@@
+
