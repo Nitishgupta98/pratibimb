@@ -1,2 +1,6 @@
 .venv/
 temp_frames
+__pycache__/
+__pycache__/translation_utils.cpython-313.pyc
+__pycache__/translation_utils.cpython-313.pyc
+__pycache__/translation_utils.cpython-313.pyc

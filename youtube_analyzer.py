@@ -331,45 +331,40 @@ def generate_visual_descriptions(frame_paths: list[str], video_title: str, model
     return descriptions
 
 
-def generate_merged_transcript(audio_transcript_path: str, visual_description_path: str) -> str:
+def generate_merged_transcript(audio_transcript: str, visual_description: str) -> str:
     """
     Merges audio and visual transcripts into a single, enhanced narrative using the Gemini API.
 
-    This function reads the content from the audio and visual transcript files,
+    This function takes the content from the audio and visual transcripts,
     sends them to the Gemini 2.5 Pro model with a specialized prompt, and returns
     a single, formatted string that is accessible for visually impaired users.
 
     Note:
         This function requires the GOOGLE_API_KEY environment variable to be set.
-        For very large files, the combined content might exceed the API's context
+        For very large content, the combined content might exceed the API's context
         limit. This implementation does not currently handle chunking.
 
     Args:
-        audio_transcript_path (str): Path to the audio transcript file.
-        visual_transcript_path (str): Path to the visual description file.
+        audio_transcript (str): The audio transcript content.
+        visual_description (str): The visual description content.
 
     Returns:
         str: The enhanced, merged transcript as a single string.
     """
     logging.info("Generating merged audio-visual transcript with Gemini 2.5 Pro...")
-    # if "GOOGLE_API_KEY" not in os.environ:
-    #     logging.error("GOOGLE_API_KEY environment variable not set. Cannot generate merged transcript.")
-    #     return "Merged transcript generation failed: GOOGLE_API_KEY is not configured."
-
+    
     try:
         model = genai.GenerativeModel('gemini-2.5-pro')
     except Exception as e:
         logging.error(f"Failed to configure or initialize Gemini model: {e}")
         return f"Merged transcript generation failed: {e}"
 
-    try:
-        with open(audio_transcript_path, 'r', encoding='utf-8') as f:
-            audio_content = f.read()
-        with open(visual_description_path, 'r', encoding='utf-8') as f:
-            visual_content = f.read()
-    except FileNotFoundError as e:
-        logging.error(f"Could not read input files for merging: {e}")
-        return f"Merged transcript generation failed: {e}"
+    if not audio_transcript or not visual_description:
+        logging.error("Audio transcript or visual description is empty")
+        return "Merged transcript generation failed: Empty input content"
+
+    audio_content = audio_transcript
+    visual_content = visual_description
 
     prompt = f"""Your task is to merge a raw transcript of a spoken YouTube video with visual descriptions so that it is clear, engaging, and suitable for blind and visually impaired readers. The merged version will be used for Braille transcription and should be plain text only.
 
@@ -423,24 +418,22 @@ def cleanup(paths: list[str]):
     logging.info("Cleanup complete.")
 
 
-def extract_relevant_visual_objects(audio_transcript_path: str, visual_transcript_path: str) -> list[dict]:
+def extract_relevant_visual_objects(audio_transcript: str, visual_transcript: str) -> list[dict]:
     """
     Uses Gemini to extract relevant visual objects with descriptions for Braille representation.
 
-    :param audio_transcript_path: Path to audio transcript text file.
-    :param visual_transcript_path: Path to visual transcript text file.
+    :param audio_transcript: The audio transcript content.
+    :param visual_transcript: The visual transcript content.
     :return: List of dicts with keys: 'timestamp', 'object', 'description', 'relevance'
     """
     logging.info("Extracting relevant visual objects using Gemini...")
 
-    try:
-        with open(audio_transcript_path, 'r', encoding='utf-8') as f:
-            audio_content = f.read()
-        with open(visual_transcript_path, 'r', encoding='utf-8') as f:
-            visual_content = f.read()
-    except Exception as e:
-        logging.error(f"Could not read transcript files: {e}")
+    if not audio_transcript or not visual_transcript:
+        logging.error("Audio transcript or visual transcript is empty")
         return []
+
+    audio_content = audio_transcript
+    visual_content = visual_transcript
 
     prompt = f"""
         You are an AI assistant helping design accessible educational content for blind users.
@@ -496,28 +489,31 @@ def extract_relevant_visual_objects(audio_transcript_path: str, visual_transcrip
         return []
 
 def enrich_transcript_with_figures(
-    enhanced_transcript_path: str,
-    objects_json_path: str,
-    output_path: str,
-    ) -> None:
+    enhanced_transcript: str,
+    objects_json: str,
+    ) -> str:
     """
     Enriches a transcript with inline object figure tags based on context.
 
     Parameters:
-        enhanced_transcript_path: Path to the cleaned full transcript (no timestamps, ready for user).
-        objects_json_path: Path to the JSON list of visual objects (with id, name, description).
-        output_path: File to write enriched transcript to.
+        enhanced_transcript: The cleaned full transcript content (no timestamps, ready for user).
+        objects_json: The JSON string of visual objects (with id, name, description).
 
     Returns:
-        None – Writes the enriched transcript to disk.
+        str: The enriched transcript with figure tags.
     """
 
-    # Load inputs
-    with open(enhanced_transcript_path, 'r', encoding='utf-8') as f:
-        transcript_text = f.read()
+    if not enhanced_transcript or not objects_json:
+        logging.error("Enhanced transcript or objects JSON is empty")
+        return enhanced_transcript or ""
 
-    with open(objects_json_path, 'r', encoding='utf-8') as f:
-        objects = json.load(f)
+    try:
+        objects = json.loads(objects_json)
+    except json.JSONDecodeError as e:
+        logging.error(f"Could not parse objects JSON: {e}")
+        return enhanced_transcript
+
+    transcript_text = enhanced_transcript
 
     # Final production-safe Gemini prompt
     prompt = f"""
@@ -552,14 +548,12 @@ def enrich_transcript_with_figures(
         response = model.generate_content(prompt)
 
         enriched_text = response.text.strip()
-
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(enriched_text)
-
-        print(f"✅ Enriched transcript saved to: {output_path}")
+        logging.info("Successfully enriched transcript with figure tags")
+        return enriched_text
 
     except Exception as e:
-        print("❌ Gemini API enrichment failed:", str(e))
+        logging.error("Gemini API enrichment failed:", str(e))
+        return enhanced_transcript
 
 
 def main():
@@ -572,6 +566,36 @@ def main():
     check_ffmpeg()
 
     temp_paths_to_clean = [VIDEO_FILENAME, FRAMES_DIR]
+
+    # File reading helper functions
+    def read_file_content(filepath: str) -> str:
+        """Helper to read file content as string"""
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                return f.read()
+        except Exception as e:
+            logging.error(f"Could not read file {filepath}: {e}")
+            return ""
+
+    def write_file_content(filepath: str, content: str) -> None:
+        """Helper to write content to file"""
+        try:
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(content)
+            logging.info(f"Content saved to {filepath}")
+        except Exception as e:
+            logging.error(f"Could not write to file {filepath}: {e}")
+
+    def write_json_content(filepath: str, data: list) -> None:
+        """Helper to write JSON data to file"""
+        try:
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2)
+            logging.info(f"JSON data saved to {filepath}")
+        except Exception as e:
+            logging.error(f"Could not write JSON to file {filepath}: {e}")
 
     try:
         # 1. Download Video
@@ -611,22 +635,24 @@ def main():
 
 
         # 7. Generate Merged Audio-Visual Transcript
-        merged_transcript = generate_merged_transcript(
-            AUDIO_TRANSCRIPT_FILENAME,
-            VISUAL_DESCRIPTION_FILENAME
-        )
-
-        save_output(MERGED_TRANSCRIPT_FILENAME, merged_transcript)
+        audio_content = read_file_content(AUDIO_TRANSCRIPT_FILENAME)
+        visual_content = read_file_content(VISUAL_DESCRIPTION_FILENAME)
+        
+        merged_transcript = generate_merged_transcript(audio_content, visual_content)
+        write_file_content(MERGED_TRANSCRIPT_FILENAME, merged_transcript)
         logging.info(f"Merged audio-visual transcript saved to {MERGED_TRANSCRIPT_FILENAME}")
 
         # 8. Extract Relevant Visual Objects
-        visual_objects = extract_relevant_visual_objects(AUDIO_TRANSCRIPT_FILENAME, VISUAL_DESCRIPTION_FILENAME)
-        with open(VISUAL_OBJECTS_FILENAME, 'w', encoding='utf-8') as f:
-            json.dump(visual_objects, f, indent=2)
+        visual_objects = extract_relevant_visual_objects(audio_content, visual_content)
+        write_json_content(VISUAL_OBJECTS_FILENAME, visual_objects)
         logging.info(f"Relevant visual objects saved to {VISUAL_OBJECTS_FILENAME}")
 
         # 9. Insert Figure Tags into Transcript
-        enrich_transcript_with_figures(MERGED_TRANSCRIPT_FILENAME, VISUAL_OBJECTS_FILENAME, FIGURE_TAGGED_TRANSCRIPT_FILENAME)
+        merged_content = read_file_content(MERGED_TRANSCRIPT_FILENAME)
+        visual_objects_json = json.dumps(visual_objects)
+        
+        enriched_transcript = enrich_transcript_with_figures(merged_content, visual_objects_json)
+        write_file_content(FIGURE_TAGGED_TRANSCRIPT_FILENAME, enriched_transcript)
         logging.info(f"Transcript with figure tags saved to {FIGURE_TAGGED_TRANSCRIPT_FILENAME}")
 
         # 10. Translate the figure-tagged transcript to Telugu and Kannada

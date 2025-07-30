@@ -67,20 +67,51 @@ def translate_text_to_language(text: str, target_lang: str) -> str:
     return ''.join(translated_segments)
 
 
+def translate_figure_tagged_transcript_content(transcript_content: str, lang_map: dict = None) -> dict:
+    """
+    Translates figure-tagged transcript content to multiple languages.
+
+    Args:
+        transcript_content (str): The content of the transcript to translate.
+        lang_map (dict): Language mapping dictionary {lang_code: language_name}.
+
+    Returns:
+        dict: Dictionary with language codes as keys and translated content as values.
+    """
+    if lang_map is None:
+        lang_map = {'te': 'Telugu', 'kn': 'Kannada'}
+
+    if not transcript_content:
+        logging.error("Transcript content is empty")
+        return {}
+
+    translations = {}
+    
+    for lang_code, lang_name in lang_map.items():
+        logging.info(f"🔤 Translating transcript to {lang_name} ({lang_code}) using Gemini API...")
+        translated = translate_text_to_language(transcript_content, lang_code)
+        translations[lang_code] = translated
+        logging.info(f"✅ Translation to {lang_name} completed")
+    
+    return translations
+
+
 def translate_figure_tagged_transcript(input_path: str = "output/transcript_with_figure_tags.txt", lang_map: dict = None) -> None:
+    """File-based wrapper for translate_figure_tagged_transcript_content"""
     if lang_map is None:
         lang_map = {'te': 'Telugu', 'kn': 'Kannada'}
 
     try:
         with open(input_path, 'r', encoding='utf-8') as f:
-            transcript_text = f.read()
+            transcript_content = f.read()
     except Exception as e:
         logging.error(f"Could not read {input_path} for translation: {e}")
         return
 
-    for lang_code, lang_name in lang_map.items():
-        logging.info(f"🔤 Translating transcript to {lang_name} ({lang_code}) using Gemini API...")
-        translated = translate_text_to_language(transcript_text, lang_code)
+    translations = translate_figure_tagged_transcript_content(transcript_content, lang_map)
+    
+    for lang_code, translated in translations.items():
+        lang_name = lang_map[lang_code]
         output_file = f"output/transcript_with_figure_tags_{lang_name.lower()}.txt"
         try:
             with open(output_file, 'w', encoding='utf-8') as out_f:
@@ -92,10 +123,40 @@ def translate_figure_tagged_transcript(input_path: str = "output/transcript_with
 
 if __name__ == "__main__":
     import argparse
+    
+    # File helper functions
+    def read_file_content(filepath: str) -> str:
+        """Helper to read file content as string"""
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                return f.read()
+        except Exception as e:
+            logging.error(f"Could not read file {filepath}: {e}")
+            return ""
+
+    def write_file_content(filepath: str, content: str) -> None:
+        """Helper to write content to file"""
+        try:
+            os.makedirs(os.path.dirname(filepath) if os.path.dirname(filepath) else '.', exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write(content)
+            logging.info(f"Content saved to {filepath}")
+        except Exception as e:
+            logging.error(f"Could not write to file {filepath}: {e}")
+    
     parser = argparse.ArgumentParser(description="Translate a figure-tagged transcript to Telugu using Gemini API, preserving [Fig_x: ...] tags.")
     parser.add_argument('--input', type=str, default='output/transcript_with_figure_tags.txt', help='Input transcript file (default: output/transcript_with_figure_tags.txt)')
     args = parser.parse_args()
-    translate_figure_tagged_transcript(args.input, lang_map={'te': 'Telugu'})
+    
+    # Read content and translate using string-based function
+    content = read_file_content(args.input)
+    if content:
+        translations = translate_figure_tagged_transcript_content(content, lang_map={'te': 'Telugu'})
+        
+        # Save translations
+        for lang_code, translated in translations.items():
+            output_file = f"output/transcript_with_figure_tags_telugu.txt"
+            write_file_content(output_file, translated)
 
 
 # === PREVIOUS CODE COMMENTED OUT ===

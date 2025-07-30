@@ -1,126 +1,129 @@
 === Fig_1 ===
 ASCII ART:
 @@@@@@
-@@@@@@@
-@@@@@@@
-@@@@@@@XX
-@@@
-@   @
-@     @
-#       #
+@@@@@@@@
+@@@@@@@@@O
+#
+# #
+#   #
+##   ##
 
 === Fig_2 ===
 ASCII ART:
-OOO   O#O   O##O  O###O
-O   O O# O  O## O O####O
-O   O O# O  O## O O####O
-OOO   O#O   O##O  O###O
-XXX   X##O  XX#O  X# O
-XXXXX X## O XX #O X # O
-XXXXX X## O XX #O X # O
-XXX   X##O  XX#O  X# O
+#OOO  OOOO  OOO#
+#  O  O  O  O  #
+#  O  O  O  O  #
+#OOO  OOOO  OOO#
+##OO  @@@@  OO##
+## O  @XX@  O ##
+## O  @XX@  O ##
+##OO  @@@@  OO##
+###O  ####  O###
+###O  ####  O###
+###O  ####  O###
+###O  ####  O###
 
 === Fig_3 ===
 ASCII ART:
-OOOOO
-O     O
-O       O
-O       O
-O       O
-O     O
-OOOOO
+######
+##      ##
+#          #
+#            #
+#            #
+#          #
+##      ##
+######
 
 === Fig_4 ===
 ASCII ART:
-@@@@@@@
-@@@@@@@@@       OOO         XXXXXX
-@@@@@@@@@@@     O   O       XXXXXXXX
-@@@@@@@@@       OOO       XXXXXXXX
-@@@@@@@                   XXXXXX
+@@@@
+@@@@@@      ##       XXXX
+@@@@@@@@    ####     XXXXXX
+@@@@@@@@    ####     XXXXXX
+@@@@@@      ##       XXXX
+@@@@
 
 === Fig_5 ===
 ASCII ART:
-@@   ##   @@@@   ##   @@@@@@
-@@@  #### @@@@@@  #### @@@@@@@@
-@@@@ ###### @@@@@@ ###### @@@@@@@@
-@@@  #### @@@@@@  #### @@@@@@@@
-@@   ##   @@@@   ##   @@@@@@
+@@
+@@@@
+@@@@@@@@
+@@@@@@@@@@
+@@@@@@@@
+@@@@
+@@
 
 === Fig_6 ===
 ASCII ART:
-@@@
-@@@@
-@@@@@
-@@@@@
-@@@@
-@@@
+##
+####
+##
+##
+##
+##
+####
+##
 
 === Fig_7 ===
 ASCII ART:
-@@@@@@
-@@@@@@@@
-@@@@@@@@@@
-@@@@@@@@@@
-@@@@@@@@
-@@@@@@
+OOOO
+OOOOOO
+OOOOOOOO
+OOOOOOOO
+OOOOOOOO
+OOOOOO
+OOOO
 
 === Fig_8 ===
 ASCII ART:
-XXXXXX
+XXXX
+XXXXXXXX
 XXXXXXXXX
-X XXXXXXXXX
-X  XXXXXXXXXX
-X  XXXXXXXXXX
-X XXXXXXXXX
 XXXXXXXXX
-XXXXXX
+XXXXXXXXX
+XXXXXXXX
+XXXX
 
 === Fig_9 ===
 ASCII ART:
 @@@@@@
 @@@@@@@@@@
-@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@
+@@@@@@@@@@@@
+@@@@@@@@@@@@
 @@@@@@@@@@
 @@@@@@
 
 === Fig_10 ===
 ASCII ART:
-######
-##XXXX##
-##XXXXXX##
-###XX  XX###
-###XX  XX###
-##XXXXXX##
-##XXXX##
-######
+@@@@
+@@@@@@
+@@@@@@@@@@@@
+@@@@@@@@@@@@
+@@@@@@
+@@@@
 
 === Fig_11 ===
 ASCII ART:
 @@@@@@
-@@@@@@@@@@
-@@@@@@@@@@@
-@@@@@@@@@@@@
-@@@@@@@@@@@@
-@@@@@@@@@@@
-@@@@@@@@@@
+@@@@@@@@
+@@@@@@@@@
+@@@@@@@@@
+@@@@@@@@
 @@@@@@
 
 === Fig_12 ===
 ASCII ART:
-@@
-@@@@
+@@@@@
 @@@@@@
-@@@@@@@
-@@@@@@@
 @@@@@@
-@@@@
-@@
+@@@@@@
+@@@@@@
+@@@@@
 
 === Fig_13 ===
 ASCII ART:
+@@
+@@
 @@
 @@
 @@

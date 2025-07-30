@@ -3,91 +3,84 @@
     "id": "Fig_1",
     "timestamp": "00:00:21",
     "object": "Telescope",
-    "description": "Used to introduce the concept of observing the moon and noticing its changing appearance in the sky.",
-    "relevance": "high"
+    "description": "A telescope is shown to introduce the concept of observing the moon. This sets the context for looking closely at how the moon's appearance changes.",
+    "relevance": "medium"
   },
   {
     "id": "Fig_2",
     "timestamp": "00:00:41",
-    "object": "Lunar Cycle Diagram",
-    "description": "An overview diagram showing all eight phases of the moon in their cyclical order, illustrating the entire process at a glance.",
-    "relevance": "critical"
+    "object": "The 8 Phases of the Moon (Linear Diagram)",
+    "description": "An overview image displays all eight phases of the moon in a straight line. This provides a complete visual summary of the entire cycle that will be discussed.",
+    "relevance": "high"
   },
   {
     "id": "Fig_3",
     "timestamp": "00:01:18",
     "object": "New Moon",
-    "description": "The first phase. Visually represented as a blank or dark circle to show that the moon is not visible from Earth.",
+    "description": "This is the first phase. The visual is an empty black frame with an arrow pointing to the center, representing that the New Moon is not visible from Earth.",
     "relevance": "critical"
   },
   {
     "id": "Fig_4",
     "timestamp": "00:01:32",
     "object": "Sun-Moon-Earth Alignment",
-    "description": "A diagram showing the Sun, Moon, and Earth in a line (Sun-Moon-Earth) to explain why the New Moon is not illuminated from our perspective.",
-    "relevance": "high"
+    "description": "A conceptual diagram showing the Moon positioned between the Sun and the Earth. This illustrates why the New Moon is dark, as the sunlit side faces away from us.",
+    "relevance": "critical"
   },
   {
     "id": "Fig_5",
-    "timestamp": "01:56",
-    "object": "Waxing Process Diagram",
-    "description": "A diagram illustrating the concept of 'waxing,' where the visible, illuminated portion of the moon grows from right to left (in the Northern Hemisphere).",
-    "relevance": "high"
+    "timestamp": "00:02:29",
+    "object": "Waxing Crescent",
+    "description": "The second phase. It shows a small sliver of the moon illuminated on the right side. 'Waxing' means the light is growing.",
+    "relevance": "critical"
   },
   {
     "id": "Fig_6",
-    "timestamp": "03:00",
-    "object": "Waxing Crescent Moon",
-    "description": "The second phase. A thin sliver of the moon is illuminated on the right side.",
+    "timestamp": "00:03:29",
+    "object": "First Quarter",
+    "description": "The third phase. It shows the moon as exactly half-lit on the right side. This marks one-quarter of the way through the full lunar cycle.",
     "relevance": "critical"
   },
   {
     "id": "Fig_7",
-    "timestamp": "03:31",
-    "object": "First Quarter Moon",
-    "description": "The third phase. Exactly the right half of the moon is illuminated.",
+    "timestamp": "00:04:25",
+    "object": "Waxing Gibbous",
+    "description": "The fourth phase. It shows more than half of the moon illuminated on the right side, but it is not yet a full circle. It is still 'waxing' or growing towards a full moon.",
     "relevance": "critical"
   },
   {
     "id": "Fig_8",
-    "timestamp": "04:52",
-    "object": "Waxing Gibbous Moon",
-    "description": "The fourth phase. More than half of the moon is illuminated on the right side, but it is not yet full.",
+    "timestamp": "00:05:48",
+    "object": "Full Moon",
+    "description": "The fifth phase. The entire circle of the moon is illuminated. This is the brightest phase and marks the end of the 'waxing' period.",
     "relevance": "critical"
   },
   {
     "id": "Fig_9",
-    "timestamp": "05:48",
-    "object": "Full Moon",
-    "description": "The fifth phase. The entire face of the moon is illuminated, appearing as a complete circle.",
+    "timestamp": "00:07:03",
+    "object": "Waning Gibbous",
+    "description": "The sixth phase. After being full, the light begins to shrink, or 'wane'. This phase shows a moon that is more than half-lit, but the illumination is on the left side.",
     "relevance": "critical"
   },
   {
     "id": "Fig_10",
-    "timestamp": "06:35",
-    "object": "Waning Process Diagram",
-    "description": "A diagram illustrating the concept of 'waning,' where the illuminated portion of the moon shrinks, with the left side remaining lit (in the Northern Hemisphere).",
-    "relevance": "high"
+    "timestamp": "00:07:47",
+    "object": "Last Quarter",
+    "description": "The seventh phase. It shows the moon as exactly half-lit on the left side. This signifies that the moon is three-quarters of the way through its cycle.",
+    "relevance": "critical"
   },
   {
     "id": "Fig_11",
-    "timestamp": "07:10",
-    "object": "Waning Gibbous Moon",
-    "description": "The sixth phase. More than half of the moon is illuminated, but the light is now receding from the right, leaving the left side lit.",
+    "timestamp": "00:08:47",
+    "object": "Waning Crescent",
+    "description": "The eighth and final phase before the New Moon. It shows a small sliver of the moon illuminated on the left side as the light continues to 'wane' or shrink.",
     "relevance": "critical"
   },
   {
     "id": "Fig_12",
-    "timestamp": "08:09",
-    "object": "Last Quarter Moon",
-    "description": "The seventh phase. Exactly the left half of the moon is illuminated.",
-    "relevance": "critical"
-  },
-  {
-    "id": "Fig_13",
-    "timestamp": "08:52",
-    "object": "Waning Crescent Moon",
-    "description": "The eighth and final phase. A thin sliver of the moon is illuminated on the left side before it disappears into the New Moon phase again.",
-    "relevance": "critical"
+    "timestamp": "00:09:33",
+    "object": "The Full Lunar Cycle (Circular Diagram)",
+    "description": "All eight phases are shown arranged in a circle to represent the continuous, repeating monthly cycle of the moon, from New Moon and back again.",
+    "relevance": "high"
   }
 ]
