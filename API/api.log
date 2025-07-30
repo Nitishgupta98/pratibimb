@@ -6,104 +6,228 @@ Starting API Server on macOS...
 [0;32m✅ Virtual environment activated[0m
 [0;34m📁 Ensuring output directories exist...[0m
 [0;34m⚙️  Checking configuration...[0m
-[0;34m🚀 Starting API server...[0m
+[0;34m🚀 Starting Modular Pipeline API server...[0m
 
 ============================================================
-[0;32m📍 Server will be available at: http://localhost:8000[0m
-[0;32m📖 API Documentation: http://localhost:8000/docs[0m
-[0;34m🔧 Available endpoints:[0m
-   • POST /process_transcript - Complete processing
-   • POST /get_raw_transcript - Get YouTube transcript
-   • POST /get_enhance_transcript - Enhance for blind users
-   • GET /api/reports/{name} - Get report file
-   • GET /api/latest-report - Get latest report
-   • GET /api/latest-report-data - Get latest report as JSON
-   • GET /api/download/{file_type} - Download generated files
-   • GET /api/request-log/{request_id} - Get request-specific log
-   • GET /api/stream-logs/{request_id} - Stream real-time progress
+[0;32m📍 Modular Pipeline API will be available at: http://localhost:8001[0m
+[0;32m📖 API Documentation: http://localhost:8001/docs[0m
+[0;34m🔧 Modular endpoints: See modular_pipeline.py for full list[0m
 ============================================================
 
 [1;33mPress Ctrl+C to stop the server[0m
 
-INFO:     Will watch for changes in these directories: ['/Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API']
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [89497] using WatchFiles
-INFO:     Started server process [89499]
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Started parent process [10126]
+INFO:     Started server process [10131]
+INFO:     Started server process [10130]
+INFO:     Started server process [10129]
+INFO:     Waiting for application startup.
+INFO:     Started server process [10132]
+INFO:     Waiting for application startup.
+INFO:     Waiting for application startup.
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     127.0.0.1:49708 - "GET / HTTP/1.1" 404 Not Found
-INFO:     127.0.0.1:49710 - "GET / HTTP/1.1" 404 Not Found
-2025-07-12 12:54:29,387 [STEP-01] INFO: 🌟 Starting Braille conversion process...
-2025-07-12 12:54:29,387 INFO 🌟 Starting Braille conversion process...
-2025-07-12 12:54:29,389 [STEP-02] INFO: 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
-2025-07-12 12:54:29,389 INFO 📺 Processing YouTube video: https://www.youtube.com/watch?v=Ie2WRraxdPs
-2025-07-12 12:54:29,389 [STEP-03] INFO: 🔄 Extracting video transcript...
-2025-07-12 12:54:29,389 INFO 🔄 Extracting video transcript...
-2025-07-12 12:54:31,093 [STEP-03] INFO: ✅ Transcript extracted successfully (10100 characters)
-2025-07-12 12:54:31,093 INFO ✅ Transcript extracted successfully (10100 characters)
-2025-07-12 12:54:31,093 [STEP-04] INFO: 💾 Saving original transcript...
-2025-07-12 12:54:31,093 INFO 💾 Saving original transcript...
-2025-07-12 12:54:31,094 [STEP-04] INFO: ✅ Original transcript saved successfully
-2025-07-12 12:54:31,094 INFO ✅ Original transcript saved successfully
-2025-07-12 12:54:31,094 [STEP-05] INFO: 🎯 Enhancing content for accessibility...
-2025-07-12 12:54:31,094 INFO 🎯 Enhancing content for accessibility...
-2025-07-12 12:54:50,647 [STEP-05] INFO: ✅ Content enhanced for blind users (3485 characters)
-2025-07-12 12:54:50,647 INFO ✅ Content enhanced for blind users (3485 characters)
-2025-07-12 12:54:50,648 [STEP-06] INFO: 💾 Saving enhanced content...
-2025-07-12 12:54:50,648 INFO 💾 Saving enhanced content...
-2025-07-12 12:54:50,649 [STEP-06] INFO: ✅ Enhanced content saved successfully
-2025-07-12 12:54:50,649 INFO ✅ Enhanced content saved successfully
-2025-07-12 12:54:50,649 [STEP-07] INFO: 🔤 Starting Braille conversion engine...
-2025-07-12 12:54:50,649 INFO 🔤 Starting Braille conversion engine...
-2025-07-12 12:54:50 | INFO | ============================================================
-2025-07-12 12:54:50,650 INFO ============================================================
-2025-07-12 12:54:50 | INFO | 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
-2025-07-12 12:54:50,650 INFO 🔤 PRATIBIMB BRAILLE CONVERTER - Starting New Session
-2025-07-12 12:54:50 | INFO | ============================================================
-2025-07-12 12:54:50,650 INFO ============================================================
-2025-07-12 12:54:50 | INFO | 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
-2025-07-12 12:54:50,650 INFO 📋 Input File: Output_files\enhanced_transcript_for_braille.txt
-2025-07-12 12:54:50 | INFO | 📄 Output File: output/braille_output.txt
-2025-07-12 12:54:50,650 INFO 📄 Output File: output/braille_output.txt
-2025-07-12 12:54:50 | INFO | 🖨️ Embosser File: output/embosser_ready.brf
-2025-07-12 12:54:50,651 INFO 🖨️ Embosser File: output/embosser_ready.brf
-2025-07-12 12:54:50 | INFO | ⚙️ Configuration loaded successfully
-2025-07-12 12:54:50,651 INFO ⚙️ Configuration loaded successfully
-2025-07-12 12:54:50 | INFO | 
-🚀 Step 1: Reading input file
-2025-07-12 12:54:50,651 INFO 
-🚀 Step 1: Reading input file
-2025-07-12 12:54:50 | INFO |    Opening Output_files\enhanced_transcript_for_braille.txt
-2025-07-12 12:54:50,651 INFO    Opening Output_files\enhanced_transcript_for_braille.txt
-2025-07-12 12:54:50 | ERROR | ❌ Step 1 Failed: Reading input file
-2025-07-12 12:54:50,651 ERROR ❌ Step 1 Failed: Reading input file
-2025-07-12 12:54:50 | ERROR |    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
-2025-07-12 12:54:50,651 ERROR    Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
-2025-07-12 12:54:50,651 [STEP-08] INFO: ⠃ Converting text to Grade 1 Braille format...
-2025-07-12 12:54:50,651 INFO ⠃ Converting text to Grade 1 Braille format...
-2025-07-12 12:54:50,651 [STEP-09] INFO: 🖨️ Generating embosser-ready BRF file...
-2025-07-12 12:54:50,651 INFO 🖨️ Generating embosser-ready BRF file...
-2025-07-12 12:54:50,651 [STEP-10] INFO: ✅ Braille conversion completed successfully
-2025-07-12 12:54:50,651 INFO ✅ Braille conversion completed successfully
-2025-07-12 12:54:50,652 [STEP-11] INFO: 📦 Preparing files for download...
-2025-07-12 12:54:50,652 INFO 📦 Preparing files for download...
-2025-07-12 12:54:50,652 [STEP-11] INFO: ✅ All files ready for download
-2025-07-12 12:54:50,652 INFO ✅ All files ready for download
-2025-07-12 12:54:50,652 [STEP-12] INFO: 🎉 Braille conversion process completed successfully!
-2025-07-12 12:54:50,652 INFO 🎉 Braille conversion process completed successfully!
-🔤 Pratibimb - All-in-One Braille Converter
-============================================================
-Professional Grade 1 Braille conversion with embosser output
-
-📋 Configuration Loaded:
-   • Input file: Output_files\enhanced_transcript_for_braille.txt
-   • Braille output: output/braille_output.txt
-   • Embosser file: output/embosser_ready.brf
-
-📖 Step 1: Reading input file...
-❌ Error: Input file 'Output_files\enhanced_transcript_for_braille.txt' not found! Please check the file path in config.json
-💡 Please check the file path in config.json
-INFO:     127.0.0.1:49723 - "POST /process_transcript HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49723 - "GET /api/stream-logs/c9adaf69 HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49723 - "GET /api/latest-report-data HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49723 - "GET /api/latest-report-data HTTP/1.1" 200 OK
+INFO:     Application startup complete.
+INFO:     Application startup complete.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60279 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60400 - "OPTIONS /validate-youtube-url HTTP/1.1" 200 OK
+2025-07-31 03:07:05,366 [INFO] YouTube URL validated successfully - Video ID: vye0iRP4Aak
+INFO:     127.0.0.1:60400 - "POST /validate-youtube-url HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60400 - "OPTIONS /download-video HTTP/1.1" 200 OK
+2025-07-31 03:07:05,884 [INFO] Starting video download from https://www.youtube.com/watch?v=vye0iRP4Aak
+2025-07-31 03:07:05,884 [INFO] Downloading video and metadata from URL: https://www.youtube.com/watch?v=vye0iRP4Aak
+2025-07-31 03:07:29,006 [INFO] Video downloaded successfully to /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/downloaded_video.mp4
+2025-07-31 03:07:29,007 [INFO] Extracted video title: 'How often does a blood moon happen?'
+2025-07-31 03:07:29,007 [INFO] Video downloaded successfully - How often does a blood moon happen?
+INFO:     127.0.0.1:60402 - "POST /download-video HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60402 - "OPTIONS /extract-audio-transcript HTTP/1.1" 200 OK
+2025-07-31 03:07:29,532 [INFO] Extracting audio transcript
+2025-07-31 03:07:29,532 [INFO] Attempting to fetch transcript from YouTube API...
+2025-07-31 03:08:45,487 [INFO] Successfully fetched transcript from YouTube API.
+2025-07-31 03:08:45,488 [INFO] Audio transcript extracted and saved successfully
+INFO:     127.0.0.1:60402 - "POST /extract-audio-transcript HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60402 - "OPTIONS /extract-video-frames HTTP/1.1" 200 OK
+2025-07-31 03:08:46,023 [INFO] Extracting video frames from Request_files video
+2025-07-31 03:08:46,054 [INFO] Extracting frames from /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/downloaded_video.mp4 to /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/video_frames...
+2025-07-31 03:08:48,402 [INFO] Frame extraction complete.
+2025-07-31 03:08:48,403 [INFO] 813 frames extracted successfully and saved to /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/video_frames
+INFO:     127.0.0.1:60402 - "POST /extract-video-frames HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60402 - "OPTIONS /deduplicate-frames HTTP/1.1" 200 OK
+2025-07-31 03:08:48,918 [INFO] Deduplicating frames using SSIM in Request_files
+2025-07-31 03:08:48,966 [INFO] Deduplicating frames using SSIM with multiprocessing...
+Deduplicating Chunks:   0%|          | 0/8 [00:00<?, ?it/s]Deduplicating Chunks:  12%|█▎        | 1/8 [00:09<01:08,  9.82s/it]Deduplicating Chunks: 100%|██████████| 8/8 [00:09<00:00,  1.23s/it]
+2025-07-31 03:08:58,945 [INFO] Merging results and handling chunk boundaries...
+Deleting duplicate frames:   0%|          | 0/642 [00:00<?, ?it/s]Deleting duplicate frames: 100%|██████████| 642/642 [00:00<00:00, 17951.50it/s]
+2025-07-31 03:08:59,076 [INFO] Found 171 unique frames out of 813 total frames.
+2025-07-31 03:08:59,115 [INFO] 171 unique frames identified and saved to /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/dedup_frames
+INFO:     127.0.0.1:60822 - "POST /deduplicate-frames HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60888 - "OPTIONS /generate-visual-descriptions HTTP/1.1" 200 OK
+2025-07-31 03:08:59,629 [INFO] Generating visual descriptions using BLIP model from Request_files
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2025-07-31 03:09:04,292 [INFO] Using prompt for captioning: '' (Video context: '')
+Generating Visual Descriptions:   0%|          | 0/171 [00:00<?, ?it/s]`cache.key_cache[idx]` is deprecated and will be removed in v4.56.0. Use `cache.layers[idx].keys` instead.
+`cache.value_cache[idx]` is deprecated and will be removed in v4.56.0. Use `cache.layers[idx].values` instead.
+Generating Visual Descriptions:   1%|          | 1/171 [00:00<02:46,  1.02it/s]Generating Visual Descriptions:   1%|          | 2/171 [00:01<01:35,  1.77it/s]Generating Visual Descriptions:   2%|▏         | 3/171 [00:01<01:02,  2.68it/s]Generating Visual Descriptions:   3%|▎         | 5/171 [00:02<00:56,  2.92it/s]Generating Visual Descriptions:   4%|▎         | 6/171 [00:02<00:56,  2.93it/s]Generating Visual Descriptions:   4%|▍         | 7/171 [00:02<00:50,  3.25it/s]Generating Visual Descriptions:   5%|▌         | 9/171 [00:03<00:46,  3.46it/s]Generating Visual Descriptions:   6%|▌         | 10/171 [00:03<00:56,  2.86it/s]Generating Visual Descriptions:   6%|▋         | 11/171 [00:03<00:50,  3.19it/s]Generating Visual Descriptions:   8%|▊         | 13/171 [00:04<00:41,  3.81it/s]Generating Visual Descriptions:   8%|▊         | 14/171 [00:04<00:57,  2.75it/s]Generating Visual Descriptions:  10%|▉         | 17/171 [00:05<00:38,  4.02it/s]Generating Visual Descriptions:  11%|█         | 18/171 [00:06<00:58,  2.62it/s]Generating Visual Descriptions:  12%|█▏        | 21/171 [00:06<00:35,  4.20it/s]Generating Visual Descriptions:  13%|█▎        | 22/171 [00:07<01:00,  2.47it/s]Generating Visual Descriptions:  14%|█▍        | 24/171 [00:07<00:43,  3.35it/s]Generating Visual Descriptions:  15%|█▌        | 26/171 [00:08<00:50,  2.88it/s]Generating Visual Descriptions:  16%|█▌        | 27/171 [00:08<00:43,  3.30it/s]Generating Visual Descriptions:  16%|█▋        | 28/171 [00:09<00:39,  3.65it/s]Generating Visual Descriptions:  17%|█▋        | 29/171 [00:09<00:35,  3.97it/s]Generating Visual Descriptions:  18%|█▊        | 30/171 [00:10<01:06,  2.11it/s]Generating Visual Descriptions:  18%|█▊        | 31/171 [00:10<00:52,  2.64it/s]Generating Visual Descriptions:  19%|█▊        | 32/171 [00:10<00:44,  3.15it/s]Generating Visual Descriptions:  20%|█▉        | 34/171 [00:11<00:57,  2.38it/s]Generating Visual Descriptions:  21%|██        | 36/171 [00:12<00:42,  3.18it/s]Generating Visual Descriptions:  22%|██▏       | 37/171 [00:12<00:38,  3.49it/s]Generating Visual Descriptions:  22%|██▏       | 38/171 [00:13<01:21,  1.63it/s]Generating Visual Descriptions:  23%|██▎       | 39/171 [00:14<01:05,  2.03it/s]Generating Visual Descriptions:  23%|██▎       | 40/171 [00:14<01:00,  2.18it/s]Generating Visual Descriptions:  24%|██▍       | 41/171 [00:14<00:49,  2.62it/s]Generating Visual Descriptions:  25%|██▍       | 42/171 [00:15<01:22,  1.56it/s]Generating Visual Descriptions:  25%|██▌       | 43/171 [00:15<01:03,  2.03it/s]Generating Visual Descriptions:  26%|██▌       | 44/171 [00:16<00:49,  2.57it/s]Generating Visual Descriptions:  27%|██▋       | 46/171 [00:17<00:56,  2.21it/s]Generating Visual Descriptions:  27%|██▋       | 47/171 [00:17<00:46,  2.68it/s]Generating Visual Descriptions:  29%|██▊       | 49/171 [00:17<00:30,  3.99it/s]Generating Visual Descriptions:  29%|██▉       | 50/171 [00:18<00:52,  2.31it/s]Generating Visual Descriptions:  30%|██▉       | 51/171 [00:18<00:42,  2.79it/s]Generating Visual Descriptions:  32%|███▏      | 54/171 [00:19<00:46,  2.52it/s]Generating Visual Descriptions:  33%|███▎      | 56/171 [00:20<00:33,  3.46it/s]Generating Visual Descriptions:  33%|███▎      | 57/171 [00:20<00:32,  3.52it/s]Generating Visual Descriptions:  34%|███▍      | 58/171 [00:20<00:39,  2.85it/s]Generating Visual Descriptions:  35%|███▍      | 59/171 [00:21<00:35,  3.13it/s]Generating Visual Descriptions:  35%|███▌      | 60/171 [00:21<00:33,  3.33it/s]Generating Visual Descriptions:  36%|███▋      | 62/171 [00:22<00:35,  3.08it/s]Generating Visual Descriptions:  37%|███▋      | 63/171 [00:22<00:33,  3.24it/s]Generating Visual Descriptions:  37%|███▋      | 64/171 [00:22<00:31,  3.39it/s]Generating Visual Descriptions:  39%|███▊      | 66/171 [00:23<00:35,  3.00it/s]Generating Visual Descriptions:  39%|███▉      | 67/171 [00:23<00:31,  3.30it/s]Generating Visual Descriptions:  40%|███▉      | 68/171 [00:23<00:34,  3.02it/s]Generating Visual Descriptions:  40%|████      | 69/171 [00:24<00:35,  2.85it/s]Generating Visual Descriptions:  41%|████      | 70/171 [00:24<00:30,  3.29it/s]Generating Visual Descriptions:  42%|████▏     | 71/171 [00:24<00:27,  3.58it/s]Generating Visual Descriptions:  42%|████▏     | 72/171 [00:25<00:33,  3.00it/s]Generating Visual Descriptions:  43%|████▎     | 73/171 [00:25<00:33,  2.89it/s]Generating Visual Descriptions:  43%|████▎     | 74/171 [00:25<00:29,  3.26it/s]Generating Visual Descriptions:  44%|████▍     | 75/171 [00:26<00:27,  3.51it/s]Generating Visual Descriptions:  44%|████▍     | 76/171 [00:26<00:28,  3.31it/s]Generating Visual Descriptions:  45%|████▌     | 77/171 [00:27<00:35,  2.62it/s]Generating Visual Descriptions:  46%|████▌     | 78/171 [00:27<00:28,  3.32it/s]Generating Visual Descriptions:  46%|████▌     | 79/171 [00:27<00:24,  3.82it/s]Generating Visual Descriptions:  47%|████▋     | 80/171 [00:27<00:24,  3.76it/s]Generating Visual Descriptions:  47%|████▋     | 81/171 [00:28<00:34,  2.64it/s]Generating Visual Descriptions:  48%|████▊     | 82/171 [00:28<00:27,  3.20it/s]Generating Visual Descriptions:  49%|████▉     | 84/171 [00:29<00:45,  1.93it/s]Generating Visual Descriptions:  50%|█████     | 86/171 [00:30<00:31,  2.69it/s]Generating Visual Descriptions:  51%|█████     | 87/171 [00:30<00:31,  2.66it/s]Generating Visual Descriptions:  51%|█████▏    | 88/171 [00:31<00:36,  2.29it/s]Generating Visual Descriptions:  53%|█████▎    | 90/171 [00:31<00:32,  2.49it/s]Generating Visual Descriptions:  54%|█████▍    | 92/171 [00:32<00:28,  2.77it/s]Generating Visual Descriptions:  54%|█████▍    | 93/171 [00:32<00:28,  2.71it/s]Generating Visual Descriptions:  55%|█████▍    | 94/171 [00:33<00:27,  2.84it/s]Generating Visual Descriptions:  56%|█████▌    | 95/171 [00:33<00:26,  2.82it/s]Generating Visual Descriptions:  56%|█████▌    | 96/171 [00:33<00:23,  3.13it/s]Generating Visual Descriptions:  57%|█████▋    | 97/171 [00:34<00:24,  3.07it/s]Generating Visual Descriptions:  57%|█████▋    | 98/171 [00:34<00:26,  2.72it/s]Generating Visual Descriptions:  58%|█████▊    | 99/171 [00:34<00:21,  3.33it/s]Generating Visual Descriptions:  58%|█████▊    | 100/171 [00:35<00:22,  3.22it/s]Generating Visual Descriptions:  59%|█████▉    | 101/171 [00:35<00:22,  3.16it/s]Generating Visual Descriptions:  60%|█████▉    | 102/171 [00:35<00:24,  2.80it/s]Generating Visual Descriptions:  60%|██████    | 103/171 [00:36<00:21,  3.14it/s]Generating Visual Descriptions:  61%|██████▏   | 105/171 [00:36<00:18,  3.59it/s]Generating Visual Descriptions:  62%|██████▏   | 106/171 [00:36<00:20,  3.12it/s]Generating Visual Descriptions:  63%|██████▎   | 107/171 [00:37<00:22,  2.82it/s]Generating Visual Descriptions:  64%|██████▎   | 109/171 [00:37<00:17,  3.54it/s]Generating Visual Descriptions:  64%|██████▍   | 110/171 [00:38<00:18,  3.37it/s]Generating Visual Descriptions:  65%|██████▍   | 111/171 [00:38<00:23,  2.59it/s]Generating Visual Descriptions:  66%|██████▌   | 113/171 [00:39<00:16,  3.55it/s]Generating Visual Descriptions:  67%|██████▋   | 114/171 [00:39<00:16,  3.50it/s]Generating Visual Descriptions:  67%|██████▋   | 115/171 [00:40<00:22,  2.45it/s]Generating Visual Descriptions:  68%|██████▊   | 116/171 [00:40<00:20,  2.72it/s]Generating Visual Descriptions:  68%|██████▊   | 117/171 [00:40<00:17,  3.17it/s]Generating Visual Descriptions:  69%|██████▉   | 118/171 [00:40<00:14,  3.60it/s]Generating Visual Descriptions:  70%|██████▉   | 119/171 [00:41<00:19,  2.61it/s]Generating Visual Descriptions:  70%|███████   | 120/171 [00:41<00:17,  2.95it/s]Generating Visual Descriptions:  71%|███████   | 121/171 [00:41<00:14,  3.56it/s]Generating Visual Descriptions:  71%|███████▏  | 122/171 [00:42<00:13,  3.73it/s]Generating Visual Descriptions:  72%|███████▏  | 123/171 [00:42<00:21,  2.22it/s]Generating Visual Descriptions:  73%|███████▎  | 125/171 [00:43<00:14,  3.18it/s]Generating Visual Descriptions:  74%|███████▎  | 126/171 [00:43<00:11,  3.80it/s]Generating Visual Descriptions:  74%|███████▍  | 127/171 [00:44<00:18,  2.44it/s]Generating Visual Descriptions:  75%|███████▌  | 129/171 [00:44<00:12,  3.46it/s]Generating Visual Descriptions:  76%|███████▌  | 130/171 [00:44<00:11,  3.60it/s]Generating Visual Descriptions:  77%|███████▋  | 131/171 [00:45<00:19,  2.01it/s]Generating Visual Descriptions:  77%|███████▋  | 132/171 [00:45<00:16,  2.41it/s]Generating Visual Descriptions:  79%|███████▉  | 135/171 [00:46<00:13,  2.67it/s]Generating Visual Descriptions:  80%|███████▉  | 136/171 [00:47<00:11,  2.97it/s]Generating Visual Descriptions:  81%|████████  | 138/171 [00:47<00:09,  3.32it/s]Generating Visual Descriptions:  81%|████████▏ | 139/171 [00:48<00:11,  2.69it/s]Generating Visual Descriptions:  82%|████████▏ | 140/171 [00:48<00:10,  2.87it/s]Generating Visual Descriptions:  82%|████████▏ | 141/171 [00:48<00:10,  2.92it/s]Generating Visual Descriptions:  83%|████████▎ | 142/171 [00:49<00:08,  3.38it/s]Generating Visual Descriptions:  84%|████████▎ | 143/171 [00:49<00:09,  3.06it/s]Generating Visual Descriptions:  84%|████████▍ | 144/171 [00:49<00:08,  3.18it/s]Generating Visual Descriptions:  85%|████████▍ | 145/171 [00:50<00:09,  2.72it/s]Generating Visual Descriptions:  86%|████████▌ | 147/171 [00:50<00:07,  3.25it/s]Generating Visual Descriptions:  87%|████████▋ | 148/171 [00:50<00:06,  3.51it/s]Generating Visual Descriptions:  87%|████████▋ | 149/171 [00:51<00:08,  2.63it/s]Generating Visual Descriptions:  88%|████████▊ | 151/171 [00:51<00:05,  3.38it/s]Generating Visual Descriptions:  89%|████████▉ | 152/171 [00:52<00:05,  3.79it/s]Generating Visual Descriptions:  89%|████████▉ | 153/171 [00:52<00:06,  2.68it/s]Generating Visual Descriptions:  90%|█████████ | 154/171 [00:52<00:05,  3.07it/s]Generating Visual Descriptions:  91%|█████████ | 155/171 [00:53<00:04,  3.21it/s]Generating Visual Descriptions:  91%|█████████ | 156/171 [00:53<00:04,  3.61it/s]Generating Visual Descriptions:  92%|█████████▏| 157/171 [00:54<00:05,  2.62it/s]Generating Visual Descriptions:  92%|█████████▏| 158/171 [00:54<00:04,  2.91it/s]Generating Visual Descriptions:  93%|█████████▎| 159/171 [00:54<00:03,  3.13it/s]Generating Visual Descriptions:  94%|█████████▍| 161/171 [00:55<00:03,  2.97it/s]Generating Visual Descriptions:  95%|█████████▌| 163/171 [00:55<00:02,  3.25it/s]Generating Visual Descriptions:  96%|█████████▌| 164/171 [00:56<00:02,  3.34it/s]Generating Visual Descriptions:  96%|█████████▋| 165/171 [00:56<00:02,  2.80it/s]Generating Visual Descriptions:  98%|█████████▊| 167/171 [00:57<00:01,  3.42it/s]Generating Visual Descriptions:  98%|█████████▊| 168/171 [00:57<00:00,  3.45it/s]Generating Visual Descriptions:  99%|█████████▉| 169/171 [00:57<00:00,  3.46it/s]Generating Visual Descriptions:  99%|█████████▉| 170/171 [00:57<00:00,  3.78it/s]Generating Visual Descriptions: 100%|██████████| 171/171 [00:57<00:00,  4.45it/s]Generating Visual Descriptions: 100%|██████████| 171/171 [00:57<00:00,  2.95it/s]
+2025-07-31 03:10:02,236 [INFO] Visual descriptions generated for 171 frames and saved to /Users/nitishgupta/Documents/Pratibimb-ai-v1.0.0/pratibimb-source-code/pratibimb/API/Request_files/visual_description.txt
+INFO:     127.0.0.1:60890 - "POST /generate-visual-descriptions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60890 - "OPTIONS /merge-audio-visual HTTP/1.1" 200 OK
+2025-07-31 03:10:02,786 [INFO] Merging audio transcript and visual descriptions
+2025-07-31 03:10:02,786 [INFO] Generating merged audio-visual transcript with Gemini 2.5 Pro...
+2025-07-31 03:10:25,076 [INFO] Successfully generated merged audio-visual transcript.
+2025-07-31 03:10:25,079 [INFO] Merged transcript generated successfully
+INFO:     127.0.0.1:61148 - "POST /merge-audio-visual HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61148 - "OPTIONS /extract-visual-objects HTTP/1.1" 200 OK
+2025-07-31 03:10:25,593 [INFO] Extracting relevant visual objects
+2025-07-31 03:10:25,593 [INFO] Extracting relevant visual objects using Gemini...
+2025-07-31 03:11:08,618 [INFO] Extracted 7 relevant visual objects.
+2025-07-31 03:11:08,619 [INFO] 7 visual objects extracted successfully
+INFO:     127.0.0.1:61240 - "POST /extract-visual-objects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61240 - "OPTIONS /enrich-with-figure-tags HTTP/1.1" 200 OK
+2025-07-31 03:11:09,137 [INFO] Enriching transcript with figure tags (payload only, no temp files)
+2025-07-31 03:12:05,803 [INFO] Successfully enriched transcript with figure tags
+2025-07-31 03:12:05,804 [INFO] Transcript enriched with figure tags successfully (no temp files)
+INFO:     127.0.0.1:61240 - "POST /enrich-with-figure-tags HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61240 - "OPTIONS /generate-ascii-art HTTP/1.1" 200 OK
+2025-07-31 03:12:06,315 [INFO] Generating ASCII art from visual objects
+2025-07-31 03:12:06,316 [INFO] Starting ASCII art generation: 7 objects, 2 batches, batch size 4.
+2025-07-31 03:12:06,316 [INFO] Processing batch 1/2 (objects 1-4)...
+2025-07-31 03:12:06,317 [INFO] Processing batch 2/2 (objects 5-7)...
+2025-07-31 03:12:37,441 [INFO] Batch 1: Received 4 blocks from Gemini.
+2025-07-31 03:12:37,442 [INFO] Batch 1: ASCII art generated for ID Fig_1.
+2025-07-31 03:12:37,442 [INFO] Batch 1: ASCII art generated for ID Fig_2.
+2025-07-31 03:12:37,442 [INFO] Batch 1: ASCII art generated for ID Fig_3.
+2025-07-31 03:12:37,442 [INFO] Batch 1: ASCII art generated for ID Fig_4.
+2025-07-31 03:12:44,535 [INFO] Batch 2: Received 3 blocks from Gemini.
+2025-07-31 03:12:44,535 [INFO] Batch 2: ASCII art generated for ID Fig_5.
+2025-07-31 03:12:44,536 [INFO] Batch 2: ASCII art generated for ID Fig_6.
+2025-07-31 03:12:44,536 [INFO] Batch 2: ASCII art generated for ID Fig_7.
+2025-07-31 03:12:44,536 [INFO] ASCII art generation complete. 7 objects processed successfully.
+2025-07-31 03:12:44,537 [INFO] ASCII art generated for 7 objects
+INFO:     127.0.0.1:61421 - "POST /generate-ascii-art HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61421 - "OPTIONS /generate-braille-art HTTP/1.1" 200 OK
+2025-07-31 03:12:45,050 [INFO] Converting ASCII art to Braille art
+2025-07-31 03:12:45,050 [INFO] Starting ASCII art generation: 7 objects, 2 batches, batch size 4.
+2025-07-31 03:12:45,050 [INFO] Processing batch 1/2 (objects 1-4)...
+2025-07-31 03:12:45,051 [INFO] Processing batch 2/2 (objects 5-7)...
+2025-07-31 03:13:34,795 [INFO] Batch 2: Received 3 blocks from Gemini.
+2025-07-31 03:13:34,796 [INFO] Batch 2: ASCII art generated for ID Fig_5.
+2025-07-31 03:13:34,796 [INFO] Batch 2: ASCII art generated for ID Fig_6.
+2025-07-31 03:13:34,796 [INFO] Batch 2: ASCII art generated for ID Fig_7.
+2025-07-31 03:13:37,961 [INFO] Batch 1: Received 4 blocks from Gemini.
+2025-07-31 03:13:37,961 [INFO] Batch 1: ASCII art generated for ID Fig_1.
+2025-07-31 03:13:37,961 [INFO] Batch 1: ASCII art generated for ID Fig_2.
+2025-07-31 03:13:37,961 [INFO] Batch 1: ASCII art generated for ID Fig_3.
+2025-07-31 03:13:37,962 [INFO] Batch 1: ASCII art generated for ID Fig_4.
+2025-07-31 03:13:37,962 [INFO] ASCII art generation complete. 7 objects processed successfully.
+2025-07-31 03:13:37,963 [INFO] Braille art generated for 7 objects
+INFO:     127.0.0.1:61421 - "POST /generate-braille-art HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61421 - "OPTIONS /generate-braille-text HTTP/1.1" 200 OK
+2025-07-31 03:13:38,477 [INFO] Assembling final Braille document
+2025-07-31 03:13:38,482 [INFO] Final Braille document assembled successfully
+INFO:     127.0.0.1:61809 - "POST /generate-braille-text HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61809 - "OPTIONS /combine-braille-text-and-art HTTP/1.1" 200 OK
+2025-07-31 03:13:38,997 [INFO] Finalizing output and preparing downloadable content
+2025-07-31 03:13:38,997 [INFO] Output finalization completed
+INFO:     127.0.0.1:61421 - "POST /combine-braille-text-and-art HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62482 - "OPTIONS /braille-in-telugu HTTP/1.1" 200 OK
+2025-07-31 03:15:29,995 [INFO] Translating transcript to Telugu and generating Braille (content-based)
+2025-07-31 03:15:29,995 [INFO] 🔤 Translating transcript to Telugu (te) using Gemini API...
+2025-07-31 03:16:00,995 [INFO] ✅ Translation to Telugu completed
+2025-07-31 03:16:00,998 [INFO] Telugu Braille document generated successfully
+INFO:     127.0.0.1:62482 - "POST /braille-in-telugu HTTP/1.1" 200 OK
+2025-07-31 03:16:02,616 [INFO] Translating transcript to Telugu and generating Braille (content-based)
+2025-07-31 03:16:02,617 [INFO] 🔤 Translating transcript to Telugu (te) using Gemini API...
+2025-07-31 03:16:18,423 [ERROR] Translation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 41
+}
+]
+2025-07-31 03:16:19,592 [ERROR] Translation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 40
+}
+]
+2025-07-31 03:16:19,928 [ERROR] Translation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 40
+}
+]
+2025-07-31 03:16:20,263 [ERROR] Translation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 39
+}
+]
+2025-07-31 03:16:20,263 [INFO] ✅ Translation to Telugu completed
+2025-07-31 03:16:20,264 [INFO] Telugu Braille document generated successfully
+INFO:     127.0.0.1:62482 - "POST /braille-in-telugu HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64066 - "OPTIONS /braille-in-kannada HTTP/1.1" 200 OK
+2025-07-31 03:21:55,058 [INFO] Translating transcript to Kannada and generating Braille (content-based)
+2025-07-31 03:21:55,058 [INFO] 🔤 Translating transcript to Kannada (kn) using Gemini API...
+2025-07-31 03:22:34,308 [INFO] ✅ Translation to Kannada completed
+2025-07-31 03:22:34,311 [INFO] Kannada Braille document generated successfully
+INFO:     127.0.0.1:64066 - "POST /braille-in-kannada HTTP/1.1" 200 OK

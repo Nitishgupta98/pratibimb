@@ -1,8 +1,121 @@
 import React, { useState, useEffect } from 'react';
-import { buildApiUrl, buildDownloadUrl, API_CONFIG } from '../config';
+import { MODULAR_API_CONFIG, buildModularApiUrl, buildDownloadUrl } from '../modularApiConfig';
 import './Results.css';
 
-const Results = ({ data }) => {
+const Results = ({
+  data,
+  onGenerateTelugu,
+  onGenerateKannada,
+  teluguState,
+  kannadaState
+}) => {
+  // --- Language Braille Download UI ---
+  const renderLanguageBrailleSection = () => {
+    // Only show after main pipeline is complete
+    return (
+      <div className="language-braille-section">
+        <h3>🔤 Generate Braille in Other Languages</h3>
+        <div className="language-braille-buttons">
+          {/* Telugu Braille */}
+          <div className="lang-braille-block">
+            <button
+              className="download-btn"
+              onClick={onGenerateTelugu}
+              disabled={teluguState?.status === 'loading'}
+              style={{ minWidth: 180 }}
+            >
+              {teluguState?.status === 'loading' ? 'Generating Telugu Braille...' : 'Generate Telugu Braille'}
+            </button>
+            {teluguState?.status === 'done' && teluguState.files && (
+              <>
+                {/* Download Telugu Enhanced Script */}
+                {teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')) && (
+                  <a
+                    className="download-btn"
+                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(
+                      teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).content
+                    )}`}
+                    download={
+                      (teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).name || 'telugu_transcript') + '.txt'
+                    }
+                    style={{ marginLeft: 8 }}
+                  >
+                    📥 Download Telugu Enhanced Script
+                  </a>
+                )}
+                {/* Download Telugu Braille */}
+                {teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')) && (
+                  <a
+                    className="download-btn"
+                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(
+                      teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).content
+                    )}`}
+                    download={
+                      (teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).name || 'telugu_braille') + '.txt'
+                    }
+                    style={{ marginLeft: 8 }}
+                  >
+                    📥 Download Telugu Braille
+                  </a>
+                )}
+              </>
+            )}
+            {teluguState?.status === 'error' && (
+              <span className="error-message" style={{ marginLeft: 8 }}>{teluguState.error}</span>
+            )}
+          </div>
+          {/* Kannada Braille */}
+          <div className="lang-braille-block">
+            <button
+              className="download-btn"
+              onClick={onGenerateKannada}
+              disabled={kannadaState?.status === 'loading'}
+              style={{ minWidth: 180 }}
+            >
+              {kannadaState?.status === 'loading' ? 'Generating Kannada Braille...' : 'Generate Kannada Braille'}
+            </button>
+            {kannadaState?.status === 'done' && kannadaState.files && (
+              <>
+                {/* Download Kannada Enhanced Script */}
+                {kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')) && (
+                  <a
+                    className="download-btn"
+                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(
+                      kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).content
+                    )}`}
+                    download={
+                      (kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).name || 'kannada_transcript') + '.txt'
+                    }
+                    style={{ marginLeft: 8 }}
+                  >
+                    📥 Download Kannada Enhanced Script
+                  </a>
+                )}
+                {/* Download Kannada Braille */}
+                {kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')) && (
+                  <a
+                    className="download-btn"
+                    href={`data:text/plain;charset=utf-8,${encodeURIComponent(
+                      kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).content
+                    )}`}
+                    download={
+                      (kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).name || 'kannada_braille') + '.txt'
+                    }
+                    style={{ marginLeft: 8 }}
+                  >
+                    📥 Download Kannada Braille
+                  </a>
+                )}
+              </>
+            )}
+            {kannadaState?.status === 'error' && (
+              <span className="error-message" style={{ marginLeft: 8 }}>{kannadaState.error}</span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
   const [reportData, setReportData] = useState(null);
   const [reportLoading, setReportLoading] = useState(true);
   const [reportError, setReportError] = useState(null);
@@ -19,14 +132,10 @@ const Results = ({ data }) => {
     setReportError(null);
     
     try {
-      const response = await fetch(buildApiUrl(API_CONFIG.endpoints.getLatestReportData));
-      
-      if (!response.ok) {
-        throw new Error('Failed to get latest report data');
-      }
-      
-      const reportData = await response.json();
-      setReportData(reportData);
+      // For now, just use the provided data directly since we're using the new modular pipeline
+      // The modular pipeline returns content directly, so we don't need to fetch additional report data
+      setReportData(data);
+      setReportLoading(false);
       
     } catch (error) {
       console.error('Error fetching report data:', error);
@@ -179,126 +288,84 @@ const Results = ({ data }) => {
       </div>
 
       <div className="results-content">
-        {/* Download buttons for files */}
+        {/* Language Braille Generation Section */}
+        {renderLanguageBrailleSection()}
+        {/* Download buttons for key result files */}
         <div className="download-section">
           <h3>📥 Download Files</h3>
           <div className="download-buttons">
-            {data.raw_transcript && (
-              <a 
-                href={`data:text/plain;charset=utf-8,${encodeURIComponent(data.raw_transcript)}`}
-                download="raw_transcript.txt"
+            {data.merged_transcript_file && (
+              <a
+                href={buildDownloadUrl('merged_transcript')}
                 className="download-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
               >
-                📄 Raw Transcript
+                🔗 Merged Transcript
               </a>
             )}
-            {data.enhanced_text && (
-              <a 
-                href={`data:text/plain;charset=utf-8,${encodeURIComponent(data.enhanced_text)}`}
-                download="enhanced_transcript.txt"
+            {data.figure_tagged_transcript_file && (
+              <a
+                href={buildDownloadUrl('figure_tagged_transcript')}
                 className="download-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
               >
-                ✨ Enhanced Transcript
+                🏷️ Figure-Tagged Transcript
               </a>
             )}
-            {/* Braille Text File download button */}
-            <a
-              href={buildDownloadUrl('braille')}
-              className="download-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ⠃ Braille Text File
-            </a>
-            {/* BRF File download button */}
-            <a
-              href={buildDownloadUrl('embosser')}
-              className="download-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              🖨️ BRF File
-            </a>
+            {data.braille_art_file && (
+              <a
+                href={buildDownloadUrl('braille_art')}
+                className="download-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                ⠃ Braille Art File
+              </a>
+            )}
+            {data.final_braille_transcript_file && (
+              <a
+                href={buildDownloadUrl('final_braille_transcript')}
+                className="download-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                📄 Final Braille Transcript
+              </a>
+            )}
           </div>
         </div>
 
-        {/* Native React Report Rendering */}
-        <div className="report-section">
-          <h3>📊 Pratibimb Test Report</h3>
-          <div className="report-container">
-            {reportLoading ? (
-              <div className="report-loading">
-                <p>🔄 Loading latest test report...</p>
-                <div className="loading-spinner"></div>
-              </div>
-            ) : reportError ? (
-              <div className="report-error">
-                <p>❌ Failed to load report: {reportError}</p>
-                <button onClick={fetchLatestReportData} className="retry-btn">
-                  🔄 Retry
-                </button>
-              </div>
-            ) : reportData ? (
-              <div className="pratibimb-report">
-                {/* Report Header */}
-                <div className="report-header">
-                  <h1>Pratibimb Test Report</h1>
-                  <div className="report-date">{reportData.timestamp}</div>
-                </div>
-
-                {/* Project Files Section */}
-                <section>
-                  <h2 className="report-section-title">📁 Project Files</h2>
-                  {renderProjectFiles()}
-                </section>
-
-                {/* Test Overview Section */}
-                <section>
-                  <h2 className="report-section-title">📊 Test Overview</h2>
-                  {renderSummaryCards()}
-                </section>
-
-                {/* Test Results Section */}
-                <section>
-                  <h2 className="report-section-title">🧪 Test Results Summary</h2>
-                  {renderTestResults()}
-                </section>
-
-                {/* Configuration Section */}
-                <section>
-                  <h3 className="report-section-title">⚙️ Configuration Used</h3>
-                  {renderConfiguration()}
-                </section>
-
-                {/* Conclusion Section */}
-                <section>
-                  <h2 className="report-section-title">🏆 Test Suite Conclusion</h2>
-                  {renderConclusion()}
-                </section>
-
-                <div className="report-actions" style={{ marginTop: '30px', textAlign: 'center' }}>
-                  <button onClick={fetchLatestReportData} className="refresh-btn">
-                    🔄 Refresh Report
-                  </button>
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </div>
-
-        {/* Text preview */}
+        {/* Text preview for each file (optional, can be removed if not needed) */}
         <div className="text-preview">
           <h3>📝 Text Preview</h3>
-          {data.enhanced_text && (
+          {data.merged_transcript_content && (
             <div className="text-content">
-              <h4>Enhanced Transcript (Braille-Ready)</h4>
-              <pre className="text-display">{data.enhanced_text}</pre>
+              <h4>Merged Transcript</h4>
+              <pre className="text-display">{data.merged_transcript_content}</pre>
             </div>
           )}
-          {data.raw_transcript && (
+          {data.figure_tagged_transcript_content && (
             <div className="text-content">
-              <h4>Raw Transcript</h4>
-              <pre className="text-display">{data.raw_transcript}</pre>
+              <h4>Figure-Tagged Transcript</h4>
+              <pre className="text-display">{data.figure_tagged_transcript_content}</pre>
+            </div>
+          )}
+          {data.braille_art_content && (
+            <div className="text-content">
+              <h4>Braille Art</h4>
+              <pre className="text-display">{data.braille_art_content}</pre>
+            </div>
+          )}
+          {data.final_braille_transcript_content && (
+            <div className="text-content">
+              <h4>Final Braille Transcript</h4>
+              <pre className="text-display">{data.final_braille_transcript_content}</pre>
             </div>
           )}
         </div>

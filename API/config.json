@@ -4,38 +4,63 @@
     "raw_transcript_file": "raw_transcript.txt",
     "enhanced_transcript_file": "enhanced_transcript_for_braille.txt"
   },
-  "google": {
-    "api_key": "YOUR_GOOGLE_AI_STUDIO_API_KEY"
+  "request_files": {
+    "folder": "Request_files",
+    "video_filename": "downloaded_video.mp4",
+    "audio_transcript_filename": "audio_transcript.txt",
+    "frames_dir": "video_frames",
+    "dedup_frames_dir": "dedup_frames",
+    "visual_description_filename": "visual_description.txt"
   },
-  "input_file": "Output_files\\enhanced_transcript_for_braille.txt",
-    "output_file": "output/braille_output.txt",
-    "embosser_file": "output/embosser_ready.brf",
-    "encoding": "utf-8",
-    "braille_settings": {
-        "tab_width": 4,
-        "preserve_line_breaks": true,
-        "skip_carriage_returns": true
-    },
-    "embosser_settings": {
-        "line_length": 40,
-        "page_length": 25,
-        "include_page_numbers": true,
-        "tab_spaces": 2,
-        "validate_output": true
-    },
-    "test_settings": {
-        "run_comprehensive_tests": true,
-        "generate_html_report": true,
-        "reports_folder": "reports",
-        "include_round_trip_test": true,
-        "test_batch_conversion": true,
-        "validate_embosser_compliance": true
-    },
-    "logging_settings": {
-        "log_file": "logs/pratibimb.log",
-        "log_level": "INFO",
-        "max_file_size_mb": 10,
-        "backup_count": 5,
-        "include_console_output": true
-    }
+  "google": {
+    "api_key": "AIzaSyCTC-QmjJ4j_oBBfnCgta9M7K3ro89gbqg"
+  },
+  "input_file": "Output_files/enhanced_transcript_for_braille.txt",
+  "output_file": "output/braille_output.txt",
+  "embosser_file": "output/embosser_ready.brf",
+  "encoding": "utf-8",
+  "braille_settings": {
+    "tab_width": 4,
+    "preserve_line_breaks": true,
+    "skip_carriage_returns": true
+  },
+  "embosser_settings": {
+    "line_length": 40,
+    "page_length": 25,
+    "include_page_numbers": true,
+    "tab_spaces": 2,
+    "validate_output": true
+  },
+  "test_settings": {
+    "run_comprehensive_tests": true,
+    "generate_html_report": true,
+    "reports_folder": "reports",
+    "include_round_trip_test": true,
+    "test_batch_conversion": true,
+    "validate_embosser_compliance": true
+  },
+  "logging_settings": {
+    "log_file": "logs/pratibimb.log",
+    "log_level": "INFO",
+    "max_file_size_mb": 10,
+    "backup_count": 5,
+    "include_console_output": true
+  },
+  "youtube_analyzer": {
+    "video_filename": "Request_files/downloaded_video.mp4",
+    "frames_dir": "Request_files/video_frames",
+    "ssim_threshold": 0.95,
+    "audio_transcript_filename": "Request_files/audio_transcript.txt",
+    "visual_description_filename": "Request_files/visual_description.txt",
+    "merged_transcript_filename": "raw-output-files/merged_audio_visual_transcript.txt",
+    "visual_objects_filename": "raw-output-files/relevant_visual_objects.json",
+    "figure_tagged_transcript_filename": "raw-output-files/transcript_with_figure_tags.txt",
+    "output_folder": "raw-output-files"
+  },
+  "braille_art": {
+    "ascii_output_path": "output/braille_art_ascii.txt",
+    "unicode_output_path": "output/braille_art_unicode.txt",
+    "max_line_width": 40,
+    "batch_size": 4
+  }
 }

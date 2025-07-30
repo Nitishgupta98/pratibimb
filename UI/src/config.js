@@ -41,7 +41,7 @@ const currentConfig = config[currentEnv];
 export const API_CONFIG = {
   baseUrl: currentConfig.apiBaseUrl,
   endpoints: {
-    processTranscript: "/process_transcript",
+    processTranscript: "/full-braille-pipeline", // UPDATED to use the intended API endpoint
     getRawTranscript: "/get_raw_transcript", 
     getEnhanceTranscript: "/get_enhance_transcript",
     getLatestReport: "/api/latest-report",

@@ -31,19 +31,19 @@ cleanup() {
 # Set up signal handlers
 trap cleanup SIGINT SIGTERM
 
-echo -e "${BLUE}🔧 Starting API server in background...${NC}"
+echo -e "${BLUE}🔧 Starting Modular Pipeline API server in background...${NC}"
 cd "$SCRIPT_DIR/API"
 ./start_server_macos.sh > api.log 2>&1 &
 API_PID=$!
 
-echo -e "${BLUE}⏳ Waiting for API server to start...${NC}"
+echo -e "${BLUE}⏳ Waiting for Modular Pipeline API server to start...${NC}"
 sleep 10
 
-# Check if API server is running
-if curl -s http://localhost:8000 > /dev/null 2>&1; then
-    echo -e "${GREEN}✅ API server is running at http://localhost:8000${NC}"
+# Check if Modular Pipeline API server is running
+if curl -s http://localhost:8001 > /dev/null 2>&1; then
+    echo -e "${GREEN}✅ Modular Pipeline API server is running at http://localhost:8001${NC}"
 else
-    echo -e "${RED}❌ API server failed to start${NC}"
+    echo -e "${RED}❌ Modular Pipeline API server failed to start${NC}"
     echo "Check api.log for details"
     cleanup
 fi

@@ -1867,7 +1867,7 @@ def generate_html_report(test_results, config):
     <div class="main-content">
         <div class="container">
             <div class="page-header">
-                <h1>🔤 Pratibimb Test Report</h1>
+                <h1>Pratibimb Test Report</h1>
                 <div class="report-date">{timestamp.strftime("%A, %B %d, %Y at %I:%M:%S %p")}</div>
             </div>
 

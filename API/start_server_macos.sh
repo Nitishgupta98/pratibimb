@@ -74,35 +74,28 @@ if grep -q "YOUR_GOOGLE_API_KEY_HERE" config.json; then
     fi
 fi
 
-# Check if main.py exists
-if [ ! -f "main.py" ]; then
-    print_error "main.py not found!"
+
+# Check if modular_pipeline.py exists
+if [ ! -f "modular_pipeline.py" ]; then
+    print_error "modular_pipeline.py not found!"
     echo "Please ensure you're in the correct API directory"
     exit 1
 fi
 
-print_step "🚀 Starting API server..."
+
+print_step "🚀 Starting Modular Pipeline API server..."
 echo ""
 echo "============================================================"
-echo -e "${GREEN}📍 Server will be available at: http://localhost:8000${NC}"
-echo -e "${GREEN}📖 API Documentation: http://localhost:8000/docs${NC}"
-echo -e "${BLUE}🔧 Available endpoints:${NC}"
-echo "   • POST /process_transcript - Complete processing"
-echo "   • POST /get_raw_transcript - Get YouTube transcript"
-echo "   • POST /get_enhance_transcript - Enhance for blind users"
-echo "   • GET /api/reports/{name} - Get report file"
-echo "   • GET /api/latest-report - Get latest report"
-echo "   • GET /api/latest-report-data - Get latest report as JSON"
-echo "   • GET /api/download/{file_type} - Download generated files"
-echo "   • GET /api/request-log/{request_id} - Get request-specific log"
-echo "   • GET /api/stream-logs/{request_id} - Stream real-time progress"
+echo -e "${GREEN}📍 Modular Pipeline API will be available at: http://localhost:8001${NC}"
+echo -e "${GREEN}📖 API Documentation: http://localhost:8001/docs${NC}"
+echo -e "${BLUE}🔧 Modular endpoints: See modular_pipeline.py for full list${NC}"
 echo "============================================================"
 echo ""
 echo -e "${YELLOW}Press Ctrl+C to stop the server${NC}"
 echo ""
 
-# Start the server
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+# Start the modular pipeline server
+uvicorn modular_pipeline:app --host 0.0.0.0 --port 8001 --workers 4
 
 # Deactivate virtual environment when done
 deactivate
