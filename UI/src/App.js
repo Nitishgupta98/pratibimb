@@ -274,7 +274,13 @@ function App() {
         status: 'done',
         files: [
           {
-            name: 'Telugu Enhanced Transcript',
+            name: 'telugu_transcript',
+            content: data.data?.telugu_transcript || '',
+            type: 'text/plain',
+            size: (data.data?.telugu_transcript || '').length
+          },
+          {
+            name: 'telugu_braille_content',
             content: data.data?.telugu_braille_content || '',
             type: 'text/plain',
             size: (data.data?.telugu_braille_content || '').length
@@ -310,7 +316,13 @@ function App() {
         status: 'done',
         files: [
           {
-            name: 'Kannada Enhanced Transcript',
+            name: 'kannada_transcript',
+            content: data.data?.kannada_transcript || '',
+            type: 'text/plain',
+            size: (data.data?.kannada_transcript || '').length
+          },
+          {
+            name: 'kannada_braille_content',
             content: data.data?.kannada_braille_content || '',
             type: 'text/plain',
             size: (data.data?.kannada_braille_content || '').length

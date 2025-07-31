@@ -26,33 +26,29 @@ const Results = ({
             >
               {teluguState?.status === 'loading' ? 'Generating Telugu Braille...' : 'Generate Telugu Braille'}
             </button>
-            {teluguState?.status === 'done' && teluguState.files && (
+            {teluguState?.status === 'done' && teluguState.files && teluguState.files.length > 0 && (
               <>
-                {/* Download Telugu Enhanced Script */}
-                {teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')) && (
+                {/* Download Telugu Transcript */}
+                {teluguState.files.find(f => f.name === 'telugu_transcript') && (
                   <a
                     className="download-btn"
                     href={`data:text/plain;charset=utf-8,${encodeURIComponent(
-                      teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).content
+                      teluguState.files.find(f => f.name === 'telugu_transcript').content
                     )}`}
-                    download={
-                      (teluguState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).name || 'telugu_transcript') + '.txt'
-                    }
+                    download="telugu_transcript.txt"
                     style={{ marginLeft: 8 }}
                   >
-                    📥 Download Telugu Enhanced Script
+                    📥 Download Telugu Transcript
                   </a>
                 )}
                 {/* Download Telugu Braille */}
-                {teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')) && (
+                {teluguState.files.find(f => f.name === 'telugu_braille_content') && (
                   <a
                     className="download-btn"
                     href={`data:text/plain;charset=utf-8,${encodeURIComponent(
-                      teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).content
+                      teluguState.files.find(f => f.name === 'telugu_braille_content').content
                     )}`}
-                    download={
-                      (teluguState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).name || 'telugu_braille') + '.txt'
-                    }
+                    download="telugu_braille.txt"
                     style={{ marginLeft: 8 }}
                   >
                     📥 Download Telugu Braille
@@ -74,33 +70,29 @@ const Results = ({
             >
               {kannadaState?.status === 'loading' ? 'Generating Kannada Braille...' : 'Generate Kannada Braille'}
             </button>
-            {kannadaState?.status === 'done' && kannadaState.files && (
+            {kannadaState?.status === 'done' && kannadaState.files && kannadaState.files.length > 0 && (
               <>
-                {/* Download Kannada Enhanced Script */}
-                {kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')) && (
+                {/* Download Kannada Transcript */}
+                {kannadaState.files.find(f => f.name === 'kannada_transcript') && (
                   <a
                     className="download-btn"
                     href={`data:text/plain;charset=utf-8,${encodeURIComponent(
-                      kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).content
+                      kannadaState.files.find(f => f.name === 'kannada_transcript').content
                     )}`}
-                    download={
-                      (kannadaState.files.find(f => f.type === 'transcript' || f.name?.toLowerCase().includes('transcript')).name || 'kannada_transcript') + '.txt'
-                    }
+                    download="kannada_transcript.txt"
                     style={{ marginLeft: 8 }}
                   >
-                    📥 Download Kannada Enhanced Script
+                    📥 Download Kannada Transcript
                   </a>
                 )}
                 {/* Download Kannada Braille */}
-                {kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')) && (
+                {kannadaState.files.find(f => f.name === 'kannada_braille_content') && (
                   <a
                     className="download-btn"
                     href={`data:text/plain;charset=utf-8,${encodeURIComponent(
-                      kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).content
+                      kannadaState.files.find(f => f.name === 'kannada_braille_content').content
                     )}`}
-                    download={
-                      (kannadaState.files.find(f => f.type === 'braille' || f.name?.toLowerCase().includes('braille')).name || 'kannada_braille') + '.txt'
-                    }
+                    download="kannada_braille.txt"
                     style={{ marginLeft: 8 }}
                   >
                     📥 Download Kannada Braille

@@ -1,3 +1,116 @@
+/* --- Language Braille Section Styling (Professional, User-Friendly) --- */
+.language-braille-section {
+  margin-bottom: 2.5rem;
+  background: #f6f7fb;
+  border-radius: 16px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  box-shadow: 0 4px 24px rgba(102, 126, 234, 0.10);
+  border: 1.5px solid #e9ecef;
+}
+.language-braille-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.language-braille-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
+}
+.lang-braille-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 240px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  padding: 1.2rem 1rem 1rem 1rem;
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  border-radius: 14px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 4px 18px rgba(102, 126, 234, 0.10);
+  border: 1.5px solid #d1d5db;
+  align-items: flex-start;
+  position: relative;
+}
+.lang-braille-block button.download-btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 0;
+  width: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.10);
+  margin-bottom: 0.5rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lang-braille-block button.download-btn:disabled {
+  background: #bdbdbd;
+  color: #f3f3f3;
+  cursor: not-allowed;
+}
+.lang-braille-block button.download-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #5a67d8 0%, #6b21a8 100%);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.18);
+  transform: translateY(-2px);
+}
+.lang-braille-block a.download-btn {
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 12px 0;
+  width: 100%;
+  background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+  color: #3b0764;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+  margin-bottom: 0.2rem;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.lang-braille-block a.download-btn:hover {
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+  color: #2d0c4a;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+.lang-braille-block .error-message {
+  color: #dc3545;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 900px) {
+  .language-braille-buttons {
+    flex-direction: column;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .lang-braille-block {
+    min-width: 180px;
+    max-width: 100%;
+    width: 100%;
+    padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+  }
+}
 /* Results component styles */
 .results-container {
   max-width: 1200px;
