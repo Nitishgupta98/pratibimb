@@ -1,0 +1,40 @@
+# Braille Converter with Art Support - Python Requirements
+# 
+# This file lists all Python packages required for the enhanced Braille Converter suite.
+# Install with: pip install -r requirements.txt
+
+# Core Python libraries (usually included with Python)
+# - json (built-in)
+# - os (built-in)
+# - sys (built-in)
+# - re (built-in)
+# - glob (built-in)
+# - pathlib (built-in)
+# - collections (built-in)
+# - argparse (built-in)
+
+# Image Processing Dependencies (NEW for Braille Art support)
+Pillow>=10.0.0           # PIL (Python Imaging Library) for image processing
+numpy>=1.21.0            # Numerical computing for image array manipulation
+
+# GUI Framework (for braille_gui.py)
+# tkinter is included with most Python installations
+# If tkinter is not available, install python-tk:
+# Ubuntu/Debian: sudo apt-get install python3-tk
+# CentOS/RHEL: sudo yum install tkinter
+# macOS: Usually included with Python
+# Windows: Usually included with Python
+
+# Note: This project uses only Python standard library modules
+# No external packages need to be installed via pip
+
+# For development and testing (optional):
+# pytest>=6.0.0              # For advanced testing
+# black>=21.0.0               # For code formatting
+# flake8>=3.8.0               # For code linting
+# mypy>=0.800                 # For type checking
+
+# Platform-specific notes:
+# - Windows: All dependencies included with standard Python installation
+# - macOS: All dependencies included with standard Python installation  
+# - Linux: May need to install python3-tk for GUI functionality

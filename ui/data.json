@@ -1,0 +1,157 @@
+{
+  "past_conversions": [
+    {
+      "id": "conv_001",
+      "title": "Understanding the Moon's Changing Looks",
+      "youtube_url": "https://www.youtube.com/watch?v=Ie2WRraxdPs",
+      "date": "2025-07-12T14:30:00Z",
+      "duration": "19:13",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 2845,
+      "braille_chars": 4267,
+      "thumbnail": "🤖"
+    },
+    {
+      "id": "conv_002",
+      "title": "Introduction to Machine Learning",
+      "youtube_url": "https://www.youtube.com/watch?v=aircAruvnKk",
+      "date": "2025-07-11T14:30:00Z",
+      "duration": "19:13",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 2845,
+      "braille_chars": 4267,
+      "thumbnail": "🤖"
+    },
+    {
+      "id": "conv_003",
+      "title": "Understanding Neural Networks",
+      "youtube_url": "https://www.youtube.com/watch?v=bfmFfD2RIcg",
+      "date": "2025-07-09T11:15:00Z",
+      "duration": "22:07",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 3124,
+      "braille_chars": 4686,
+      "thumbnail": "🧠"
+    },
+    {
+      "id": "conv_004",
+      "title": "Accessibility in Web Development",
+      "youtube_url": "https://www.youtube.com/watch?v=20SHvU2PKsM",
+      "date": "2025-07-11T16:45:00Z",
+      "duration": "15:32",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 2156,
+      "braille_chars": 3234,
+      "thumbnail": "♿"
+    },
+    {
+      "id": "conv_005",
+      "title": "Text Document Conversion",
+      "source": "project_proposal.txt",
+      "date": "2025-07-11T09:20:00Z",
+      "status": "completed",
+      "type": "text",
+      "word_count": 1876,
+      "braille_chars": 2814,
+      "thumbnail": "📄"
+    },
+    {
+      "id": "conv_006",
+      "title": "Python Programming Basics",
+      "youtube_url": "https://www.youtube.com/watch?v=kqtD5dpn9C8",
+      "date": "2025-07-10T13:22:00Z",
+      "duration": "44:57",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 5678,
+      "braille_chars": 8517,
+      "thumbnail": "🐍"
+    },
+    {
+      "id": "conv_007",
+      "title": "Data Science Tutorial",
+      "youtube_url": "https://www.youtube.com/watch?v=ua-CiDNNj30",
+      "date": "2025-07-10T10:15:00Z",
+      "duration": "12:45",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 1923,
+      "braille_chars": 2885,
+      "thumbnail": "📊"
+    },
+    {
+      "id": "conv_008",
+      "title": "Meeting Minutes - July 9",
+      "source": "meeting_notes.docx",
+      "date": "2025-07-09T15:30:00Z",
+      "status": "completed",
+      "type": "text",
+      "word_count": 986,
+      "braille_chars": 1479,
+      "thumbnail": "📝"
+    },
+    {
+      "id": "conv_009",
+      "title": "React.js Complete Guide",
+      "youtube_url": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+      "date": "2025-07-09T08:45:00Z",
+      "duration": "3:38:43",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 12456,
+      "braille_chars": 18684,
+      "thumbnail": "⚛️"
+    },
+    {
+      "id": "conv_010",
+      "title": "Braille History Documentary",
+      "youtube_url": "https://www.youtube.com/watch?v=8ct8PMyqTOo",
+      "date": "2025-07-08T14:20:00Z",
+      "duration": "26:18",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 3789,
+      "braille_chars": 5684,
+      "thumbnail": "⠃"
+    },
+    {
+      "id": "conv_011",
+      "title": "University Lecture Notes",
+      "source": "lecture_chapter3.pdf",
+      "date": "2025-07-08T11:10:00Z",
+      "status": "completed",
+      "type": "text",
+      "word_count": 2345,
+      "braille_chars": 3518,
+      "thumbnail": "🎓"
+    },
+    {
+      "id": "conv_012",
+      "title": "CSS Grid Layout Tutorial",
+      "youtube_url": "https://www.youtube.com/watch?v=jV8B24rSN5o",
+      "date": "2025-07-07T16:55:00Z",
+      "duration": "17:32",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 2567,
+      "braille_chars": 3851,
+      "thumbnail": "🎨"
+    },
+    {
+      "id": "conv_013",
+      "title": "JavaScript ES6 Features",
+      "youtube_url": "https://www.youtube.com/watch?v=NCwa_xi0Uuc",
+      "date": "2025-07-07T09:30:00Z",
+      "duration": "32:15",
+      "status": "completed",
+      "type": "youtube",
+      "word_count": 4234,
+      "braille_chars": 6351,
+      "thumbnail": "🟨"
+    }
+  ]
+}

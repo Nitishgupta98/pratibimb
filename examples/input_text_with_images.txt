@@ -1,0 +1,57 @@
+Welcome to Pratibimb - Enhanced Braille Converter with Art Support
+
+This document demonstrates the new image-to-Braille art conversion feature that allows tactile graphics to be embedded directly in Braille documents for enhanced accessibility.
+
+=== IMAGE REFERENCE EXAMPLES ===
+
+Here's how to include images in your text for Braille conversion:
+
+Basic Image Reference:
+[IMAGE: Pratibimb Logo.png]
+
+Image with Title:
+[IMAGE: Pratibimb Logo.png | Pratibimb Logo]
+
+Image with Title and Description:
+[IMAGE: Pratibimb Logo.png | Pratibimb Logo | The official logo of Pratibimb accessibility platform showing modern design elements]
+
+=== SUPPORTED IMAGE FORMATS ===
+
+The system supports various image sources:
+- Local files: .jpg, .jpeg, .png, .gif, .bmp
+- Web URLs: https://example.com/image.jpg
+- Base64 encoded images: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAE...
+
+=== TACTILE GRAPHICS BENEFITS ===
+
+Braille art provides several advantages for blind and visually impaired users:
+
+1. Enhanced Understanding: Visual concepts become tactile
+2. Educational Value: Diagrams, charts, and illustrations in Braille
+3. Complete Accessibility: No information is lost in conversion
+4. Professional Quality: Suitable for embosser printing
+
+The Pratibimb converter automatically:
+- Processes image references in text
+- Converts images to optimal Braille patterns
+- Maintains proper formatting for embossers
+- Includes descriptive text and titles
+- Ensures tactile clarity and readability
+
+=== TECHNICAL SPECIFICATIONS ===
+
+Image Processing Features:
+- Automatic contrast and brightness enhancement
+- Edge detection for better tactile definition
+- Optimal sizing for Braille cell dimensions
+- Support for both 6-dot and 8-dot Braille
+- Configurable thresholds and processing options
+
+Output Features:
+- Unicode Braille for screen readers
+- ASCII BRF format for embossers
+- Professional page formatting (40x25)
+- Proper spacing and borders around art
+- Seamless integration with text content
+
+This enhanced version of Pratibimb represents a significant advancement in accessibility technology, providing complete text and visual content conversion for the blind and visually impaired community.

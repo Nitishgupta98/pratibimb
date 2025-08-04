@@ -1,0 +1,169 @@
+.infosys-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 15px 0;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1000;
+  overflow: visible;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.header-title {
+  flex: 1;
+}
+
+.header-title h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.header-title h1 {
+  font-size: 1em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.separator {
+  margin: 0 10px;
+  opacity: 0.7;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-selector {
+  position: relative;
+}
+
+.language-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.language-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background var(--transition-fast);
+}
+
+.user-info:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.user-name {
+  font-weight: 500;
+  color: white;
+  display: block;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0 20px;
+  }
+  
+  .header-title {
+    font-size: 1.1em;
+  }
+  
+  .header-title h1 {
+    font-size: 0.9em;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .user-info {
+    padding: 6px;
+  }
+  
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 1em;
+  }
+  
+  .separator {
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 15px;
+  }
+  
+  .header-title {
+    font-size: 1em;
+  }
+  
+  .header-title h1 {
+    font-size: 0.8em;
+  }
+  
+  .menu-toggle {
+    margin-right: 10px;
+    padding: 6px;
+    font-size: 1.1em;
+  }
+}

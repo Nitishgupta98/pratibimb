@@ -1,0 +1,60 @@
+/* Page Placeholder Styles */
+.page-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--bg-primary);
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+
+.page-placeholder h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.page-placeholder p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.page-placeholder .btn {
+  margin-top: 1rem;
+}
+
+/* Responsive Design for Placeholder Pages */
+@media (max-width: 768px) {
+  .page-placeholder {
+    margin: 1rem;
+    padding: 2rem 1rem;
+    min-height: 50vh;
+  }
+  
+  .page-placeholder h1 {
+    font-size: 2rem;
+  }
+  
+  .page-placeholder p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-placeholder h1 {
+    font-size: 1.5rem;
+  }
+  
+  .page-placeholder p {
+    font-size: 0.9rem;
+  }
+}

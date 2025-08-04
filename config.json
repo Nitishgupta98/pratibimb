@@ -1,0 +1,46 @@
+{
+    "input_file": "examples/moon_phases_textbook.txt",
+    "output_file": "output/moon_phases_braille.txt",
+    "embosser_file": "output/moon_phases_embosser.brf",
+    "encoding": "utf-8",
+    "braille_settings": {
+        "tab_width": 4,
+        "preserve_line_breaks": true,
+        "skip_carriage_returns": true
+    },
+    "embosser_settings": {
+        "line_length": 40,
+        "page_length": 25,
+        "include_page_numbers": true,
+        "tab_spaces": 2,
+        "validate_output": true
+    },
+    "braille_art_settings": {
+        "process_images": true,
+        "target_width": 38,
+        "target_height": 24,
+        "contrast_boost": 1.5,
+        "brightness_boost": 1.2,
+        "edge_enhance": true,
+        "use_8dot_braille": false,
+        "threshold": 128,
+        "invert_colors": false,
+        "include_border": true,
+        "border_char": "⠿"
+    },
+    "test_settings": {
+        "run_comprehensive_tests": true,
+        "generate_html_report": true,
+        "reports_folder": "reports",
+        "include_round_trip_test": true,
+        "test_batch_conversion": true,
+        "validate_embosser_compliance": true
+    },
+    "logging_settings": {
+        "log_file": "logs/pratibimb.log",
+        "log_level": "INFO",
+        "max_file_size_mb": 10,
+        "backup_count": 5,
+        "include_console_output": true
+    }
+}

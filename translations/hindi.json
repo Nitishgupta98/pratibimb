@@ -1,0 +1,62 @@
+{
+  "page_titles": {
+    "home": "होम",
+    "dashboard": "डैशबोर्ड",
+    "learning_center": "लर्निंग सेंटर",
+    "marketplace": "मार्केटप्लेस",
+    "community": "कम्युनिटी"
+  },
+  "header": {
+    "site_title": "प्रतिबिंब",
+    "site_tagline": "डिजिटल दुनिया का सच्चा प्रतिबिंब!",
+    "user_name": "भूपिंदर सिंह चावला"
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "learning_center": "लर्निंग सेंटर",
+    "accessibility_store": "एक्सेसिबिलिटी स्टोर",
+    "community_hub": "कम्युनिटी हब"
+  },
+  "dashboard": {
+    "welcome": "प्रतिबिंब में आपका स्वागत है",
+    "subtitle": "डिजिटल एक्सेसिबिलिटी और ब्रेल टेक्नोलॉजी के लिए आपका केंद्र",
+    "quick_actions": "त्वरित कार्य",
+    "recent_activity": "हाल की गतिविधि",
+    "statistics": "आंकड़े",
+    "notifications": "सूचनाएं"
+  },
+  "common": {
+    "save": "सेव करें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "close": "बंद करें",
+    "submit": "जमा करें",
+    "upload": "अपलोड करें",
+    "download": "डाउनलोड करें",
+    "copy": "कॉपी करें",
+    "paste": "पेस्ट करें",
+    "search": "खोजें",
+    "filter": "फिल्टर करें",
+    "sort": "सॉर्ट करें",
+    "refresh": "रीफ्रेश करें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "warning": "चेतावनी",
+    "info": "जानकारी",
+    "yes": "हां",
+    "no": "नहीं",
+    "ok": "ठीक है",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला",
+    "continue": "जारी रखें",
+    "try_again": "फिर से कोशिश करें",
+    "learn_more": "और जानें",
+    "get_started": "शुरू करें",
+    "view_all": "सभी देखें",
+    "show_more": "और दिखाएं",
+    "show_less": "कम दिखाएं"
+  }
+}

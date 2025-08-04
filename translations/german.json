@@ -1,0 +1,62 @@
+{
+  "page_titles": {
+    "home": "Startseite",
+    "dashboard": "Dashboard",
+    "learning_center": "Lernzentrum",
+    "marketplace": "Marktplatz",
+    "community": "Gemeinschaft"
+  },
+  "header": {
+    "site_title": "Pratibimb",
+    "site_tagline": "Der wahre Spiegel der digitalen Welt!",
+    "user_name": "Bhupinder Singh Chawla"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "learning_center": "Lernzentrum",
+    "accessibility_store": "Barrierefreiheits-Shop",
+    "community_hub": "Gemeinschaftszentrum"
+  },
+  "dashboard": {
+    "welcome": "Willkommen bei Pratibimb",
+    "subtitle": "Ihr Zentrum für digitale Barrierefreiheit und Braille-Technologie",
+    "quick_actions": "Schnelle Aktionen",
+    "recent_activity": "Letzte Aktivität",
+    "statistics": "Statistiken",
+    "notifications": "Benachrichtigungen"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "submit": "Absenden",
+    "upload": "Hochladen",
+    "download": "Herunterladen",
+    "copy": "Kopieren",
+    "paste": "Einfügen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "refresh": "Aktualisieren",
+    "loading": "Lädt...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "warning": "Warnung",
+    "info": "Info",
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "continue": "Fortsetzen",
+    "try_again": "Erneut versuchen",
+    "learn_more": "Mehr erfahren",
+    "get_started": "Erste Schritte",
+    "view_all": "Alle anzeigen",
+    "show_more": "Mehr anzeigen",
+    "show_less": "Weniger anzeigen"
+  }
+}

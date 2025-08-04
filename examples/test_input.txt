@@ -1,0 +1,15 @@
+Hello World!
+
+This is a test document for the Braille converter.
+
+It includes:
+- Multiple paragraphs
+- Numbers like 123 and 456
+- Punctuation marks: . , ? ! " - ( )
+- Capitalized Words and lowercase text
+
+Testing special formatting:
+	Indented text with tabs
+More regular text here.
+
+The End.

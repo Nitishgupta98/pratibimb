@@ -1,0 +1,222 @@
+{
+  "page_titles": {
+    "home": "ಮನೆ",
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "learning_center": "ಕಲಿಕಾ ಕೇಂದ್ರ",
+    "marketplace": "ಮಾರುಕಟ್ಟೆ",
+    "community": "ಸಮುದಾಯ"
+  },
+  "header": {
+    "site_title": "ಪ್ರತಿಬಿಂಬ್",
+    "site_tagline": "ಡಿಜಿಟಲ್ ಜಗತ್ತಿನ ನಿಜವಾದ ಪ್ರತಿಬಿಂಬ!",
+    "user_name": "ಭೂಪಿಂದರ್ ಸಿಂಗ್ ಚಾವ್ಲಾ"
+  },
+  "navigation": {
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "learning_center": "ಕಲಿಕಾ ಕೇಂದ್ರ",
+    "accessibility_store": "ಪ್ರವೇಶಿಸುವಿಕೆ ಅಂಗಡಿ",
+    "community_hub": "ಸಮುದಾಯ ಕೇಂದ್ರ"
+  },
+  "dashboard": {
+    "welcome": "ಪ್ರತಿಬಿಂಬ್‌ಗೆ ಸ್ವಾಗತ",
+    "subtitle": "ಡಿಜಿಟಲ್ ಪ್ರವೇಶಿಸುವಿಕೆ ಮತ್ತು ಬ್ರೇಲ್ ತಂತ್ರಜ್ಞಾನದ ನಿಮ್ಮ ಕೇಂದ್ರ",
+    "quick_actions": "ತ್ವರಿತ ಪ್ರವೇಶ",
+    "recent_activity": "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ",
+    "statistics": "ಅಂಕಿಅಂಶಗಳು",
+    "notifications": "ಅಧಿಸೂಚನೆಗಳು",
+    "news_updates": "ಪ್ರವೇಶಿಸುವಿಕೆ ಸುದ್ದಿ ಮತ್ತು ನವೀಕರಣಗಳು"
+  },
+  "features": {
+    "text_to_braille": {
+      "title": "ಪಠ್ಯದಿಂದ ಬ್ರೇಲ್‌ಗೆ",
+      "description": "ಯಾವುದೇ ಪಠ್ಯವನ್ನು ತ್ವರಿತವಾಗಿ ಬ್ರೇಲ್ ಸ್ವರೂಪಕ್ಕೆ ಪರಿವರ್ತಿಸಿ",
+      "convert_now": "ಈಗಲೇ ಪರಿವರ್ತಿಸಿ"
+    },
+    "braille_to_text": {
+      "title": "ಬ್ರೇಲ್‌ನಿಂದ ಪಠ್ಯಕ್ಕೆ",
+      "description": "ಬ್ರೇಲ್ ಪಠ್ಯವನ್ನು ಮತ್ತೆ ನಿಯಮಿತ ಪಠ್ಯಕ್ಕೆ ಪರಿವರ್ತಿಸಿ",
+      "convert_now": "ಈಗಲೇ ಪರಿವರ್ತಿಸಿ"
+    },
+    "document_converter": {
+      "title": "ದಾಖಲೆ ಪರಿವರ್ತಕ",
+      "description": "PDF, Word ಮತ್ತು ಇತರ ದಾಖಲೆಗಳನ್ನು ಬ್ರೇಲ್‌ಗೆ ಪರಿವರ್ತಿಸಿ",
+      "upload_document": "ದಾಖಲೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+    },
+    "image_to_braille": {
+      "title": "ಚಿತ್ರದಿಂದ ಬ್ರೇಲ್‌ಗೆ",
+      "description": "ಚಿತ್ರಗಳನ್ನು ಸ್ಪರ್ಶ ಗ್ರಾಫಿಕ್ಸ್‌ಗೆ ಪರಿವರ್ತಿಸಿ",
+      "upload_image": "ಚಿತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+    },
+    "audio_transcription": {
+      "title": "ಆಡಿಯೋ ಪ್ರತಿಲೇಖನ",
+      "description": "ಧ್ವನಿ ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು ಬ್ರೇಲ್ ಪಠ್ಯವಾಗಿ ಪರಿವರ್ತಿಸಿ",
+      "start_recording": "ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ"
+    },
+    "voice_assistant": {
+      "title": "ಧ್ವನಿ ಸಹಾಯಕ",
+      "description": "ಧ್ವಾನಿ ಕಮಾಂಡ್‌ಗಳೊಂದಿಗೆ ಪ್ರತಿಬಿಂಬ್ ಅನ್ನು ನೇವಿಗೇಟ್ ಮಾಡಿ",
+      "start_listening": "ಕೇಳಲು ಪ್ರಾರಂಭಿಸಿ"
+    }
+  },
+  "learning_tools": {
+    "youtube_to_braille": {
+      "title": "ಯೂಟ್ಯೂಬ್‌ನಿಂದ ಬ್ರೇಲ್‌ಗೆ",
+      "description": "ವೀಡಿಯೋ ಪ್ರತಿಲೇಖನಗಳನ್ನು ಬ್ರೇಲ್‌ಗೆ ಪರಿವರ್ತಿಸಿ",
+      "enter_url": "ಯೂಟ್ಯೂಬ್ URL ನಮೂದಿಸಿ",
+      "convert": "ಪರಿವರ್ತಿಸಿ"
+    },
+    "braille_art_editor": {
+      "title": "ಬ್ರೇಲ್ ಕಲಾ ಸಂಪಾದಕ",
+      "description": "ಬ್ರೇಲ್‌ನಲ್ಲಿ ದೃಶ್ಯ ಮಾದರಿಗಳನ್ನು ರಚಿಸಿ",
+      "create_art": "ಕಲೆ ರಚಿಸಿ"
+    },
+    "learn_braille": {
+      "title": "ಬ್ರೇಲ್ ಕಲಿಯಿರಿ",
+      "description": "ಸಂವಾದಾತ್ಮಕ ಬ್ರೇಲ್ ಟ್ಯುಟೋರಿಯಲ್‌ಗಳು",
+      "start_learning": "ಕಲಿಯಲು ಪ್ರಾರಂಭಿಸಿ"
+    },
+    "text_converter": {
+      "title": "ಪಠ್ಯ ಪರಿವರ್ತಕ",
+      "description": "ಸರಳ ಪಠ್ಯವನ್ನು ಬ್ರೇಲ್‌ಗೆ ಪರಿವರ್ತಿಸಿ",
+      "convert_text": "ಪಠ್ಯ ಪರಿವರ್ತಿಸಿ"
+    },
+    "voice_assistant": {
+      "title": "ಧ್ವಾನಿ ಸಹಾಯಕ",
+      "description": "ಧ್ವನಿ-ಚಾಲಿತ ಪ್ರವೇಶಿಸುವಿಕೆ ಸಾಧನಗಳು",
+      "open_assistant": "ಸಹಾಯಕವನ್ನು ತೆರೆಯಿರಿ"
+    },
+    "braille_service": {
+      "title": "ಬ್ರೇಲ್ ಸೇವೆ",
+      "description": "ಸೇವೆಯಾಗಿ ಬ್ರೇಲ್ ಮುದ್ರಣ ಮತ್ತು ವಿತರಣೆ",
+      "explore_services": "ಸೇವೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ"
+    }
+  },
+  "marketplace": {
+    "title": "ಪ್ರವೇಶಿಸುವಿಕೆ ಮಾರುಕಟ್ಟೆ",
+    "subtitle": "ನಿಮ್ಮ ಪ್ರವೇಶಿಸುವಿಕೆ ಅಗತ್ಯಗಳಿಗಾಗಿ ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ",
+    "categories": {
+      "hardware": "ಯಂತ್ರಾಂಶ",
+      "software": "ಸಾಫ್ಟ್‌ವೇರ್",
+      "educational": "ಶೈಕ್ಷಣಿಕ",
+      "mobility": "ಚಲನಶೀಲತೆ",
+      "communication": "ಸಂವಹನ",
+      "daily_living": "ದೈನಂದಿನ ಜೀವನ"
+    },
+    "search_placeholder": "ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಸೇವೆಗಳನ್ನು ಹುಡುಕಿ...",
+    "filter_by": "ಫಿಲ್ಟರ್ ಮಾಡಿ",
+    "sort_by": "ವಿಂಗಡಿಸಿ",
+    "price_range": "ಬೆಲೆ ಶ್ರೇಣಿ",
+    "rating": "ರೇಟಿಂಗ್",
+    "add_to_cart": "ಕಾರ್ಟ್‌ಗೆ ಸೇರಿಸಿ",
+    "buy_now": "ಈಗಲೇ ಖರೀದಿಸಿ",
+    "view_details": "ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ"
+  },
+  "community": {
+    "title": "ಸಮುದಾಯ ಕೇಂದ್ರ",
+    "subtitle": "ಪ್ರವೇಶಿಸುವಿಕೆ ಸಮುದಾಯದೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ",
+    "forums": "ವೇದಿಕೆಗಳು",
+    "discussions": "ಚರ್ಚೆಗಳು",
+    "events": "ಘಟನೆಗಳು",
+    "resources": "ಸಂಪನ್ಮೂಲಗಳು",
+    "support": "ಬೆಂಬಲ",
+    "join_discussion": "ಚರ್ಚೆಯಲ್ಲಿ ಸೇರಿ",
+    "create_post": "ಪೋಸ್ಟ್ ರಚಿಸಿ",
+    "latest_posts": "ಇತ್ತೀಚಿನ ಪೋಸ್ಟ್‌ಗಳು"
+  },
+  "braille_service": {
+    "title": "BRaaS - ಸೇವೆಯಾಗಿ ಬ್ರೇಲ್",
+    "subtitle": "ಬ್ರೇಲ್ ಮುದ್ರಣ ಸೇವೆಗಳನ್ನು ಶೈಕ್ಷಣಿಕ ಸಂಸ್ಥೆಗಳೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವುದು",
+    "description": "BRaaS ಪ್ರತಿಬಿಂಬ್ ಪ್ಲ್ಯಾಟ್‌ಫಾರ್ಮ್‌ನಿಂದ ಕಲ್ಪಿಸಲಾದ ನವೀನ ಸೇವೆಯಾಗಿದೆ",
+    "ondc_integration": "ONDC ಏಕೀಕರಣ",
+    "direct_partnerships": "ನೇರ ಪಾಲುದಾರಿಕೆಗಳು",
+    "location_based": "ಸ್ಥಳ-ಆಧಾರಿತ",
+    "search_vendors": "ನಿಮ್ಮ ಬಳಿಯ BRaaS ಮಾರಾಟಗಾರರನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ",
+    "enter_location": "ನಿಮ್ಮ ನಗರ, ರಾಜ್ಯ ಅಥವಾ ಪಿನ್ ಕೋಡ್ ನಮೂದಿಸಿ...",
+    "search": "ಹುಡುಕಿ",
+    "register_vendor": "BRaaS ಮಾರಾಟಗಾರರಾಗಿ ನೋಂದಾಯಿಸಿಕೊಳ್ಳಿ",
+    "start_registration": "ನೋಂದಣಿ ಪ್ರಾರಂಭಿಸಿ"
+  },
+  "common": {
+    "save": "ಉಳಿಸಿ",
+    "cancel": "ರದ್ದುಗೊಳಿಸಿ",
+    "delete": "ಅಳಿಸಿ",
+    "edit": "ಸಂಪಾದಿಸಿ",
+    "close": "ಮುಚ್ಚಿ",
+    "submit": "ಸಲ್ಲಿಸಿ",
+    "upload": "ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+    "download": "ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    "copy": "ಕಾಪಿ ಮಾಡಿ",
+    "paste": "ಅಂಟಿಸಿ",
+    "search": "ಹುಡುಕಿ",
+    "filter": "ಫಿಲ್ಟರ್",
+    "sort": "ವಿಂಗಡಿಸಿ",
+    "refresh": "ರಿಫ್ರೆಶ್ ಮಾಡಿ",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "error": "ದೋಷ",
+    "success": "ಯಶಸ್ಸು",
+    "warning": "ಎಚ್ಚರಿಕೆ",
+    "info": "ಮಾಹಿತಿ",
+    "yes": "ಹೌದು",
+    "no": "ಇಲ್ಲ",
+    "ok": "ಸರಿ",
+    "back": "ಹಿಂದೆ",
+    "next": "ಮುಂದೆ",
+    "previous": "ಹಿಂದಿನ",
+    "continue": "ಮುಂದುವರಿಸಿ",
+    "try_again": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+    "learn_more": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ",
+    "get_started": "ಪ್ರಾರಂಭಿಸಿ",
+    "view_all": "ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ",
+    "show_more": "ಇನ್ನಷ್ಟು ತೋರಿಸಿ",
+    "show_less": "ಕಡಿಮೆ ತೋರಿಸಿ",
+    "test_reports": "ಪರೀಕ್ಷಾ ವರದಿಗಳು"
+  },
+  "notifications": {
+    "conversion_complete": "ಪರಿವರ್ತನೆ ಪೂರ್ಣಗೊಂಡಿದೆ",
+    "file_uploaded": "ಫೈಲ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ",
+    "text_copied": "ಪಠ್ಯವನ್ನು ಕಾಪಿ ಮಾಡಲಾಗಿದೆ",
+    "settings_saved": "ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ",
+    "error_occurred": "ದೋಷ ಸಂಭವಿಸಿದೆ",
+    "please_try_again": "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+    "invalid_input": "ಅಮಾನ್ಯ ಇನ್‌ಪುಟ್",
+    "processing": "ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ...",
+    "language_changed": "ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಲಾಗಿದೆ",
+    "translation_applied": "ಅನುವಾದವನ್ನು ಅನ್ವಯಿಸಲಾಗಿದೆ"
+  },
+  "forms": {
+    "name": "ಹೆಸರು",
+    "email": "ಇಮೇಲ್",
+    "phone": "ಫೋನ್",
+    "address": "ವಿಳಾಸ",
+    "city": "ನಗರ",
+    "state": "ರಾಜ್ಯ",
+    "pincode": "ಪಿನ್ ಕೋಡ್",
+    "country": "ದೇಶ",
+    "message": "ಸಂದೇಶ",
+    "subject": "ವಿಷಯ",
+    "description": "ವಿವರಣೆ",
+    "required_field": "ಅಗತ್ಯವಿರುವ ಕ್ಷೇತ್ರ",
+    "optional": "ಐಚ್ಛಿಕ",
+    "select_option": "ಆಯ್ಕೆಯನ್ನು ಆರಿಸಿ",
+    "enter_text": "ಪಠ್ಯ ನಮೂದಿಸಿ",
+    "choose_file": "ಫೈಲ್ ಆರಿಸಿ"
+  },
+  "voice_assistant": {
+    "title": "ಧ್ವಾನಿ ಸಹಾಯಕ - ಧ್ವಾನಿ",
+    "subtitle": "ಧ್ವನಿ ಮತ್ತು AI ನಿಂದ ಚಾಲಿತ ಪ್ರವೇಶಿಸುವಿಕೆ ಸಹಾಯಕ",
+    "listening": "ಕೇಳುತ್ತಿದೆ...",
+    "processing": "ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ...",
+    "speak_now": "ಈಗ ಮಾತನಾಡಿ",
+    "voice_commands": "ಧ್ವನಿ ಆದೇಶಗಳು",
+    "microphone_access": "ಮೈಕ್ರೋಫೋನ್ ಪ್ರವೇಶ"
+  },
+  "error_messages": {
+    "network_error": "ನೆಟ್‌ವರ್ಕ್ ದೋಷ - ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ",
+    "file_too_large": "ಫೈಲ್ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ",
+    "unsupported_format": "ಬೆಂಬಲಿಸದ ಫೈಲ್ ಸ್ವರೂಪ",
+    "conversion_failed": "ಪರಿವರ್ತನೆ ವಿಫಲವಾಗಿದೆ",
+    "permission_denied": "ಅನುಮತಿ ನಿರಾಕರಿಸಲಾಗಿದೆ",
+    "session_expired": "ಸೆಷನ್ ಅವಧಿ ಮೀರಿದೆ",
+    "server_error": "ಸರ್ವರ್ ದೋಷ - ನಂತರ ಪ್ರಯತ್ನಿಸಿ"
+  }
+}

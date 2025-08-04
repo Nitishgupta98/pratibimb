@@ -1,0 +1,9 @@
+@echo off
+echo Starting Pratibimb React Application...
+echo.
+echo Installing dependencies...
+cd react-app
+call npm install
+echo.
+echo Starting development server...
+call npm start
