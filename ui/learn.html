@@ -5750,7 +5750,74 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 updateContentProgress();
             }, 1000);
-            
+
+            const element = document.getElementById("originalContentText");
+            if (!element) {
+            console.warn("Element with id 'slide-description' not found.");
+            return;
+            }
+
+            const text = element.innerText || element.textContent || "";
+            if (!text.trim()) {
+            console.warn("No text to speak.");
+            return;
+            }
+
+            // Cancel any ongoing speech
+            speechSynthesis.cancel();
+
+            // Wait for voices to be ready
+            const waitForVoices = new Promise(resolve => {
+            let voices = speechSynthesis.getVoices();
+            if (voices.length) return resolve(voices);
+
+            speechSynthesis.onvoiceschanged = () => {
+                voices = speechSynthesis.getVoices();
+                resolve(voices);
+            };
+            });
+
+            waitForVoices.then(voices => {
+            // Choose Indian voice if available
+            const selectedVoice = voices.find(
+                v => v.name.includes("India") || v.lang === "en-IN"
+            ) || voices[0];
+
+            // Split text into 2–3 word chunks
+            const words = text.trim().split(/\s+/);
+            const chunks = [];
+            for (let i = 0; i < words.length; i += 3) {
+                chunks.push(words.slice(i, i + 3).join(" "));
+            }
+
+            let index = 0;
+
+            function speakChunk() {
+                if (index >= chunks.length) return;
+
+                const utterance = new SpeechSynthesisUtterance(chunks[index]);
+                utterance.voice = selectedVoice;
+                utterance.lang = selectedVoice.lang;
+                utterance.rate = 0.65;  // Slower for dictation
+                utterance.pitch = 1;
+
+                utterance.onend = () => {
+                index++;
+                setTimeout(speakChunk, 800); // Pause between chunks (ms)
+                };
+
+                utterance.onerror = (e) => {
+                console.error("Speech error:", e.error);
+                };
+
+                speechSynthesis.speak(utterance);
+            }
+
+            speakChunk(); // Start dictation
+            }).catch(err => {
+            console.error("Voice loading failed:", err);
+            });
+
             showToast('Content audio playing', 'success');
         }
     };
@@ -5758,6 +5825,221 @@ document.addEventListener('DOMContentLoaded', function() {
     window.pauseContent = function() {
         stopContentAudio();
     };
+
+    
+//   function playContent() {
+//     const element = document.getElementById("slide-description");
+//     if (!element) {
+//       console.warn("Element with id 'slide-description' not found.");
+//       return;
+//     }
+
+//     const text = element.innerText || element.textContent || "";
+//     if (!text.trim()) {
+//       console.warn("No text to speak.");
+//       return;
+//     }
+
+//     speechSynthesis.cancel();
+
+//     const words = text.trim().split(/\s+/);
+//     const chunks = [];
+//     for (let i = 0; i < words.length; i += 3) {
+//       chunks.push(words.slice(i, i + 3).join(" "));
+//     }
+
+//     let voices = speechSynthesis.getVoices();
+//     let selectedVoice = voices.find(v => v.name.includes("India") || v.lang === "en-IN") || voices[0];
+
+//     if (!voices.length) {
+//       speechSynthesis.onvoiceschanged = () => {
+//         voices = speechSynthesis.getVoices();
+//         selectedVoice = voices.find(v => v.name.includes("India") || v.lang === "en-IN") || voices[0];
+//       };
+//     }
+
+//     let currentChunkIndex = 0;
+
+//     function speakChunk(index) {
+//       if (index < 0 || index >= chunks.length) return;
+//       speechSynthesis.cancel(); // Stop current utterance
+
+//       const utterance = new SpeechSynthesisUtterance(chunks[index]);
+//       utterance.voice = selectedVoice;
+//       utterance.lang = selectedVoice.lang;
+//       utterance.rate = 0.65;
+//       utterance.pitch = 1;
+
+//       speechSynthesis.speak(utterance);
+//     }
+
+//     function handleKeyNavigation(event) {
+//       if (event.ctrlKey && event.key === "ArrowLeft") {
+//         // Rewind to previous chunk
+//         if (currentChunkIndex > 0) {
+//           currentChunkIndex--;
+//           speakChunk(currentChunkIndex);
+//         }
+//         event.preventDefault();
+//       } else if (event.ctrlKey && event.key === "ArrowRight") {
+//         // Forward to next chunk
+//         if (currentChunkIndex < chunks.length - 1) {
+//           currentChunkIndex++;
+//           speakChunk(currentChunkIndex);
+//         }
+//         event.preventDefault();
+//       }
+//     }
+
+//     // Start speaking from the beginning
+//     currentChunkIndex = 0;
+//     speakChunk(currentChunkIndex);
+
+//     // Attach keyboard control (once)
+//     document.removeEventListener("keydown", handleKeyNavigation); // avoid duplicates
+//     document.addEventListener("keydown", handleKeyNavigation);
+//   }
+
+
+    const input = document.getElementById("studentBrailleInput");
+
+let caretPos = 0;
+let chunks = [];
+let currentChunkIndex = 0;
+let volume = 1;
+let selectedVoice = null;
+let isSpeaking = false;
+
+let currentUtterance = null;
+const synth = window.speechSynthesis;
+
+function prepareChunks(text) {
+  const words = text.trim().split(/\s+/);
+  const result = [];
+  for (let i = 0; i < words.length; i += 3) {
+    result.push(words.slice(i, i + 3).join(" "));
+  }
+  return result;
+}
+
+function getVoice() {
+  const voices = synth.getVoices();
+  return voices.find(v => v.name.includes("India") || v.lang === "en-IN") || voices[0];
+}
+
+function speakChunk(index) {
+  if (index < 0 || index >= chunks.length) return;
+
+  synth.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(chunks[index]);
+  currentUtterance = utterance;
+
+  utterance.voice = selectedVoice;
+  utterance.lang = selectedVoice?.lang || "en-US";
+  utterance.rate = 0.65;
+  utterance.pitch = 1;
+  utterance.volume = volume;
+
+  isSpeaking = true;
+
+  utterance.onend = () => {
+    isSpeaking = false;
+  };
+
+  synth.speak(utterance);
+}
+
+function startSpeaking() {
+  synth.cancel();
+  const text = input.value;
+  if (!text.trim()) {
+    alert("Textarea is empty!");
+    return;
+  }
+  chunks = prepareChunks(text);
+  currentChunkIndex = 0;
+
+  if (synth.getVoices().length === 0) {
+    synth.onvoiceschanged = () => {
+      selectedVoice = getVoice();
+      synth.onvoiceschanged = null;
+      speakChunk(currentChunkIndex);
+    };
+  } else {
+    selectedVoice = getVoice();
+    speakChunk(currentChunkIndex);
+  }
+}
+
+function stopSpeaking() {
+  synth.cancel();
+  isSpeaking = false;
+}
+
+function pauseContent() {
+  if (synth.speaking && !synth.paused) {
+    synth.pause();
+    console.log("Speech paused");
+  }
+}
+
+function resumeContent() {
+  if (synth.paused) {
+    synth.resume();
+    console.log("Speech resumed");
+  }
+}
+
+// ❄️ Preserve caret position
+input.addEventListener("input", () => {
+  caretPos = input.selectionStart;
+});
+input.addEventListener("mouseup", (e) => {
+  e.preventDefault();
+  input.setSelectionRange(caretPos, caretPos);
+});
+input.addEventListener("keyup", () => {
+  input.setSelectionRange(caretPos, caretPos);
+});
+
+// ⌨️ Arrow key navigation (no spacebar!)
+document.addEventListener("keydown", (e) => {
+  const key = e.key;
+  const isInInput = document.activeElement === input;
+
+  if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(key)) {
+    e.preventDefault();
+
+    switch (key) {
+      case "ArrowLeft":
+        if (currentChunkIndex > 0) {
+          currentChunkIndex--;
+          speakChunk(currentChunkIndex);
+        }
+        break;
+
+      case "ArrowRight":
+        if (currentChunkIndex < chunks.length - 1) {
+          currentChunkIndex++;
+          speakChunk(currentChunkIndex);
+        }
+        break;
+
+      case "ArrowUp":
+        volume = Math.min(1, volume + 0.1);
+        speakChunk(currentChunkIndex);
+        break;
+
+      case "ArrowDown":
+        volume = Math.max(0, volume - 0.1);
+        speakChunk(currentChunkIndex);
+        break;
+    }
+  }
+
+  // 🔕 Do not use Space key for any shortcuts
+});
 
     function stopContentAudio() {
         contentPlaying = false;
