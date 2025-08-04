@@ -3603,7 +3603,7 @@
                                         class="url-input"
                                     >
                                     <button type="button" class="convert-btn" id="convertBtn">
-                                        <i class="fas fa-magic"></i>
+                                        <!-- <i class="fas fa-magic"></i> &nbsp;&nbsp;&nbsp;&nbsp; -->
                                         Convert to Braille
                                     </button>
                                 </div>
@@ -4138,7 +4138,7 @@ Example: Hello World! This will be converted to Grade 1 Braille format."
                         <!-- Conversion Controls -->
                         <div class="conversion-controls">
                             <button class="convert-text-btn" id="convertTextBtn" onclick="convertTextToBraille()">
-                                <i class="fas fa-magic"></i>
+                                <!-- <i class="fas fa-magic"></i> -->
                                 <span class="btn-text">Convert to Braille</span>
                             </button>
                             <div class="conversion-options">
@@ -6806,7 +6806,7 @@ This sample text demonstrates various features including paragraphs, headings, a
         
         // Disable button and show progress
         convertBtn.disabled = true;
-        convertBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span class="btn-text">Converting...</span>';
+        // convertBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span class="btn-text">Converting...</span>';
         progressSection.style.display = 'block';
         resultsSection.style.display = 'none';
         
