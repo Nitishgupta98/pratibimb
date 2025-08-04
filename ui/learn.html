@@ -569,6 +569,7 @@
             outline: none;
             font-size: 1em;
             color: #333;
+            margin-left: 50px;
         }
 
         .url-input::placeholder {
@@ -2335,7 +2336,7 @@
 
         .input-wrapper i {
             position: absolute;
-            left: 15px;
+            /* left: 15px; */
             color: #666;
             z-index: 1;
         }
@@ -3780,87 +3781,33 @@
                                         placeholder="Enter a topic (e.g., Human Heart, Solar System, Plant Cell...)"
                                         class="topic-input"
                                     >
-                                    <button type="button" class="generate-btn" id="generateContentBtn">
+                                    <button type="button" class="generate-btn" id="generateContentBtn" onclick="startBrailleArtSession()">
                                         <i class="fas fa-magic"></i>
                                         Generate Content
                                     </button>
                                 </div>
                                 <div class="quick-topics">
                                     <span class="quick-topic-label">Quick Topics:</span>
-                                    <button class="quick-topic-btn" data-topic="Human Heart">Human Heart</button>
-                                    <button class="quick-topic-btn" data-topic="Solar System">Solar System</button>
-                                    <button class="quick-topic-btn" data-topic="Plant Cell">Plant Cell</button>
-                                    <button class="quick-topic-btn" data-topic="Human Brain">Human Brain</button>
-                                    <button class="quick-topic-btn" data-topic="Water Cycle">Water Cycle</button>
+                                    <button class="quick-topic-btn" onclick="selectBrailleArtTopic('Human Heart')">Human Heart</button>
+                                    <button class="quick-topic-btn" onclick="selectBrailleArtTopic('Solar System')">Solar System</button>
+                                    <button class="quick-topic-btn" onclick="selectBrailleArtTopic('Plant Cell')">Plant Cell</button>
+                                    <button class="quick-topic-btn" onclick="selectBrailleArtTopic('Human Brain')">Human Brain</button>
+                                    <button class="quick-topic-btn" onclick="selectBrailleArtTopic('Water Cycle')">Water Cycle</button>
                                 </div>
                             </div>
                         </div>
+
+                        
+
+                        <!-- Braille Art -->
+                <!-- <div class="content-section" id="learn-braille">
+                    <div class="braille-learning-section">
+                        
+                        </div>
+                    </div> -->
 
                         <!-- Generated Content Section -->
-                        <div class="generated-content" id="generatedContent" style="display: none;">
-                            <!-- Audio Description -->
-                            <div class="audio-section">
-                                <div class="audio-card">
-                                    <h3><i class="fas fa-volume-up"></i> Audio Description</h3>
-                                    <div class="audio-player">
-                                        <button class="play-btn" id="playAudioBtn">
-                                            <i class="fas fa-play"></i>
-                                            <span>Play Description</span>
-                                        </button>
-                                        <div class="audio-controls" style="display: none;">
-                                            <div class="audio-progress">
-                                                <div class="progress-bar">
-                                                    <div class="progress-fill" id="audioProgress"></div>
-                                                </div>
-                                                <span class="time-display">0:00 / 2:30</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="audio-text" id="audioText">
-                                        <p><strong>Topic:</strong> <span id="currentTopic">Human Heart</span></p>
-                                        <p id="audioDescription">
-                                            The human heart is a muscular organ about the size of a fist, located in the chest cavity. 
-                                            It has four chambers: two atria and two ventricles. The heart pumps blood through the circulatory system, 
-                                            delivering oxygen and nutrients to all parts of the body.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Visual Images Section -->
-                            <div class="images-section">
-                                <h3><i class="fas fa-images"></i> Tactile Visual Representations</h3>
-                                <div class="images-grid" id="imagesGrid">
-                                    <!-- Images will be populated here -->
-                                </div>
-                            </div>
-
-                            <!-- Session Controls -->
-                            <div class="session-controls">
-                                <div class="control-buttons">
-                                    <button class="control-btn save-btn" id="saveSessionBtn">
-                                        <i class="fas fa-save"></i>
-                                        Save Session
-                                    </button>
-                                    <button class="control-btn print-btn" id="printAllBtn">
-                                        <i class="fas fa-print"></i>
-                                        Print All (.brf)
-                                    </button>
-                                    <button class="control-btn change-topic-btn" id="changeTopicBtn">
-                                        <i class="fas fa-sync-alt"></i>
-                                        Change Topic
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Saved Sessions -->
-                        <div class="saved-sessions" id="savedSessions">
-                            <h3><i class="fas fa-history"></i> Recent Sessions</h3>
-                            <div class="sessions-list" id="sessionsList">
-                                <!-- Sessions will be populated here -->
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -3937,9 +3884,9 @@
                                             <div class="progress-bar">
                                                 <div class="progress-fill" id="contentProgressFill"></div>
                                             </div>
-                                            <div class="time-info">
+                                            <!-- <div class="time-info">
                                                 <span id="currentTime">0:00</span> / <span id="totalTime">1:45</span>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -3948,13 +3895,13 @@
                             <!-- Braille Typing Interface -->
                             <div class="typing-interface-section">
                                 <div class="typing-card">
-                                    <h3><i class="fas fa-keyboard"></i>Braille Typing Practice</h3>
-                                    <div class="typing-instructions">
+                                    <h3><i class="fas fa-keyboard"></i>Typing Practice</h3>
+                                    <!-- <div class="typing-instructions">
                                         <p><strong>Instructions:</strong> Listen to the content above and type what you hear using Braille characters. Use your Braille keyboard or the virtual keys below.</p>
-                                    </div>
+                                    </div> -->
                                     
                                     <!-- Virtual Braille Keyboard -->
-                                    <div class="virtual-keyboard">
+                                    <!-- <div class="virtual-keyboard">
                                         <div class="keyboard-row">
                                             <button class="braille-key" onclick="insertBraille('⠁')">⠁ (a)</button>
                                             <button class="braille-key" onclick="insertBraille('⠃')">⠃ (b)</button>
@@ -3993,10 +3940,10 @@
                                             <button class="braille-key" onclick="insertBraille('⠲')">⠲ (.)</button>
                                             <button class="braille-key clear-key" onclick="clearBrailleInput()">Clear</button>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="typing-area">
-                                        <label for="studentBrailleInput">Your Braille Input:</label>
+                                        <label for="studentBrailleInput">Your Input:</label>
                                         <textarea id="studentBrailleInput" class="braille-input" placeholder="Type your Braille here as you listen to the content..." rows="8"></textarea>
                                     </div>
 
@@ -4033,10 +3980,9 @@
 
                                     <div class="comparison-display">
                                         <div class="comparison-column">
-                                            <h4><i class="fas fa-book"></i>Original Content (Braille)</h4>
+                                            <h4><i class="fas fa-book"></i>Original Content</h4>
                                             <div class="original-braille" id="originalBrailleText">
-                                                ⠠⠞⠓⠑ ⠍⠕⠕⠝⠄⠎ ⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑ ⠉⠓⠁⠝⠛⠑⠎ ⠙⠗⠁⠍⠁⠞⠊⠉⠁⠇⠇⠽ ⠁⠎ ⠊⠞ ⠕⠗⠃⠊⠞⠎ ⠠⠑⠁⠗⠞⠓⠂ ⠉⠗⠑⠁⠞⠊⠝⠛ ⠑⠊⠛⠓⠞ ⠙⠊⠎⠞⠊⠝⠉⠞ ⠏⠓⠁⠎⠑⠎ ⠞⠓⠁⠞ ⠓⠁⠧⠑ ⠋⠁⠎⠉⠊⠝⠁⠞⠑⠙ ⠓⠥⠍⠁⠝⠊⠞⠽ ⠋⠕⠗ ⠍⠊⠇⠇⠑⠝⠝⠊⠁⠲
-                                            </div>
+                                                </div>
                                         </div>
                                         <div class="comparison-column">
                                             <h4><i class="fas fa-user-edit"></i>Your Input</h4>
@@ -4051,11 +3997,11 @@
                                         <div class="error-list" id="errorList">
                                             <!-- Errors will be listed here -->
                                         </div>
-                                        <div class="audio-feedback">
+                                        <!-- <div class="audio-feedback">
                                             <button class="feedback-btn" onclick="playFeedbackAudio()">
                                                 <i class="fas fa-volume-up"></i>Listen to Corrections
                                             </button>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="session-actions">
@@ -4786,15 +4732,269 @@ document.addEventListener('DOMContentLoaded', function() {
                 What's going on?<br>
                 Well, the moon goes through phases.<br>
                 <br>
-                <em>... [Sample transcript content] ...</em>
+                And what do the phases do?<br>The phases change what the moon<br>looks like to us here on Earth!<br>Here are the phases of the moon!<br>If you count them, you'll see<br>there are eight phases of the moon!<br>These are the phases of the moon.<br>Notice, in one phase you<br>don't see the moon at all.<br>And in another phase, you can see the entire moon!<br>So, these eight phases have a big impact<br>on what the moon looks like to us!<br><br>Soon, you'll know all eight of them!<br>New Moon<br>Alright! Let's jump right in and<br>learn these phases of the moon,<br>starting with the first phase of the moon.<br>It's called a new moon.<br>If you're wondering where it is, join the club!<br>It's actually right here,<br>where the arrow is pointing.<br>And notice, you can't see a new moon.<br>That's right!<br>It looks like it just isn't there!<br>So why can't we see a new moon?<br>Well, during a new moon the moon is<br>in between the sun and the earth.<br>Because of this, it can't reflect<br>the sun's light toward us.<br>So, during a new moon, we<br>can't really see the moon.<br>That's pretty interesting!<br>Now, after a new moon the moon starts waxing.<br>What?<br>Yeah!<br>Waxing!<br>What is that supposed to mean?<br>Well, waxing means growing.<br>When the moon is waxing, it is getting bigger!<br>Notice the moon begins waxing after a new<br>moon and grows until it becomes a full moon.<br>Waxing means growing.<br>After a new moon, the moon continues<br>waxing until it becomes a full moon.<br>Just remember, waxing means growing!<br>Waxing crescent<br>All right, we're ready for phase number two!<br>And look at this two!<br>So cool!<br>So icy!<br>So awesome!<br>The second phase of the moon<br>is called a waxing crescent.<br>A waxing crescent!<br>That's an interesting name for this!<br>A waxing crescent.<br>Waxing, of course, means<br>that it is growing bigger.<br>And it is called a crescent moon because<br>less than half of the moon looks lit.<br>If you live in the Northern Hemisphere (the<br>part of the world that is north of the equator),<br>a waxing crescent is always lit on the right side.<br>Hey!<br>Check this out!<br>Here is a photo of a waxing crescent!<br>Less than half of the moon looks lit!<br>If you live in the Northern<br>Hemisphere (north of the equator),<br><br>a waxing crescent is always lit on the right side.<br>This crescent moon is waxing<br>because it is growing.<br>This is the phase of the moon after a new moon.<br>Waxing crescent!<br>First quarter<br>Okay! You are ready for phase number three!<br>That's right!<br>The third phase of the moon<br>is called first quarter.<br>First quarter!<br>Which, at first might seem a little weird!<br>See, the moon is half-lit<br>with a first quarter moon.<br>So, what's the deal?<br>Shouldn't first quarter be called one-half moon?<br>Well, when you have a first<br>quarter moon, you are one-fourth<br><br>or one-quarter of the way through the lunar cycle.<br>You can see all eight phases of the moon here.<br>A first quarter moon tells you that you are a<br>quarter of the way through all eight phases.<br>So, a first quarter moon is half-lit.<br>And, because the moon is still waxing<br>(or growing) in the Northern Hemisphere,<br>the right side is lit.<br>Exactly one-half of a first quarter moon is lit<br><br>and it is lit on the right<br>side because it is waxing.<br>Waxing gibbous<br>Alright, we are ready for the next phase!<br>The next phase is called the waxing gibbous!<br>Waxing gibbous!<br>Wow!<br>Weird name...<br>weird name.<br>A waxing gibbous is more than<br>half-lit but not quite fully lit.<br>It is the fourth phase of the moon.<br>A waxing gibbous is more than half-lit<br>and like all of the waxing moons,<br>is lit on the right side.<br>Here is a photograph of a waxing gibbous.<br>Can you say that with me?<br>Waxing gibbous!<br>Softer.<br>Waxing gibbous.<br>Finally, let's say it so everyone can hear it!<br>Waxing gibbous!<br>Great!<br>Full Moon<br>The cool thing about a waxing<br>gibbous moon is that when you see it<br><br>you know a full moon is on its way!<br>And sure enough, phase number five is....<br>wait...Mr. Whiskers?<br>You need to eat right now?<br>Mr. Whiskers...this is not a convenient time!<br>We're about to talk about<br>a full moon and everything!<br>Okay!<br>I understand!<br>No kitty should wait!<br>*Dry cat food sounds*<br>All right!<br>There you go!<br>There you go...<br>Now, where were we?<br>Oh yes!<br>Phase number five of the moon!<br>Enjoy, Mr. Whiskers!<br>Phase number five!<br>The fifth phase is a full moon!<br>It is the easiest phase to spot.<br>A full moon is completely lit!<br>It is a full circle.<br>Is there anything else to say about it?<br>It's full!<br>It's a full moon.<br>And once the moon is full, it is all done waxing<br>because it can't grow anymore!<br>It's done waxing!<br>Which means, it will look like the<br>moon is getting smaller and smaller.<br>The fancy moon word for that is waning.<br>Waning!<br>That's an interesting word!<br>Waning!<br>The moon always begins waning after a full moon,<br>but just like waxing, waning is a process!<br>It doesn't happen all at once.<br>Okay, so the moon begins waning after a full moon.<br>It starts waning (appearing<br>smaller and smaller) until finally,<br>you can't even see it anymore!<br>When you can't see the moon, remember that is<br>a new moon (the first phase we talked about).<br>Waning starts with a full<br>moon and ends with a new moon.<br>When the moon is waning it looks like<br>it is getting smaller and smaller.<br>Waning gibbous<br>Now, after a full moon, we have phase number six.<br>A waning gibbous!<br>Wow!<br>A waning gibbous!<br>As you can see, a waning gibbous<br>is similar to a waxing gibbous.<br>Instead of getting bigger every day,<br>it is waning (or getting smaller).<br>A waning gibbous is more than half-lit,<br>and in the Northern Hemisphere it is lit on<br>the left side, instead of the right side!<br>That tells you that this is a waning gibbous.<br>It is getting smaller and smaller.<br>Last quarter<br>Next, we have the seventh phase of the moon!<br>You know,<br><br>the easiest way to learn the seventh phase<br>might be to look at it with the other phases.<br>Here are all eight phases of the moon!<br>The seventh phase is right here.<br>It is called the last quarter.<br>The last quarter means you only have<br>a quarter of the lunar cycle left!<br>A quarter means one-fourth.<br>You are in the last quarter of the lunar<br>cycle when you have a last quarter moon.<br>So, that name makes sense!<br>Just like a first quarter moon,<br>a last quarter moon is half-lit.<br>But, because the moon is waning<br>during a last quarter moon,<br>the moon is lit on the left side.<br>Quarter moons are always half-lit.<br>If you live in the Northern Hemisphere, the<br>last quarter is always lit on the left side.<br>Waning crescent<br>Well, the moon has been waning<br>(getting smaller and smaller).<br>There's only one more phase before<br>we start the cycle all over again!<br>That's right!<br>We are on phase number eight!<br>The last phase of the moon is a waning crescent.<br>A waning crescent!<br>A waning crescent is less than half-lit.<br>All crescent moons are less than half-lit.<br>To figure out if a crescent moon is<br>a waning or waxing crescent moon,<br>just look at the side it is lit on.<br>Waning moons are always lit on the left side,<br>so a waning crescent is less than half-lit and is<br>lit on the left side (like you see right here).<br>Review<br>Those are all eight phases of the moon!<br>Pretty cool!<br>If you have a favorite, you won't<br>have to wait long before you see it,<br>because it only takes a month for the<br>moon to go through all eight phases!<br>That means all of this just takes one month!<br>That's pretty awesome!<br>That's pretty cool!<br>All right, you know what?<br>It's time for a game!<br>We're gonna see how much we learned<br>about the phases of the moon!<br>Let's call it...uh...<br>the Faces of the Moon Game!<br>Yeah!<br>That's a good name for it!<br>Are you ready to play?<br>Okay!<br>Ooh!<br>Fancy music!<br>We'll go in order, just like in nature!<br>What is this phase called?<br>Yes!<br>A new moon!<br>Fantastic!<br>And of course, you can't see a new moon.<br>It's like it's hiding!<br>What is this phase called?<br>Uh-huh!<br>A waxing crescent!<br>Crescent moons are less than half-lit<br>and this moon is lit on the right side,<br>so it must be a waxing crescent!<br>Great job!<br>Hmm...what is this phase called?<br>It's half-lit.<br>Yeah!<br>First quarter!<br>This is a first quarter moon!<br>Very cool!<br>How about this moon?<br>What is this phase called?<br>A waxing gibbous!<br>A waxing gibbous!<br>Yep!<br>A gibbous moon is more than half-lit,<br>but is not quite full yet!<br>And we know it is a waxing gibbous<br>because it is lit on the right side!<br>Great!<br>What is this next phase?<br>What is it called?<br>You got it!<br>A full moon!<br>A full moon is easy to spot in the night sky!<br>It is completely lit!<br>A full moon!<br>You are doing awesome!<br>How about this next phase?<br>What is this phase?<br>Uh-huh!<br>A waning gibbous!<br>That's right!<br>A waning gibbous!<br>After a full moon, the moon begins<br>waning (or getting smaller).<br>A waning gibbous is more than<br>half-lit, just like a waxing gibbous,<br>but is lit on the left side!<br>You are doing a tremendous job!<br>Let's try this one!<br>What is this phase called?<br>Do you remember?<br>Yeah!<br>Last quarter!<br>This is a last quarter moon!<br>It is half-lit and begins the<br>last quarter of the lunar cycle.<br>A last quarter moon!<br>How about this last one?<br>What is this phase called?<br>Great!<br>A waning crescent!<br>A waning crescent!<br>It is less than half-lit, which<br>is what makes it a crescent moon,<br>and it is lit on the left side.<br>So, it is waning!<br>Every month the moon goes<br>through all of the phases!<br>The moon goes around and<br>around, waxing and waning!<br>It's pretty amazing!<br>Well, you know all eight phases of the moon!<br>Tell your friends!<br>Tell a dog!<br>Tell a cat!<br>Tell a hamster!<br>Whatever!<br>Just tell someone, because it's pretty cool!<br>It's pretty cool that you know<br>all eight phases of the moon!<br>We always love to thank our patrons<br>for making videos like this possible!<br>If you'd like to join as a patron, YOU CAN!<br>You can click the link below and get cool tattoos<br>or visit HomeschoolPop.com!<br>That would mean a lot to us!<br>Thank you for learning about<br>the phases of the moon with us!<br>We hope you had a ton of fun!<br>You are SO awesome and we<br>hope to see you next video!
             </div>
         `;
         
-        document.getElementById('originalText').value = 'The Moon goes through phases\n\nOkay, I\'m getting everything ready for this lesson!\nAwesome!\nI can\'t wait because we get to talk about the moon again!\n...';
+        document.getElementById('originalText').value = `Understanding the Moon's Changing Looks
+Have you ever thought about how the Moon appears to change in the night sky? Sometimes it feels like a tiny sliver, other times it feels like a big, bright circle! These changes are not because the Moon is actually changing its shape, but because of how much of its surface is lit up by the Sun as the Moon travels around the Earth. These different appearances are called lunar phases, and there are eight of them. The Moon goes through all these phases in about a month!
+
+The Moon's Eight Appearances
+Let's explore the different ways the Moon appears to us:
+
+New Moon: Imagine the Moon is like a quiet friend. During a new moon, it's positioned between the Sun and Earth, so the side facing us isn't lit up at all. We can't sense it in the sky!
+
+Getting Brighter: Waxing!
+After the new moon, a little bit of the Moon starts to get light, and it gets brighter each night. This is called waxing. Think of it like something slowly growing bigger and brighter.
+
+Waxing Crescent: This is when we can notice just a tiny, bright curve of the Moon. Less than half of the Moon is lit. Since it's waxing, this bright curve is on the right side of the Moon.
+
+First Quarter: Now, half of the Moon feels bright! Even though it's called "first quarter," it means the Moon has finished one-fourth of its trip around Earth. The right half is bright.
+
+Waxing Gibbous: The Moon is getting even brighter now! More than half of it is lit, but it's not a full circle yet. The bright part is still on the right side because it's waxing.
+
+The Big Bright Moon
+Full Moon: Wow! This is when the entire Moon feels completely bright, like a large, glowing circle. It's often easy to notice and feels so bright! The Earth is right between the Sun and the Moon, so we experience the Moon's fully lit side. After this, the Moon starts to appear "smaller" again.
+
+Getting Smaller: Waning!
+Once the Moon is full, the bright part starts to get smaller and smaller each night. This is called waning. Imagine something slowly diminishing in size.
+
+Waning Gibbous: Just like the waxing gibbous, more than half of the Moon is still lit, but now the bright area is getting smaller. The lit part is on the left side.
+
+Last Quarter: Again, half of the Moon is lit, but now it's the left half. This means the Moon has completed three-fourths of its journey around Earth.
+
+Waning Crescent: This is the last tiny sliver we sense before the Moon seems to disappear again for the new moon. It's a thin curve, but this time it's on the left side, showing it's still waning.
+
+The Moon's Continuous Dance
+The Moon keeps going around and around the Earth, changing how it appears from brighter (waxing) to dimmer (waning), over and over again. It's like a never-ending cycle in the sky! Now you know all eight of the Moon's amazing phases! Isn't that cool?
+`;
         
-        document.getElementById('brailleText').value = '⠠⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠛⠕⠑⠎ ⠞⠓⠗⠕⠥⠛⠓ ⠏⠓⠁⠎⠑⠎\n\n⠠⠕⠅⠁⠽⠂ ⠠⠊⠄⠍ ⠛⠑⠞⠞⠊⠝⠛ ⠑⠧⠑⠗⠽⠞⠓⠊⠝⠛ ⠗⠑⠁⠙⠽ ⠋⠕⠗ ⠞⠓⠊⠎ ⠇⠑⠎⠎⠕⠝⠖\n⠠⠁⠺⠑⠎⠕⠍⠑⠖\n⠠⠊ ⠉⠁⠝⠄⠞ ⠺⠁⠊⠞ ⠃⠑⠉⠁⠥⠎⠑ ⠺⠑ ⠛⠑⠞ ⠞⠕ ⠞⠁⠇⠅ ⠁⠃⠕⠥⠞ ⠞⠓⠑ ⠍⠕⠕⠝ ⠁⠛⠁⠊⠝⠖\n...';
-        
-        document.getElementById('embosserText').value = ',! ",moon go^s "ro* pha^s\n\n,oka\',1 ,i\'m ge""9 every?9 ready = ! l^son4\n,a^some4\n,i can\'t wait 2c we get to talk ab ! moon aga9!\n...';
+        document.getElementById('brailleText').value = `⠠⠥⠝⠙⠑⠗⠎⠞⠁⠝⠙⠊⠝⠛ ⠞⠓⠑ ⠠⠍⠕⠕⠝⠄⠎ ⠠⠉⠓⠁⠝⠛⠊⠝⠛    
+⠠⠇⠕⠕⠅⠎                                  
+⠠⠓⠁⠧⠑ ⠽⠕⠥ ⠑⠧⠑⠗ ⠞⠓⠕⠥⠛⠓⠞ ⠁⠃⠕⠥⠞ ⠓⠕⠺ ⠞⠓⠑    
+⠠⠍⠕⠕⠝ ⠁⠏⠏⠑⠁⠗⠎ ⠞⠕ ⠉⠓⠁⠝⠛⠑ ⠊⠝ ⠞⠓⠑ ⠝⠊⠛⠓⠞    
+⠎⠅⠽⠦ ⠠⠎⠕⠍⠑⠞⠊⠍⠑⠎ ⠊⠞ ⠋⠑⠑⠇⠎ ⠇⠊⠅⠑ ⠁ ⠞⠊⠝⠽    
+⠎⠇⠊⠧⠑⠗⠂ ⠕⠞⠓⠑⠗ ⠞⠊⠍⠑⠎ ⠊⠞ ⠋⠑⠑⠇⠎ ⠇⠊⠅⠑ ⠁ ⠃⠊⠛⠂
+⠃⠗⠊⠛⠓⠞ ⠉⠊⠗⠉⠇⠑⠖ ⠠⠞⠓⠑⠎⠑ ⠉⠓⠁⠝⠛⠑⠎ ⠁⠗⠑ ⠝⠕⠞   
+⠃⠑⠉⠁⠥⠎⠑ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎ ⠁⠉⠞⠥⠁⠇⠇⠽ ⠉⠓⠁⠝⠛⠊⠝⠛  
+⠊⠞⠎ ⠎⠓⠁⠏⠑⠂ ⠃⠥⠞ ⠃⠑⠉⠁⠥⠎⠑ ⠕⠋ ⠓⠕⠺ ⠍⠥⠉⠓ ⠕⠋   
+⠊⠞⠎ ⠎⠥⠗⠋⠁⠉⠑ ⠊⠎ ⠇⠊⠞ ⠥⠏ ⠃⠽ ⠞⠓⠑ ⠠⠎⠥⠝ ⠁⠎ ⠞⠓⠑
+⠠⠍⠕⠕⠝ ⠞⠗⠁⠧⠑⠇⠎ ⠁⠗⠕⠥⠝⠙ ⠞⠓⠑ ⠠⠑⠁⠗⠞⠓⠲ ⠠⠞⠓⠑⠎⠑ 
+⠙⠊⠋⠋⠑⠗⠑⠝⠞ ⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑⠎ ⠁⠗⠑ ⠉⠁⠇⠇⠑⠙ ⠇⠥⠝⠁⠗  
+⠏⠓⠁⠎⠑⠎⠂ ⠁⠝⠙ ⠞⠓⠑⠗⠑ ⠁⠗⠑ ⠑⠊⠛⠓⠞ ⠕⠋ ⠞⠓⠑⠍⠲    
+⠠⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠛⠕⠑⠎ ⠞⠓⠗⠕⠥⠛⠓ ⠁⠇⠇ ⠞⠓⠑⠎⠑ ⠏⠓⠁⠎⠑⠎
+⠊⠝ ⠁⠃⠕⠥⠞ ⠁ ⠍⠕⠝⠞⠓⠖                       
+                                        
+⠠⠞⠓⠑ ⠠⠍⠕⠕⠝⠄⠎ ⠠⠑⠊⠛⠓⠞ ⠠⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑⠎        
+⠠⠇⠑⠞⠄⠎ ⠑⠭⠏⠇⠕⠗⠑ ⠞⠓⠑ ⠙⠊⠋⠋⠑⠗⠑⠝⠞ ⠺⠁⠽⠎ ⠞⠓⠑   
+⠠⠍⠕⠕⠝ ⠁⠏⠏⠑⠁⠗⠎ ⠞⠕ ⠥⠎⠒                    
+                                        
+⠠⠝⠑⠺ ⠠⠍⠕⠕⠝⠒ ⠠⠊⠍⠁⠛⠊⠝⠑ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎ ⠇⠊⠅⠑ ⠁
+⠟⠥⠊⠑⠞ ⠋⠗⠊⠑⠝⠙⠲ ⠠⠙⠥⠗⠊⠝⠛ ⠁ ⠝⠑⠺ ⠍⠕⠕⠝⠂ ⠊⠞⠄⠎  
+⠏⠕⠎⠊⠞⠊⠕⠝⠑⠙ ⠃⠑⠞⠺⠑⠑⠝ ⠞⠓⠑ ⠠⠎⠥⠝ ⠁⠝⠙ ⠠⠑⠁⠗⠞⠓⠂ 
+⠎⠕ ⠞⠓⠑ ⠎⠊⠙⠑ ⠋⠁⠉⠊⠝⠛ ⠥⠎ ⠊⠎⠝⠄⠞ ⠇⠊⠞ ⠥⠏ ⠁⠞   
+⠁⠇⠇⠲ ⠠⠺⠑ ⠉⠁⠝⠄⠞ ⠎⠑⠝⠎⠑ ⠊⠞ ⠊⠝ ⠞⠓⠑ ⠎⠅⠽⠖     
+                                        
+⠠⠛⠑⠞⠞⠊⠝⠛ ⠠⠃⠗⠊⠛⠓⠞⠑⠗⠒ ⠠⠺⠁⠭⠊⠝⠛⠖            
+⠠⠁⠋⠞⠑⠗ ⠞⠓⠑ ⠝⠑⠺ ⠍⠕⠕⠝⠂ ⠁ ⠇⠊⠞⠞⠇⠑ ⠃⠊⠞ ⠕⠋ ⠞⠓⠑
+⠠⠍⠕⠕⠝ ⠎⠞⠁⠗⠞⠎ ⠞⠕ ⠛⠑⠞ ⠇⠊⠛⠓⠞⠂ ⠁⠝⠙ ⠊⠞ ⠛⠑⠞⠎  
+⠃⠗⠊⠛⠓⠞⠑⠗ ⠑⠁⠉⠓ ⠝⠊⠛⠓⠞⠲ ⠠⠞⠓⠊⠎ ⠊⠎ ⠉⠁⠇⠇⠑⠙    
+⠺⠁⠭⠊⠝⠛⠲ ⠠⠞⠓⠊⠝⠅ ⠕⠋ ⠊⠞ ⠇⠊⠅⠑ ⠎⠕⠍⠑⠞⠓⠊⠝⠛     
+⠎⠇⠕⠺⠇⠽ ⠛⠗⠕⠺⠊⠝⠛ ⠃⠊⠛⠛⠑⠗ ⠁⠝⠙ ⠃⠗⠊⠛⠓⠞⠑⠗⠲     
+                                        
+⠠⠺⠁⠭⠊⠝⠛ ⠠⠉⠗⠑⠎⠉⠑⠝⠞⠒ ⠠⠞⠓⠊⠎ ⠊⠎ ⠺⠓⠑⠝ ⠺⠑ ⠉⠁⠝ 
+⠝⠕⠞⠊⠉⠑ ⠚⠥⠎⠞ ⠁ ⠞⠊⠝⠽⠂ ⠃⠗⠊⠛⠓⠞ ⠉⠥⠗⠧⠑ ⠕⠋ ⠞⠓⠑ 
+⠠⠍⠕⠕⠝⠲ ⠠⠇⠑⠎⠎ ⠞⠓⠁⠝ ⠓⠁⠇⠋ ⠕⠋ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎  
+⠇⠊⠞⠲ ⠠⠎⠊⠝⠉⠑ ⠊⠞⠄⠎ ⠺⠁⠭⠊⠝⠛⠂ ⠞⠓⠊⠎ ⠃⠗⠊⠛⠓⠞    
+⠉⠥⠗⠧⠑ ⠊⠎ ⠕⠝ ⠞⠓⠑ ⠗⠊⠛⠓⠞ ⠎⠊⠙⠑ ⠕⠋ ⠞⠓⠑ ⠠⠍⠕⠕⠝⠲
+                                        
+⠠⠋⠊⠗⠎⠞ ⠠⠟⠥⠁⠗⠞⠑⠗⠒ ⠠⠝⠕⠺⠂ ⠓⠁⠇⠋ ⠕⠋ ⠞⠓⠑ ⠠⠍⠕⠕⠝
+⠋⠑⠑⠇⠎ ⠃⠗⠊⠛⠓⠞⠖ ⠠⠑⠧⠑⠝ ⠞⠓⠕⠥⠛⠓ ⠊⠞⠄⠎ ⠉⠁⠇⠇⠑⠙  
+⠐⠦⠋⠊⠗⠎⠞ ⠟⠥⠁⠗⠞⠑⠗⠂⠐⠦ ⠊⠞ ⠍⠑⠁⠝⠎ ⠞⠓⠑ ⠠⠍⠕⠕⠝   
+⠓⠁⠎ ⠋⠊⠝⠊⠎⠓⠑⠙ ⠕⠝⠑⠤⠋⠕⠥⠗⠞⠓ ⠕⠋ ⠊⠞⠎ ⠞⠗⠊⠏     
+⠁⠗⠕⠥⠝⠙ ⠠⠑⠁⠗⠞⠓⠲ ⠠⠞⠓⠑ ⠗⠊⠛⠓⠞ ⠓⠁⠇⠋ ⠊⠎       
+⠃⠗⠊⠛⠓⠞⠲                                 
+                                        
+⠠⠺⠁⠭⠊⠝⠛ ⠠⠛⠊⠃⠃⠕⠥⠎⠒ ⠠⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎ ⠛⠑⠞⠞⠊⠝⠛ 
+⠑⠧⠑⠝ ⠃⠗⠊⠛⠓⠞⠑⠗ ⠝⠕⠺⠖ ⠠⠍⠕⠗⠑ ⠞⠓⠁⠝ ⠓⠁⠇⠋ ⠕⠋ ⠊⠞
+⠊⠎ ⠇⠊⠞⠂ ⠃⠥⠞ ⠊⠞⠄⠎ ⠝⠕⠞ ⠁ ⠋⠥⠇⠇ ⠉⠊⠗⠉⠇⠑ ⠽⠑⠞⠲ 
+⠠⠞⠓⠑ ⠃⠗⠊⠛⠓⠞ ⠏⠁⠗⠞ ⠊⠎ ⠎⠞⠊⠇⠇ ⠕⠝ ⠞⠓⠑ ⠗⠊⠛⠓⠞  
+⠎⠊⠙⠑ ⠃⠑⠉⠁⠥⠎⠑ ⠊⠞⠄⠎ ⠺⠁⠭⠊⠝⠛⠲               
+                                        
+⠠⠞⠓⠑ ⠠⠃⠊⠛ ⠠⠃⠗⠊⠛⠓⠞ ⠠⠍⠕⠕⠝                 
+⠠⠋⠥⠇⠇ ⠠⠍⠕⠕⠝⠒ ⠠⠺⠕⠺⠖ ⠠⠞⠓⠊⠎ ⠊⠎ ⠺⠓⠑⠝ ⠞⠓⠑    
+⠑⠝⠞⠊⠗⠑ ⠠⠍⠕⠕⠝ ⠋⠑⠑⠇⠎ ⠉⠕⠍⠏⠇⠑⠞⠑⠇⠽ ⠃⠗⠊⠛⠓⠞⠂   
+⠇⠊⠅⠑ ⠁ ⠇⠁⠗⠛⠑⠂ ⠛⠇⠕⠺⠊⠝⠛ ⠉⠊⠗⠉⠇⠑⠲ ⠠⠊⠞⠄⠎     
+⠕⠋⠞⠑⠝ ⠑⠁⠎⠽ ⠞⠕ ⠝⠕⠞⠊⠉⠑ ⠁⠝⠙ ⠋⠑⠑⠇⠎ ⠎⠕       
+⠃⠗⠊⠛⠓⠞⠖ ⠠⠞⠓⠑ ⠠⠑⠁⠗⠞⠓ ⠊⠎ ⠗⠊⠛⠓⠞ ⠃⠑⠞⠺⠑⠑⠝ ⠞⠓⠑
+⠠⠎⠥⠝ ⠁⠝⠙ ⠞⠓⠑ ⠠⠍⠕⠕⠝⠂ ⠎⠕ ⠺⠑ ⠑⠭⠏⠑⠗⠊⠑⠝⠉⠑ ⠞⠓⠑
+⠠⠍⠕⠕⠝⠄⠎ ⠋⠥⠇⠇⠽ ⠇⠊⠞ ⠎⠊⠙⠑⠲ ⠠⠁⠋⠞⠑⠗ ⠞⠓⠊⠎⠂ ⠞⠓⠑
+⠠⠍⠕⠕⠝ ⠎⠞⠁⠗⠞⠎ ⠞⠕ ⠁⠏⠏⠑⠁⠗ ⠐⠦⠎⠍⠁⠇⠇⠑⠗⠐⠦      
+⠁⠛⠁⠊⠝⠲                                  
+                                        
+⠠⠛⠑⠞⠞⠊⠝⠛ ⠠⠎⠍⠁⠇⠇⠑⠗⠒ ⠠⠺⠁⠝⠊⠝⠛⠖             
+⠠⠕⠝⠉⠑ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎ ⠋⠥⠇⠇⠂ ⠞⠓⠑ ⠃⠗⠊⠛⠓⠞ ⠏⠁⠗⠞
+⠎⠞⠁⠗⠞⠎ ⠞⠕ ⠛⠑⠞ ⠎⠍⠁⠇⠇⠑⠗ ⠁⠝⠙ ⠎⠍⠁⠇⠇⠑⠗ ⠑⠁⠉⠓  
+⠝⠊⠛⠓⠞⠲ ⠠⠞⠓⠊⠎ ⠊⠎ ⠉⠁⠇⠇⠑⠙ ⠺⠁⠝⠊⠝⠛⠲ ⠠⠊⠍⠁⠛⠊⠝⠑ 
+⠎⠕⠍⠑⠞⠓⠊⠝⠛ ⠎⠇⠕⠺⠇⠽ ⠙⠊⠍⠊⠝⠊⠎⠓⠊⠝⠛ ⠊⠝ ⠎⠊⠵⠑⠲   
+                                        
+⠠⠺⠁⠝⠊⠝⠛ ⠠⠛⠊⠃⠃⠕⠥⠎⠒ ⠠⠚⠥⠎⠞ ⠇⠊⠅⠑ ⠞⠓⠑ ⠺⠁⠭⠊⠝⠛ 
+⠛⠊⠃⠃⠕⠥⠎⠂ ⠍⠕⠗⠑ ⠞⠓⠁⠝ ⠓⠁⠇⠋ ⠕⠋ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠊⠎ 
+⠎⠞⠊⠇⠇ ⠇⠊⠞⠂ ⠃⠥⠞ ⠝⠕⠺ ⠞⠓⠑ ⠃⠗⠊⠛⠓⠞ ⠁⠗⠑⠁ ⠊⠎   
+⠛⠑⠞⠞⠊⠝⠛ ⠎⠍⠁⠇⠇⠑⠗⠲ ⠠⠞⠓⠑ ⠇⠊⠞ ⠏⠁⠗⠞ ⠊⠎ ⠕⠝ ⠞⠓⠑
+⠇⠑⠋⠞ ⠎⠊⠙⠑⠲                              
+                                        
+⠠⠇⠁⠎⠞ ⠠⠟⠥⠁⠗⠞⠑⠗⠒ ⠠⠁⠛⠁⠊⠝⠂ ⠓⠁⠇⠋ ⠕⠋ ⠞⠓⠑     
+⠠⠍⠕⠕⠝ ⠊⠎ ⠇⠊⠞⠂ ⠃⠥⠞ ⠝⠕⠺ ⠊⠞⠄⠎ ⠞⠓⠑ ⠇⠑⠋⠞     
+⠓⠁⠇⠋⠲ ⠠⠞⠓⠊⠎ ⠍⠑⠁⠝⠎ ⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠓⠁⠎         
+⠉⠕⠍⠏⠇⠑⠞⠑⠙ ⠞⠓⠗⠑⠑⠤⠋⠕⠥⠗⠞⠓⠎ ⠕⠋ ⠊⠞⠎ ⠚⠕⠥⠗⠝⠑⠽  
+⠁⠗⠕⠥⠝⠙ ⠠⠑⠁⠗⠞⠓⠲                          
+                                        
+⠠⠺⠁⠝⠊⠝⠛ ⠠⠉⠗⠑⠎⠉⠑⠝⠞⠒ ⠠⠞⠓⠊⠎ ⠊⠎ ⠞⠓⠑ ⠇⠁⠎⠞    
+⠞⠊⠝⠽ ⠎⠇⠊⠧⠑⠗ ⠺⠑ ⠎⠑⠝⠎⠑ ⠃⠑⠋⠕⠗⠑ ⠞⠓⠑ ⠠⠍⠕⠕⠝   
+⠎⠑⠑⠍⠎ ⠞⠕ ⠙⠊⠎⠁⠏⠏⠑⠁⠗ ⠁⠛⠁⠊⠝ ⠋⠕⠗ ⠞⠓⠑ ⠝⠑⠺    
+⠍⠕⠕⠝⠲ ⠠⠊⠞⠄⠎ ⠁ ⠞⠓⠊⠝ ⠉⠥⠗⠧⠑⠂ ⠃⠥⠞ ⠞⠓⠊⠎ ⠞⠊⠍⠑ 
+⠊⠞⠄⠎ ⠕⠝ ⠞⠓⠑ ⠇⠑⠋⠞ ⠎⠊⠙⠑⠂ ⠎⠓⠕⠺⠊⠝⠛ ⠊⠞⠄⠎     
+⠎⠞⠊⠇⠇ ⠺⠁⠝⠊⠝⠛⠲                           
+                                        
+⠠⠞⠓⠑ ⠠⠍⠕⠕⠝⠄⠎ ⠠⠉⠕⠝⠞⠊⠝⠥⠕⠥⠎ ⠠⠙⠁⠝⠉⠑         
+⠠⠞⠓⠑ ⠠⠍⠕⠕⠝ ⠅⠑⠑⠏⠎ ⠛⠕⠊⠝⠛ ⠁⠗⠕⠥⠝⠙ ⠁⠝⠙ ⠁⠗⠕⠥⠝⠙
+⠞⠓⠑ ⠠⠑⠁⠗⠞⠓⠂ ⠉⠓⠁⠝⠛⠊⠝⠛ ⠓⠕⠺ ⠊⠞ ⠁⠏⠏⠑⠁⠗⠎ ⠋⠗⠕⠍
+⠃⠗⠊⠛⠓⠞⠑⠗ ⠐⠣⠺⠁⠭⠊⠝⠛⠐⠜ ⠞⠕ ⠙⠊⠍⠍⠑⠗           
+⠐⠣⠺⠁⠝⠊⠝⠛⠐⠜⠂ ⠕⠧⠑⠗ ⠁⠝⠙ ⠕⠧⠑⠗ ⠁⠛⠁⠊⠝⠲ ⠠⠊⠞⠄⠎  
+⠇⠊⠅⠑ ⠁ ⠝⠑⠧⠑⠗⠤⠑⠝⠙⠊⠝⠛ ⠉⠽⠉⠇⠑ ⠊⠝ ⠞⠓⠑ ⠎⠅⠽⠖   
+⠠⠝⠕⠺ ⠽⠕⠥ ⠅⠝⠕⠺ ⠁⠇⠇ ⠑⠊⠛⠓⠞ ⠕⠋ ⠞⠓⠑ ⠠⠍⠕⠕⠝⠄⠎  
+⠁⠍⠁⠵⠊⠝⠛ ⠏⠓⠁⠎⠑⠎⠖ ⠠⠊⠎⠝⠄⠞ ⠞⠓⠁⠞ ⠉⠕⠕⠇⠦       `;
+
+        document.getElementById('embosserText').value = ` understanding the  moon's  changing    
+ looks                                  
+ have you ever thought about how the    
+ moon appears to change in the night    
+sky?  sometimes it feels like a tiny    
+sliver, other times it feels like a big,
+bright circle!  these changes are not   
+because the  moon is actually changing  
+its shape, but because of how much of   
+its surface is lit up by the  sun as the
+ moon travels around the  earth.  these 
+different appearances are called lunar  
+phases, and there are eight of them.    
+ the  moon goes through all these phases
+in about a month!                       
+                                        
+ the  moon's  eight  appearances        
+ let's explore the different ways the   
+ moon appears to us:                    
+                                        
+ new  moon:  imagine the  moon is like a
+quiet friend.  during a new moon, it's  
+positioned between the  sun and  earth, 
+so the side facing us isn't lit up at   
+                                      #a
+
+all.  we can't sense it in the sky!     
+                                        
+ getting  brighter:  waxing!            
+ after the new moon, a little bit of the
+ moon starts to get light, and it gets  
+brighter each night.  this is called    
+waxing.  think of it like something     
+slowly growing bigger and brighter.     
+                                        
+ waxing  crescent:  this is when we can 
+notice just a tiny, bright curve of the 
+ moon.  less than half of the  moon is  
+lit.  since it's waxing, this bright    
+curve is on the right side of the  moon.
+                                        
+ first  quarter:  now, half of the  moon
+feels bright!  even though it's called  
+ ?first quarter, ? it means the  moon   
+has finished one-fourth of its trip     
+around  earth.  the right half is       
+bright.                                 
+                                        
+ waxing  gibbous:  the  moon is getting 
+even brighter now!  more than half of it
+                                      #b
+
+is lit, but it's not a full circle yet. 
+ the bright part is still on the right  
+side because it's waxing.               
+                                        
+ the  big  bright  moon                 
+ full  moon:  wow!  this is when the    
+entire  moon feels completely bright,   
+like a large, glowing circle.  it's     
+often easy to notice and feels so       
+bright!  the  earth is right between the
+ sun and the  moon, so we experience the
+ moon's fully lit side.  after this, the
+ moon starts to appear  ?smaller ?      
+again.                                  
+                                        
+ getting  smaller:  waning!             
+ once the  moon is full, the bright part
+starts to get smaller and smaller each  
+night.  this is called waning.  imagine 
+something slowly diminishing in size.   
+                                        
+ waning  gibbous:  just like the waxing 
+gibbous, more than half of the  moon is 
+still lit, but now the bright area is   
+                                      #c
+
+getting smaller.  the lit part is on the
+left side.                              
+                                        
+ last  quarter:  again, half of the     
+ moon is lit, but now it's the left     
+half.  this means the  moon has         
+completed three-fourths of its journey  
+around  earth.                          
+                                        
+ waning  crescent:  this is the last    
+tiny sliver we sense before the  moon   
+seems to disappear again for the new    
+moon.  it's a thin curve, but this time 
+it's on the left side, showing it's     
+still waning.                           
+                                        
+ the  moon's  continuous  dance         
+ the  moon keeps going around and around
+the  earth, changing how it appears from
+brighter   waxing   to dimmer           
+  waning  , over and over again.  it's  
+like a never-ending cycle in the sky!   
+ now you know all eight of the  moon's  
+amazing phases!  isn't that cool?       
+                                      #d
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                      #e`;
         
         // Update stats
         document.getElementById('videoDuration').textContent = '8:32';
@@ -5653,30 +5853,89 @@ document.addEventListener('DOMContentLoaded', function() {
         "Moon Phases": {
             title: "Moon Phases",
             content: "The moon's appearance changes dramatically as it orbits Earth, creating eight distinct phases that have fascinated humanity for millennia. The lunar cycle, also known as the lunation, takes approximately 29.5 days to complete and results from the changing positions of the Moon, Earth, and Sun. The New Moon marks the beginning of the lunar cycle, positioned between Earth and the Sun, making it invisible from our perspective. As the moon moves in its orbit, we begin to see the waxing phases, where the illuminated portion grows larger each night, leading to the spectacular Full Moon phase.",
-            brailleText: "⠠⠞⠓⠑ ⠍⠕⠕⠝⠄⠎ ⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑ ⠉⠓⠁⠝⠛⠑⠎ ⠙⠗⠁⠍⠁⠞⠊⠉⠁⠇⠇⠽ ⠁⠎ ⠊⠞ ⠕⠗⠃⠊⠞⠎ ⠠⠑⠁⠗⠞⠓⠂ ⠉⠗⠑⠁⠞⠊⠝⠛ ⠑⠊⠛⠓⠞ ⠙⠊⠎⠞⠊⠝⠉⠞ ⠏⠓⠁⠎⠑⠎ ⠞⠓⠁⠞ ⠓⠁⠧⠑ ⠋⠁⠎⠉⠊⠝⠁⠞⠑⠙ ⠓⠥⠍⠁⠝⠊⠞⠽ ⠋⠕⠗ ⠍⠊⠇⠇⠑⠝⠝⠊⠁⠲ ⠠⠞⠓⠑ ⠇⠥⠝⠁⠗ ⠉⠽⠉⠇⠑⠂ ⠁⠇⠎⠕ ⠅⠝⠕⠺⠝ ⠁⠎ ⠞⠓⠑ ⠇⠥⠝⠁⠞⠊⠕⠝⠂ ⠞⠁⠅⠑⠎ ⠁⠏⠏⠗⠕⠭⠊⠍⠁⠞⠑⠇⠽ ⠼⠃⠊⠲⠑ ⠙⠁⠽⠎ ⠞⠕ ⠉⠕⠍⠏⠇⠑⠞⠑⠲"
+            brailleText: "⠠⠞⠓⠑ ⠍⠕⠕⠝⠎ ⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑ ⠉⠓⠁⠝⠛⠑⠎ ⠙⠗⠁⠍⠁⠞⠊⠉⠁⠇⠇⠽ ⠁⠎ ⠊⠞ ⠕⠗⠃⠊⠞⠎ ⠠⠑⠁⠗⠞⠓ ⠉⠗⠑⠁⠞⠊⠝⠛ ⠑⠊⠛⠓⠞ ⠙⠊⠎⠞⠊⠝⠉⠞ ⠏⠓⠁⠎⠑⠎ ⠞⠓⠁⠞ ⠓⠁⠧⠑ ⠋⠁⠎⠉⠊⠝⠁⠞⠑⠙ ⠓⠥⠍⠁⠝⠊⠞⠽ ⠋⠕⠗ ⠍⠊⠇⠇⠑⠝⠝⠊⠁⠲ ⠠⠞⠓⠑ ⠇⠥⠝⠁⠗ ⠉⠽⠉⠇⠑ ⠁⠇⠎⠕ ⠅⠝⠕⠺⠝ ⠁⠎ ⠞⠓⠑ ⠇⠥⠝⠁⠞⠊⠕⠝ ⠞⠁⠅⠑⠎ ⠁⠏⠏⠗⠕⠭⠊⠍⠁⠞⠑⠇⠽ ⠼⠃⠊⠲⠑ ⠙⠁⠽⠎ ⠞⠕ ⠉⠕⠍⠏⠇⠑⠞⠑ ⠁⠝⠙ ⠗⠑⠎⠥⠇⠞⠎ ⠋⠗⠕⠍ ⠞⠓⠑ ⠉⠓⠁⠝⠛⠊⠝⠛ ⠏⠕⠎⠊⠞⠊⠕⠝⠎ ⠕⠋ ⠞⠓⠑ ⠍⠕⠕⠝ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠎⠥⠝ ⠠⠞⠓⠑ ⠝⠑⠺ ⠍⠕⠕⠝ ⠍⠁⠗⠅⠎ ⠞⠓⠑ ⠃⠑⠛⠊⠝⠝⠊⠝⠛ ⠕⠋ ⠞⠓⠑ ⠇⠥⠝⠁⠗ ⠉⠽⠉⠇⠑ ⠏⠕⠎⠊⠞⠊⠕⠝⠑⠙ ⠃⠑⠞⠺⠑⠑⠝ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠞⠓⠑ ⠠⠎⠥⠝ ⠍⠁⠅⠊⠝⠛ ⠊⠞ ⠊⠝⠧⠊⠎⠊⠃⠇⠑ ⠋⠗⠕⠍ ⠕⠥⠗ ⠏⠑⠗⠎⠏⠑⠉⠞⠊⠧⠑ ⠁⠎ ⠞⠓⠑ ⠍⠕⠕⠝ ⠍⠕⠧⠑⠎ ⠊⠝ ⠊⠞⠎ ⠕⠗⠃⠊⠞ ⠺⠑ ⠃⠑⠛⠊⠝ ⠞⠕ ⠎⠑⠑ ⠞⠓⠑ ⠺⠁⠭⠊⠝⠛ ⠏⠓⠁⠎⠑⠎ ⠺⠓⠑⠗⠑ ⠞⠓⠑ ⠊⠇⠇⠥⠍⠊⠝⠁⠞⠑⠙ ⠏⠕⠗⠞⠊⠕⠝ ⠛⠗⠕⠺⠎ ⠇⠁⠗⠛⠑⠗ ⠑⠁⠉⠓ ⠝⠊⠛⠓⠞ ⠇⠑⠁⠙⠊⠝⠛ ⠞⠕ ⠞⠓⠑ ⠎⠏⠑⠉⠞⠁⠉⠥⠇⠁⠗ ⠠⠋⠥⠇⠇ ⠍⠕⠕⠝ ⠏⠓⠁⠎⠑"
         },
         "Solar System": {
             title: "Solar System",
             content: "The Solar System consists of the Sun, eight planets, their moons, and various other celestial objects. The planets orbit the Sun in elliptical paths, with the inner planets being rocky and the outer planets being gas giants. Mercury, Venus, Earth, and Mars are the terrestrial planets, while Jupiter, Saturn, Uranus, and Neptune are the gas giants. Each planet has unique characteristics that make it special in our cosmic neighborhood.",
-            brailleText: "⠠⠞⠓⠑ ⠠⠎⠕⠇⠁⠗ ⠠⠎⠽⠎⠞⠑⠍ ⠉⠕⠝⠎⠊⠎⠞⠎ ⠕⠋ ⠞⠓⠑ ⠠⠎⠥⠝⠂ ⠑⠊⠛⠓⠞ ⠏⠇⠁⠝⠑⠞⠎⠂ ⠞⠓⠑⠊⠗ ⠍⠕⠕⠝⠎⠂ ⠁⠝⠙ ⠧⠁⠗⠊⠕⠥⠎ ⠕⠞⠓⠑⠗ ⠉⠑⠇⠑⠎⠞⠊⠁⠇ ⠕⠃⠚⠑⠉⠞⠎⠲ ⠠⠞⠓⠑ ⠏⠇⠁⠝⠑⠞⠎ ⠕⠗⠃⠊⠞ ⠞⠓⠑ ⠠⠎⠥⠝ ⠊⠝ ⠑⠇⠇⠊⠏⠞⠊⠉⠁⠇ ⠏⠁⠞⠓⠎⠲"
+            brailleText: "⠠⠞⠓⠑ ⠠⠎⠕⠇⠁⠗ ⠠⠎⠽⠎⠞⠑⠍ ⠉⠕⠝⠎⠊⠎⠞⠎ ⠕⠋ ⠞⠓⠑ ⠠⠎⠥⠝ ⠑⠊⠛⠓⠞ ⠏⠇⠁⠝⠑⠞⠎ ⠞⠓⠑⠊⠗ ⠍⠕⠕⠝⠎ ⠁⠝⠙ ⠧⠁⠗⠊⠕⠥⠎ ⠕⠞⠓⠑⠗ ⠉⠑⠇⠑⠎⠞⠊⠁⠇ ⠕⠃⠚⠑⠉⠞⠎⠲ ⠠⠞⠓⠑ ⠏⠇⠁⠝⠑⠞⠎ ⠕⠗⠃⠊⠞ ⠞⠓⠑ ⠠⠎⠥⠝ ⠊⠝ ⠑⠇⠇⠊⠏⠞⠊⠉⠁⠇ ⠏⠁⠞⠓⠎ ⠺⠊⠞⠓ ⠞⠓⠑ ⠊⠝⠝⠑⠗ ⠏⠇⠁⠝⠑⠞⠎ ⠃⠑⠊⠝⠛ ⠗⠕⠉⠅⠽ ⠁⠝⠙ ⠞⠓⠑ ⠕⠥⠞⠑⠗ ⠏⠇⠁⠝⠑⠞⠎ ⠃⠑⠊⠝⠛ ⠛⠁⠎ ⠛⠊⠁⠝⠞⠎⠲ ⠠⠍⠑⠗⠉⠥⠗⠽ ⠠⠧⠑⠝⠥⠎ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠠⠍⠁⠗⠎ ⠁⠗⠑ ⠞⠓⠑ ⠞⠑⠗⠗⠑⠎⠞⠗⠊⠁⠇ ⠏⠇⠁⠝⠑⠞⠎⠂ ⠺⠓⠊⠇⠑ ⠠⠚⠥⠏⠊⠞⠑⠗⠂ ⠠⠎⠁⠞⠥⠗⠝⠂ ⠠⠥⠗⠁⠝⠥⠎ ⠁⠝⠙ ⠠⠝⠑⠏⠞⠥⠝⠑ ⠁⠗⠑ ⠞⠓⠑ ⠛⠁⠎ ⠛⠊⠁⠝⠞⠎⠲ ⠑⠁⠉⠓ ⠏⠇⠁⠝⠑⠞ ⠓⠁⠎ ⠥⠝⠊⠟⠥⠑ ⠉⠓⠁⠗⠁⠉⠞⠑⠗⠊⠎⠞⠊⠉⠎ ⠞⠓⠁⠞ ⠍⠁⠅⠑ ⠊⠞ ⠎⠏⠑⠉⠊⠁⠇ ⠊⠝ ⠕⠥⠗ ⠉⠕⠎⠍⠊⠉ ⠝⠑⠊⠛⠓⠃⠕⠗⠓⠕⠕⠙"
         },
         "Ocean Life": {
             title: "Ocean Life",
             content: "Ocean life encompasses an incredible diversity of organisms, from microscopic plankton to massive whales. The ocean is divided into different zones based on depth and light penetration. Marine ecosystems include coral reefs, kelp forests, and deep-sea trenches, each supporting unique communities of life adapted to their specific environments.",
-            brailleText: "⠠⠕⠉⠑⠁⠝ ⠇⠊⠋⠑ ⠑⠝⠉⠕⠍⠏⠁⠎⠎⠑⠎ ⠁⠝ ⠊⠝⠉⠗⠑⠙⠊⠃⠇⠑ ⠙⠊⠧⠑⠗⠎⠊⠞⠽ ⠕⠋ ⠕⠗⠛⠁⠝⠊⠎⠍⠎⠂ ⠋⠗⠕⠍ ⠍⠊⠉⠗⠕⠎⠉⠕⠏⠊⠉ ⠏⠇⠁⠝⠅⠞⠕⠝ ⠞⠕ ⠍⠁⠎⠎⠊⠧⠑ ⠺⠓⠁⠇⠑⠎⠲"
+            brailleText: "⠕⠉⠑⠁⠝ ⠇⠊⠋⠑ ⠑⠝⠉⠕⠍⠏⠁⠎⠎⠑⠎ ⠁⠝ ⠊⠝⠉⠗⠑⠙⠊⠃⠇⠑ ⠙⠊⠧⠑⠗⠎⠊⠞⠽ ⠕⠋ ⠕⠗⠛⠁⠝⠊⠎⠍⠎ ⠋⠗⠕⠍ ⠍⠊⠉⠗⠕⠎⠉⠕⠏⠊⠉ ⠏⠇⠁⠝⠅⠞⠕⠝ ⠞⠕ ⠍⠁⠎⠎⠊⠧⠑ ⠺⠓⠁⠇⠑⠎ ⠞⠓⠑ ⠕⠉⠑⠁⠝ ⠊⠎ ⠙⠊⠧⠊⠙⠑⠙ ⠊⠝⠞⠕ ⠙⠊⠋⠋⠑⠗⠑⠝⠞ ⠵⠕⠝⠑⠎ ⠃⠁⠎⠑⠙ ⠕⠝ ⠙⠑⠏⠞⠓ ⠁⠝⠙ ⠇⠊⠛⠓⠞ ⠏⠑⠝⠑⠞⠗⠁⠞⠊⠕⠝ ⠍⠁⠗⠊⠝⠑ ⠑⠉⠕⠎⠽⠎⠞⠑⠍⠎ ⠊⠝⠉⠇⠥⠙⠑ ⠉⠕⠗⠁⠇ ⠗⠑⠑⠋⠎ ⠅⠑⠇⠏ ⠋⠕⠗⠑⠎⠞⠎ ⠁⠝⠙ ⠙⠑⠑⠏ ⠎⠑⠁ ⠞⠗⠑⠝⠉⠓⠑⠎ ⠑⠁⠉⠓ ⠎⠥⠏⠏⠕⠗⠞⠊⠝⠛ ⠥⠝⠊⠟⠥⠑ ⠉⠕⠍⠍⠥⠝⠊⠞⠊⠑⠎ ⠕⠋ ⠇⠊⠋⠑ ⠁⠙⠁⠏⠞⠑⠙ ⠞⠕ ⠞⠓⠑⠊⠗ ⠎⠏⠑⠉⠊⠋⠊⠉ ⠑⠝⠧⠊⠗⠕⠝⠍⠑⠝⠞⠎"
         },
         "Plant Growth": {
             title: "Plant Growth", 
             content: "Plant growth involves the process of photosynthesis, root development, and cellular division. Plants grow toward light sources and develop specialized tissues for transport and support. The life cycle includes germination, vegetative growth, flowering, and reproduction, with each stage requiring specific environmental conditions.",
-            brailleText: "⠠⠏⠇⠁⠝⠞ ⠛⠗⠕⠺⠞⠓ ⠊⠝⠧⠕⠇⠧⠑⠎ ⠞⠓⠑ ⠏⠗⠕⠉⠑⠎⠎ ⠕⠋ ⠏⠓⠕⠞⠕⠎⠽⠝⠞⠓⠑⠎⠊⠎⠂ ⠗⠕⠕⠞ ⠙⠑⠧⠑⠇⠕⠏⠍⠑⠝⠞⠂ ⠁⠝⠙ ⠉⠑⠇⠇⠥⠇⠁⠗ ⠙⠊⠧⠊⠎⠊⠕⠝⠲"
+            brailleText: "⠏⠇⠁⠝⠞ ⠛⠗⠕⠺⠞⠓ ⠊⠝⠧⠕⠇⠧⠑⠎ ⠞⠓⠑ ⠏⠗⠕⠉⠑⠎⠎ ⠕⠋ ⠏⠓⠕⠞⠕⠎⠽⠝⠞⠓⠑⠎⠊⠎ ⠗⠕⠕⠞ ⠙⠑⠧⠑⠇⠕⠏⠍⠑⠝⠞ ⠁⠝⠙ ⠉⠑⠇⠇⠥⠇⠁⠗ ⠙⠊⠧⠊⠎⠊⠕⠝ ⠏⠇⠁⠝⠞⠎ ⠛⠗⠕⠺ ⠞⠕⠺⠁⠗⠙ ⠇⠊⠛⠓⠞ ⠎⠕⠥⠗⠉⠑⠎ ⠁⠝⠙ ⠙⠑⠧⠑⠇⠕⠏ ⠎⠏⠑⠉⠊⠁⠇⠊⠵⠑⠙ ⠞⠊⠎⠎⠥⠑⠎ ⠋⠕⠗ ⠞⠗⠁⠝⠎⠏⠕⠗⠞ ⠁⠝⠙ ⠎⠥⠏⠏⠕⠗⠞ ⠞⠓⠑ ⠇⠊⠋⠑ ⠉⠽⠉⠇⠑ ⠊⠝⠉⠇⠥⠙⠑⠎ ⠛⠑⠗⠍⠊⠝⠁⠞⠊⠕⠝ ⠧⠑⠛⠑⠞⠁⠞⠊⠧⠑ ⠛⠗⠕⠺⠞⠓ ⠋⠇⠕⠺⠑⠗⠊⠝⠛ ⠁⠝⠙ ⠗⠑⠏⠗⠕⠙⠥⠉⠞⠊⠕⠝ ⠺⠊⠞⠓ ⠑⠁⠉⠓ ⠎⠞⠁⠛⠑ ⠗⠑⠟⠥⠊⠗⠊⠝⠛ ⠎⠏⠑⠉⠊⠋⠊⠉ ⠑⠝⠧⠊⠗⠕⠝⠍⠑⠝⠞⠁⠇ ⠉⠕⠝⠙⠊⠞⠊⠕⠝⠎"
         }
     };
+
+    const brailleArtLearningContent = {
+        "Human Heart": {
+            title: "Human Heart",
+            caption: " Figure: Human Heart, you can ask Dhvani for more details about the human heart.",
+            brailleArt: "⠠⠞⠓⠑ ⠍⠕⠕⠝⠎ ⠁⠏⠏⠑⠁⠗⠁⠝⠉⠑ ⠉⠓⠁⠝⠛⠑⠎ ⠙⠗⠁⠍⠁⠞⠊⠉⠁⠇⠇⠽ ⠁⠎ ⠊⠞ ⠕⠗⠃⠊⠞⠎ ⠠⠑⠁⠗⠞⠓ ⠉⠗⠑⠁⠞⠊⠝⠛ ⠑⠊⠛⠓⠞ ⠙⠊⠎⠞⠊⠝⠉⠞ ⠏⠓⠁⠎⠑⠎ ⠞⠓⠁⠞ ⠓⠁⠧⠑ ⠋⠁⠎⠉⠊⠝⠁⠞⠑⠙ ⠓⠥⠍⠁⠝⠊⠞⠽ ⠋⠕⠗ ⠍⠊⠇⠇⠑⠝⠝⠊⠁⠲ ⠠⠞⠓⠑ ⠇⠥⠝⠁⠗ ⠉⠽⠉⠇⠑ ⠁⠇⠎⠕ ⠅⠝⠕⠺⠝ ⠁⠎ ⠞⠓⠑ ⠇⠥⠝⠁⠞⠊⠕⠝ ⠞⠁⠅⠑⠎ ⠁⠏⠏⠗⠕⠭⠊⠍⠁⠞⠑⠇⠽ ⠼⠃⠊⠲⠑ ⠙⠁⠽⠎ ⠞⠕ ⠉⠕⠍⠏⠇⠑⠞⠑ ⠁⠝⠙ ⠗⠑⠎⠥⠇⠞⠎ ⠋⠗⠕⠍ ⠞⠓⠑ ⠉⠓⠁⠝⠛⠊⠝⠛ ⠏⠕⠎⠊⠞⠊⠕⠝⠎ ⠕⠋ ⠞⠓⠑ ⠍⠕⠕⠝ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠎⠥⠝ ⠠⠞⠓⠑ ⠝⠑⠺ ⠍⠕⠕⠝ ⠍⠁⠗⠅⠎ ⠞⠓⠑ ⠃⠑⠛⠊⠝⠝⠊⠝⠛ ⠕⠋ ⠞⠓⠑ ⠇⠥⠝⠁⠗ ⠉⠽⠉⠇⠑ ⠏⠕⠎⠊⠞⠊⠕⠝⠑⠙ ⠃⠑⠞⠺⠑⠑⠝ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠞⠓⠑ ⠠⠎⠥⠝ ⠍⠁⠅⠊⠝⠛ ⠊⠞ ⠊⠝⠧⠊⠎⠊⠃⠇⠑ ⠋⠗⠕⠍ ⠕⠥⠗ ⠏⠑⠗⠎⠏⠑⠉⠞⠊⠧⠑ ⠁⠎ ⠞⠓⠑ ⠍⠕⠕⠝ ⠍⠕⠧⠑⠎ ⠊⠝ ⠊⠞⠎ ⠕⠗⠃⠊⠞ ⠺⠑ ⠃⠑⠛⠊⠝ ⠞⠕ ⠎⠑⠑ ⠞⠓⠑ ⠺⠁⠭⠊⠝⠛ ⠏⠓⠁⠎⠑⠎ ⠺⠓⠑⠗⠑ ⠞⠓⠑ ⠊⠇⠇⠥⠍⠊⠝⠁⠞⠑⠙ ⠏⠕⠗⠞⠊⠕⠝ ⠛⠗⠕⠺⠎ ⠇⠁⠗⠛⠑⠗ ⠑⠁⠉⠓ ⠝⠊⠛⠓⠞ ⠇⠑⠁⠙⠊⠝⠛ ⠞⠕ ⠞⠓⠑ ⠎⠏⠑⠉⠞⠁⠉⠥⠇⠁⠗ ⠠⠋⠥⠇⠇ ⠍⠕⠕⠝ ⠏⠓⠁⠎⠑"
+        },
+        "Solar System": {
+            title: "Solar System",
+            caption: "Figure: Solar System, you can ask Dhvani for more details about the solar system.",
+            brailleArt: "⠠⠞⠓⠑ ⠠⠎⠕⠇⠁⠗ ⠠⠎⠽⠎⠞⠑⠍ ⠉⠕⠝⠎⠊⠎⠞⠎ ⠕⠋ ⠞⠓⠑ ⠠⠎⠥⠝ ⠑⠊⠛⠓⠞ ⠏⠇⠁⠝⠑⠞⠎ ⠞⠓⠑⠊⠗ ⠍⠕⠕⠝⠎ ⠁⠝⠙ ⠧⠁⠗⠊⠕⠥⠎ ⠕⠞⠓⠑⠗ ⠉⠑⠇⠑⠎⠞⠊⠁⠇ ⠕⠃⠚⠑⠉⠞⠎⠲ ⠠⠞⠓⠑ ⠏⠇⠁⠝⠑⠞⠎ ⠕⠗⠃⠊⠞ ⠞⠓⠑ ⠠⠎⠥⠝ ⠊⠝ ⠑⠇⠇⠊⠏⠞⠊⠉⠁⠇ ⠏⠁⠞⠓⠎ ⠺⠊⠞⠓ ⠞⠓⠑ ⠊⠝⠝⠑⠗ ⠏⠇⠁⠝⠑⠞⠎ ⠃⠑⠊⠝⠛ ⠗⠕⠉⠅⠽ ⠁⠝⠙ ⠞⠓⠑ ⠕⠥⠞⠑⠗ ⠏⠇⠁⠝⠑⠞⠎ ⠃⠑⠊⠝⠛ ⠛⠁⠎ ⠛⠊⠁⠝⠞⠎⠲ ⠠⠍⠑⠗⠉⠥⠗⠽ ⠠⠧⠑⠝⠥⠎ ⠠⠑⠁⠗⠞⠓ ⠁⠝⠙ ⠠⠍⠁⠗⠎ ⠁⠗⠑ ⠞⠓⠑ ⠞⠑⠗⠗⠑⠎⠞⠗⠊⠁⠇ ⠏⠇⠁⠝⠑⠞⠎⠂ ⠺⠓⠊⠇⠑ ⠠⠚⠥⠏⠊⠞⠑⠗⠂ ⠠⠎⠁⠞⠥⠗⠝⠂ ⠠⠥⠗⠁⠝⠥⠎ ⠁⠝⠙ ⠠⠝⠑⠏⠞⠥⠝⠑ ⠁⠗⠑ ⠞⠓⠑ ⠛⠁⠎ ⠛⠊⠁⠝⠞⠎⠲ ⠑⠁⠉⠓ ⠏⠇⠁⠝⠑⠞ ⠓⠁⠎ ⠥⠝⠊⠟⠥⠑ ⠉⠓⠁⠗⠁⠉⠞⠑⠗⠊⠎⠞⠊⠉⠎ ⠞⠓⠁⠞ ⠍⠁⠅⠑ ⠊⠞ ⠎⠏⠑⠉⠊⠁⠇ ⠊⠝ ⠕⠥⠗ ⠉⠕⠎⠍⠊⠉ ⠝⠑⠊⠛⠓⠃⠕⠗⠓⠕⠕⠙"
+        },
+        "Plant Cell": {
+            title: "Plant Cell",
+            caption: "Figure: Plant Cell, you can ask Dhvani for more details about plant cells.",
+            brailleArt: "⠕⠉⠑⠁⠝ ⠇⠊⠋⠑ ⠑⠝⠉⠕⠍⠏⠁⠎⠎⠑⠎ ⠁⠝ ⠊⠝⠉⠗⠑⠙⠊⠃⠇⠑ ⠙⠊⠧⠑⠗⠎⠊⠞⠽ ⠕⠋ ⠕⠗⠛⠁⠝⠊⠎⠍⠎ ⠋⠗⠕⠍ ⠍⠊⠉⠗⠕⠎⠉⠕⠏⠊⠉ ⠏⠇⠁⠝⠅⠞⠕⠝ ⠞⠕ ⠍⠁⠎⠎⠊⠧⠑ ⠺⠓⠁⠇⠑⠎ ⠞⠓⠑ ⠕⠉⠑⠁⠝ ⠊⠎ ⠙⠊⠧⠊⠙⠑⠙ ⠊⠝⠞⠕ ⠙⠊⠋⠋⠑⠗⠑⠝⠞ ⠵⠕⠝⠑⠎ ⠃⠁⠎⠑⠙ ⠕⠝ ⠙⠑⠏⠞⠓ ⠁⠝⠙ ⠇⠊⠛⠓⠞ ⠏⠑⠝⠑⠞⠗⠁⠞⠊⠕⠝ ⠍⠁⠗⠊⠝⠑ ⠑⠉⠕⠎⠽⠎⠞⠑⠍⠎ ⠊⠝⠉⠇⠥⠙⠑ ⠉⠕⠗⠁⠇ ⠗⠑⠑⠋⠎ ⠅⠑⠇⠏ ⠋⠕⠗⠑⠎⠞⠎ ⠁⠝⠙ ⠙⠑⠑⠏ ⠎⠑⠁ ⠞⠗⠑⠝⠉⠓⠑⠎ ⠑⠁⠉⠓ ⠎⠥⠏⠏⠕⠗⠞⠊⠝⠛ ⠥⠝⠊⠟⠥⠑ ⠉⠕⠍⠍⠥⠝⠊⠞⠊⠑⠎ ⠕⠋ ⠇⠊⠋⠑ ⠁⠙⠁⠏⠞⠑⠙ ⠞⠕ ⠞⠓⠑⠊⠗ ⠎⠏⠑⠉⠊⠋⠊⠉ ⠑⠝⠧⠊⠗⠕⠝⠍⠑⠝⠞⠎"
+        },
+        "Human Brain": {
+            title: "Human Brain", 
+            caption: "Figure: Human Brain, you can ask Dhvani for more details about the human brain.",
+            brailleArt: "⠏⠇⠁⠝⠞ ⠛⠗⠕⠺⠞⠓ ⠊⠝⠧⠕⠇⠧⠑⠎ ⠞⠓⠑ ⠏⠗⠕⠉⠑⠎⠎ ⠕⠋ ⠏⠓⠕⠞⠕⠎⠽⠝⠞⠓⠑⠎⠊⠎ ⠗⠕⠕⠞ ⠙⠑⠧⠑⠇⠕⠏⠍⠑⠝⠞ ⠁⠝⠙ ⠉⠑⠇⠇⠥⠇⠁⠗ ⠙⠊⠧⠊⠎⠊⠕⠝ ⠏⠇⠁⠝⠞⠎ ⠛⠗⠕⠺ ⠞⠕⠺⠁⠗⠙ ⠇⠊⠛⠓⠞ ⠎⠕⠥⠗⠉⠑⠎ ⠁⠝⠙ ⠙⠑⠧⠑⠇⠕⠏ ⠎⠏⠑⠉⠊⠁⠇⠊⠵⠑⠙ ⠞⠊⠎⠎⠥⠑⠎ ⠋⠕⠗ ⠞⠗⠁⠝⠎⠏⠕⠗⠞ ⠁⠝⠙ ⠎⠥⠏⠏⠕⠗⠞ ⠞⠓⠑ ⠇⠊⠋⠑ ⠉⠽⠉⠇⠑ ⠊⠝⠉⠇⠥⠙⠑⠎ ⠛⠑⠗⠍⠊⠝⠁⠞⠊⠕⠝ ⠧⠑⠛⠑⠞⠁⠞⠊⠧⠑ ⠛⠗⠕⠺⠞⠓ ⠋⠇⠕⠺⠑⠗⠊⠝⠛ ⠁⠝⠙ ⠗⠑⠏⠗⠕⠙⠥⠉⠞⠊⠕⠝ ⠺⠊⠞⠓ ⠑⠁⠉⠓ ⠎⠞⠁⠛⠑ ⠗⠑⠟⠥⠊⠗⠊⠝⠛ ⠎⠏⠑⠉⠊⠋⠊⠉ ⠑⠝⠧⠊⠗⠕⠝⠍⠑⠝⠞⠁⠇ ⠉⠕⠝⠙⠊⠞⠊⠕⠝⠎"
+        },
+        "Water Cycle": {
+            title: "Water Cycle",
+            caption: "Figure: Water Cycle, you can ask Dhvani for more details about the water cycle.",
+            brailleArt: "⠞⠓⠑ ⠺⠁⠞⠑⠗ ⠉⠽⠉⠇⠑ ⠙⠑⠎⠉⠗⠊⠃⠑⠎ ⠞⠓⠑ ⠉⠕⠝⠞⠊⠝⠥⠕⠥⠎ ⠍⠕⠧⠑⠍⠑⠝⠞"
+        }
+    };
+
 
     // Braille Learning System Functions
     window.selectBrailleTopic = function(topic) {
         document.getElementById('brailleTopicInput').value = topic;
         startBrailleSession();
     };
+
+    window.selectBrailleArtTopic = function(topic) {
+        document.getElementById('topicInput').value = topic;
+        startBrailleArtSession();
+    };
+
+    window.startBrailleArtSession = function() {
+        const topicInput = document.getElementById('topicInput');
+        const topic = topicInput.value.trim();
+        
+        if (!topic) {
+            showToast('Please enter a topic first!', 'error');
+            return;
+        }
+
+        // Use hardcoded content or generate generic content
+        const content = brailleArtLearningContent[topic] || generateGenericBrailleContent(topic);
+        
+        // Display the learning session interface
+        displayBrailleArt(content);
+
+        // Show the session interface
+        document.getElementById('brailleArtLearningSession').style.display = 'block';
+
+        // Scroll to session
+        document.getElementById('brailleArtLearningSession').scrollIntoView({ 
+            behavior: 'smooth' 
+        });
+    };
+
 
     window.startBrailleSession = function() {
         const topicInput = document.getElementById('brailleTopicInput');
@@ -5712,12 +5971,20 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    function displayBrailleArt(content) {
+        // Update content display
+        document.getElementById('brailleArtTopicTitle').textContent = content.title;
+        document.getElementById('brailleArtCaption').textContent = content.caption;
+        document.getElementById('brailleArt').textContent = content.brailleArt;
+    }
+
     function displayBrailleSession(content) {
         // Update content display
         document.getElementById('currentTopicTitle').textContent = content.title;
         document.getElementById('originalContentText').textContent = content.content;
-        document.getElementById('originalBrailleText').textContent = content.brailleText;
-        
+        // document.getElementById('originalBrailleText').textContent = content.brailleText;
+        document.getElementById('originalBrailleText').textContent = content.content;
+
         // Clear previous input
         document.getElementById('studentBrailleInput').value = '';
         
@@ -5728,6 +5995,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resetAudioControls();
     }
 
+    const synth = window.speechSynthesis;
     window.playContent = function() {
         const playBtn = document.getElementById('playContentBtn');
         const pauseBtn = document.getElementById('pauseContentBtn');
@@ -5764,15 +6032,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Cancel any ongoing speech
-            speechSynthesis.cancel();
+            synth.cancel();
 
             // Wait for voices to be ready
             const waitForVoices = new Promise(resolve => {
-            let voices = speechSynthesis.getVoices();
+            let voices = synth.getVoices();
             if (voices.length) return resolve(voices);
 
-            speechSynthesis.onvoiceschanged = () => {
-                voices = speechSynthesis.getVoices();
+            synth.onvoiceschanged = () => {
+                voices = synth.getVoices();
                 resolve(voices);
             };
             });
@@ -5798,7 +6066,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const utterance = new SpeechSynthesisUtterance(chunks[index]);
                 utterance.voice = selectedVoice;
                 utterance.lang = selectedVoice.lang;
-                utterance.rate = 0.65;  // Slower for dictation
+                utterance.rate = 0.75;  // Slower for dictation
                 utterance.pitch = 1;
 
                 utterance.onend = () => {
@@ -5810,7 +6078,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error("Speech error:", e.error);
                 };
 
-                speechSynthesis.speak(utterance);
+                synth.speak(utterance);
             }
 
             speakChunk(); // Start dictation
@@ -5822,9 +6090,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    window.pauseContent = function() {
-        stopContentAudio();
-    };
+    // window.pauseContent = function() {
+    //     stopContentAudio();
+    // };
 
     
 //   function playContent() {
@@ -5911,7 +6179,7 @@ let selectedVoice = null;
 let isSpeaking = false;
 
 let currentUtterance = null;
-const synth = window.speechSynthesis;
+//const synth = window.speechSynthesis;
 
 function prepareChunks(text) {
   const words = text.trim().split(/\s+/);
@@ -5937,7 +6205,7 @@ function speakChunk(index) {
 
   utterance.voice = selectedVoice;
   utterance.lang = selectedVoice?.lang || "en-US";
-  utterance.rate = 0.65;
+  utterance.rate = 0.75;
   utterance.pitch = 1;
   utterance.volume = volume;
 
@@ -5977,11 +6245,13 @@ function stopSpeaking() {
   isSpeaking = false;
 }
 
-function pauseContent() {
+window.pauseContent = function() {
+    //synth.cancel();
   if (synth.speaking && !synth.paused) {
     synth.pause();
     console.log("Speech paused");
   }
+  stopContentAudio();
 }
 
 function resumeContent() {
@@ -6126,7 +6396,7 @@ document.addEventListener("keydown", (e) => {
         }
         
         // Stop audio if playing
-        stopContentAudio();
+        // stopContentAudio();
         
         // Perform comparison
         const comparisonResult = compareBrailleTexts(originalBraille, studentInput);
@@ -6145,10 +6415,43 @@ document.addEventListener("keydown", (e) => {
         showToast('Typing assessment completed!', 'success');
     };
 
-    function compareBrailleTexts(original, student) {
-        const originalWords = original.split(/\s+/);
-        const studentWords = student.split(/\s+/);
+    // function compareBrailleTexts(original, student) {
+    //     const originalWords = original.split(/\s+/);
+    //     const studentWords = student.split(/\s+/);
         
+    //     let correctWords = 0;
+    //     let totalErrors = 0;
+    //     const errors = [];
+        
+    //     // Simple word-by-word comparison
+    //     const maxLength = Math.max(originalWords.length, studentWords.length);
+        
+    //     for (let i = 0; i < maxLength; i++) {
+    //         const originalWord = originalWords[i] || '';
+    //         const studentWord = studentWords[i] || '';
+            
+    //         if (originalWord === studentWord) {
+    //             correctWords++;
+    //         } else {
+    //             totalErrors++;
+    //             errors.push({
+    //                 position: i + 1,
+    //                 expected: originalWord,
+    //                 actual: studentWord,
+    //                 type: !originalWord ? 'extra' : !studentWord ? 'missing' : 'incorrect'
+    //             });
+    //         }
+    //     }
+
+    function compareBrailleTexts(original, student) { 
+        const originalWords = original.split(/\s+/).map(w =>
+            w.replace(/[^\w]/g, '').toLowerCase()
+        ).filter(Boolean);
+
+        const studentWords = student.split(/\s+/).map(w =>
+            w.replace(/[^\w]/g, '').toLowerCase()
+        ).filter(Boolean);
+
         let correctWords = 0;
         let totalErrors = 0;
         const errors = [];
@@ -6172,6 +6475,8 @@ document.addEventListener("keydown", (e) => {
                 });
             }
         }
+
+        
         
         const accuracy = originalWords.length > 0 ? Math.round((correctWords / originalWords.length) * 100) : 0;
         

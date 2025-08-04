@@ -192,6 +192,134 @@
             margin-left: 8px;
         }
 
+        .language-selector {
+            position: relative;
+            margin-right: 20px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+            z-index: 1001;
+        }
+
+        .language-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            justify-content: space-between;
+        }
+
+        .language-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-1px);
+        }
+
+        .language-options {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(123, 44, 191, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(123, 44, 191, 0.15);
+            min-width: 200px;
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .language-options.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Force show when style display is set */
+        .language-options[style*="block"] {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+            visibility: visible !important;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(123, 44, 191, 0.08);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(156, 60, 219, 0.08));
+            color: #7b2cbf;
+            transform: translateX(-2px);
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.15), rgba(156, 60, 219, 0.1));
+            color: #7b2cbf;
+            font-weight: 600;
+        }
+
+        .option-flag {
+            font-size: 18px;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+
+        .option-name {
+            font-size: 14px;
+            letter-spacing: 0.025em;
+        }
+
+        .language-option.active {
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 600;
+        }
+
+        .option-flag {
+            font-size: 1.2em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .option-name {
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .lang-name {
+            flex: 1;
+            font-size: 0.9em;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
         /* Main Content */
         .main-content {
             width: 100%;
@@ -1745,6 +1873,120 @@
         </div>
     </footer>
 </div>
+
+ <!-- Language Dropdown Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language dropdown
+            const languageBtn = document.getElementById('languageBtn');
+            const languageOptions = document.getElementById('languageOptions');
+            
+            // Set default language display
+            if (languageBtn) {
+                languageBtn.innerHTML = `
+                    <span class="option-flag">🇺🇸</span>
+                    <span class="option-name">English</span>
+                    <i class="fas fa-chevron-down"></i>
+                `;
+            }
+            
+            // Populate language options with Kannada included
+            if (languageOptions) {
+                languageOptions.innerHTML = `
+                    <div class="language-option" data-language="kannada">
+                        <span class="option-flag">🇮🇳</span>
+                        <span class="option-name">ಕನ್ನಡ</span>
+                    </div>
+                    <div class="language-option" data-language="telugu">
+                        <span class="option-flag">🇮🇳</span>
+                        <span class="option-name">తెలుగు</span>
+                    </div>
+                    <div class="language-option" data-language="hindi">
+                        <span class="option-flag">🇮🇳</span>
+                        <span class="option-name">हिंदी</span>
+                    </div>
+                    <div class="language-option active" data-language="english">
+                        <span class="option-flag">🇺🇸</span>
+                        <span class="option-name">English</span>
+                    </div>
+                    <div class="language-option" data-language="french">
+                        <span class="option-flag">🇫🇷</span>
+                        <span class="option-name">Français</span>
+                    </div>
+                    <div class="language-option" data-language="german">
+                        <span class="option-flag">🇩🇪</span>
+                        <span class="option-name">Deutsch</span>
+                    </div>
+                `;
+            }
+            
+            // Language dropdown toggle
+            if (languageBtn && languageOptions) {
+                languageBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = languageOptions.style.display === 'block';
+                    languageOptions.style.display = isOpen ? 'none' : 'block';
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!languageBtn.contains(e.target) && !languageOptions.contains(e.target)) {
+                        languageOptions.style.display = 'none';
+                    }
+                });
+
+                // Handle language selection
+                languageOptions.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const option = e.target.closest('.language-option');
+                    if (option) {
+                        const language = option.dataset.language;
+                        const flag = option.querySelector('.option-flag').textContent;
+                        const name = option.querySelector('.option-name').textContent;
+                        
+                        // Update button display
+                        languageBtn.innerHTML = `
+                            <span class="option-flag">${flag}</span>
+                            <span class="option-name">${name}</span>
+                            <i class="fas fa-chevron-down"></i>
+                        `;
+                        
+                        // Update active state
+                        document.querySelectorAll('.language-option').forEach(opt => opt.classList.remove('active'));
+                        option.classList.add('active');
+                        
+                        // Close dropdown
+                        languageOptions.style.display = 'none';
+                        
+                        // Store selected language
+                        localStorage.setItem('selectedLanguage', language);
+                        
+                        // Try to trigger translation if translation engine is available
+                        if (window.translationEngine && typeof window.changeLanguage === 'function') {
+                            try {
+                                window.changeLanguage(language);
+                                console.log(`Language changed to: ${language}`);
+                            } catch (error) {
+                                console.log(`Translation engine not available: ${error.message}`);
+                            }
+                        } else {
+                            console.log(`Language selection: ${language} (translation engine not loaded)`);
+                        }
+                    }
+                });
+            }
+            
+            // Restore previously selected language
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                const savedOption = document.querySelector(`[data-language="${savedLanguage}"]`);
+                if (savedOption) {
+                    savedOption.click();
+                }
+            }
+        });
+    </script>
+    
 
 <script>
     // Global variables
