@@ -32,7 +32,7 @@
             flex-direction: column;
         }
         
-        /* Header Styles - Matching existing UI */
+            /* Header Styles - Matching existing UI */
         .infosys-header { 
             background: #7B2CBF; 
             color: white; 
@@ -40,7 +40,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1000;
-            overflow: visible;
         }
         
         .header-content { 
@@ -49,8 +48,7 @@
             padding: 0 30px; 
             display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            overflow: visible;
+            align-items: center; 
         }
         
         .header-left { 
@@ -74,9 +72,9 @@
             background: rgba(255,255,255,0.1);
         }
         
-        .header-title { 
-            font-size: 1.4em; 
-            font-weight: 600; 
+        .header-title {
+            font-size: 1.4em;
+            font-weight: 600;
             color: #fff;
             margin: 0;
         }
@@ -85,6 +83,115 @@
             margin: 0 10px;
             opacity: 0.7;
         }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: linear-gradient(135deg, #6a1b9a 0%, #7b2cbf 50%, #8e24aa 100%);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 999;
+        }
+
+        .nav-tabs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.85);
+            padding: 14px 24px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            position: relative;
+            min-width: fit-content;
+        }
+
+        .nav-tab:hover {
+            color: #ffffff;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .nav-tab.active {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+            background: rgba(255,255,255,0.15);
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .nav-tab-icon {
+            font-size: 1.1em;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-tab:hover .nav-tab-icon {
+            transform: scale(1.1);
+        }
+        
+        .header-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+        }
+        
+        .user-info { 
+            color: rgba(255,255,255,0.95); 
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar { 
+            width: 35px; 
+            height: 35px; 
+            border-radius: 50%; 
+            background: rgba(255,255,255,0.15); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold; 
+            font-size: 1em;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Role Badge */
+        .role-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
 
         /* Navigation Tabs */
         .nav-tabs {
@@ -648,7 +755,7 @@
         .carousel-nav {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-90%);
             background: rgba(255,255,255,0.8);
             border: none;
             width: 40px;
@@ -1203,10 +1310,7 @@
         <header class="infosys-header">
             <div class="header-content">
                 <div class="header-left">
-                    <button class="menu-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h1 class="header-title">Pratibimb</h1><span class="separator"> | </span><span>True Reflection of Digital World!</span>
+                    <h1 class="header-title">Pratibimb <span class="separator">|</span> True Reflection of Digital World!</h1>
                 </div>
                 <div class="header-right">
                     <div class="language-selector">
@@ -1247,6 +1351,7 @@
                     </div>
                     <div class="user-info">
                         <span class="user-name">Bhupinder Singh Chawla</span>
+                        <span class="role-badge" id="userRole">School Admin</span>
                         <div class="user-avatar">
                             <i class="fas fa-user"></i>
                         </div>
@@ -1320,7 +1425,7 @@
                 <div class="carousel-container">
                     <!-- Slide 1 -->
                     <div class="carousel-slide active">
-                        <div class="slide-image" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="slide-image" style="background-image: url('./Assets/Revolutionary_AI.png')">
                             <div class="slide-overlay">
                                 <div style="color: white; font-weight: 600; font-size: 1.1em;">Breaking News</div>
                             </div>
@@ -1334,7 +1439,7 @@
 
                     <!-- Slide 2 -->
                     <div class="carousel-slide">
-                        <div class="slide-image" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="slide-image" style="background-image: url('Assets/Delhi_accessibility_summit.png');">
                             <div class="slide-overlay">
                                 <div style="color: white; font-weight: 600; font-size: 1.1em;">Local Event</div>
                             </div>
@@ -1348,7 +1453,7 @@
 
                     <!-- Slide 3 -->
                     <div class="carousel-slide">
-                        <div class="slide-image" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="slide-image" style="background-image: url('./Assets/enhanced_screen_reader.png');">
                             <div class="slide-overlay">
                                 <div style="color: white; font-weight: 600; font-size: 1.1em;">Technology</div>
                             </div>
@@ -1362,7 +1467,7 @@
 
                     <!-- Slide 4 -->
                     <div class="carousel-slide">
-                        <div class="slide-image" style="background-image: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="slide-image" style="background-image: url('./Assets/smart_navigation_system.png');">
                             <div class="slide-overlay">
                                 <div style="color: white; font-weight: 600; font-size: 1.1em;">Research</div>
                             </div>
@@ -1376,7 +1481,7 @@
 
                     <!-- Slide 5 -->
                     <div class="carousel-slide">
-                        <div class="slide-image" style="background-image: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">
+                        <div class="slide-image" style="background-image: url('./Assets/UN_launches_global_accessibility.png');">
                             <div class="slide-overlay">
                                 <div style="color: white; font-weight: 600; font-size: 1.1em;">Global Initiative</div>
                             </div>
