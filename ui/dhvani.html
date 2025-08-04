@@ -616,13 +616,20 @@
         .audiobook-cover {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #7b2cbf, #9c27b0);
+            background: linear-gradient(135deg, #333333, #666666);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.5em;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .audiobook-card:hover .audiobook-cover {
+            background: linear-gradient(135deg, #555555, #888888);
+            transform: scale(1.05);
         }
 
         .audiobook-title {
@@ -1404,14 +1411,14 @@
                 <div class="audiobooks-grid">
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📚</div>
+                            <div class="audiobook-cover"><i class="fas fa-book"></i></div>
                             <div>
                                 <div class="audiobook-title">The Great Gatsby</div>
                                 <div class="audiobook-author">F. Scott Fitzgerald</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 4h 32m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 4h 32m</div>
                             <button class="play-btn" onclick="playAudio('gatsby')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1420,14 +1427,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📖</div>
+                            <div class="audiobook-cover"><i class="fas fa-book-open"></i></div>
                             <div>
                                 <div class="audiobook-title">Pride and Prejudice</div>
                                 <div class="audiobook-author">Jane Austen</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 11h 5m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 11h 5m</div>
                             <button class="play-btn" onclick="playAudio('pride')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1436,14 +1443,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📘</div>
+                            <div class="audiobook-cover"><i class="fas fa-bookmark"></i></div>
                             <div>
                                 <div class="audiobook-title">Alice's Adventures in Wonderland</div>
                                 <div class="audiobook-author">Lewis Carroll</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 2h 45m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 2h 45m</div>
                             <button class="play-btn" onclick="playAudio('alice')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1452,14 +1459,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📕</div>
+                            <div class="audiobook-cover"><i class="fas fa-journal-whills"></i></div>
                             <div>
                                 <div class="audiobook-title">The Adventures of Sherlock Holmes</div>
                                 <div class="audiobook-author">Arthur Conan Doyle</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 8h 20m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 8h 20m</div>
                             <button class="play-btn" onclick="playAudio('sherlock')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1468,14 +1475,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📗</div>
+                            <div class="audiobook-cover"><i class="fas fa-scroll"></i></div>
                             <div>
                                 <div class="audiobook-title">Frankenstein</div>
                                 <div class="audiobook-author">Mary Shelley</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 6h 15m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 6h 15m</div>
                             <button class="play-btn" onclick="playAudio('frankenstein')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1484,14 +1491,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📙</div>
+                            <div class="audiobook-cover"><i class="fas fa-book-reader"></i></div>
                             <div>
                                 <div class="audiobook-title">The Time Machine</div>
                                 <div class="audiobook-author">H.G. Wells</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 3h 12m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 3h 12m</div>
                             <button class="play-btn" onclick="playAudio('timemachine')">
                                 <i class="fas fa-play"></i> Play
                             </button>
@@ -1505,14 +1512,14 @@
                 <div class="audiobooks-grid">
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">🎵</div>
+                            <div class="audiobook-cover"><i class="fas fa-calculator"></i></div>
                             <div>
                                 <div class="audiobook-title">Math Lessons - Grade 5</div>
                                 <div class="audiobook-author">Pratibimb Education Team</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 2h 15m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 2h 15m</div>
                             <button class="play-btn" onclick="addToCart('math-grade5', 'Math Lessons - Grade 5', 'audio')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
@@ -1521,14 +1528,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">🔬</div>
+                            <div class="audiobook-cover"><i class="fas fa-flask"></i></div>
                             <div>
                                 <div class="audiobook-title">Science Experiments</div>
                                 <div class="audiobook-author">Pratibimb Science Team</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 1h 45m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 1h 45m</div>
                             <button class="play-btn" onclick="addToCart('science-exp', 'Science Experiments', 'audio')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
@@ -1537,14 +1544,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📖</div>
+                            <div class="audiobook-cover"><i class="fas fa-feather-alt"></i></div>
                             <div>
                                 <div class="audiobook-title">Hindi Stories Collection</div>
                                 <div class="audiobook-author">Traditional Tales</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 3h 30m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 3h 30m</div>
                             <button class="play-btn" onclick="addToCart('hindi-stories', 'Hindi Stories Collection', 'audio')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
@@ -1553,14 +1560,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">📜</div>
+                            <div class="audiobook-cover"><i class="fas fa-landmark"></i></div>
                             <div>
                                 <div class="audiobook-title">History of India</div>
                                 <div class="audiobook-author">Educational Series</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 4h 20m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 4h 20m</div>
                             <button class="play-btn" onclick="addToCart('history-india', 'History of India', 'transcript')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
@@ -1569,14 +1576,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">🎭</div>
+                            <div class="audiobook-cover"><i class="fas fa-theater-masks"></i></div>
                             <div>
                                 <div class="audiobook-title">English Literature Classics</div>
                                 <div class="audiobook-author">Classic Authors</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 6h 10m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 6h 10m</div>
                             <button class="play-btn" onclick="addToCart('english-classics', 'English Literature Classics', 'audio')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
@@ -1585,14 +1592,14 @@
 
                     <div class="audiobook-card">
                         <div class="audiobook-header">
-                            <div class="audiobook-cover">🌍</div>
+                            <div class="audiobook-cover"><i class="fas fa-globe-americas"></i></div>
                             <div>
                                 <div class="audiobook-title">Geography Lessons</div>
                                 <div class="audiobook-author">World Knowledge Series</div>
                             </div>
                         </div>
                         <div class="audiobook-meta">
-                            <div class="audiobook-duration">⏱️ 2h 55m</div>
+                            <div class="audiobook-duration"><i class="far fa-clock"></i> 2h 55m</div>
                             <button class="play-btn" onclick="addToCart('geography', 'Geography Lessons', 'transcript')">
                                 <i class="fas fa-plus"></i> Add to Cart
                             </button>
