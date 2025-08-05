@@ -4118,7 +4118,7 @@
 
 Example: Hello World! This will be converted to Grade 1 Braille format."
                                         rows="12"></textarea>
-                                    <div class="input-stats">
+                                    <!-- <div class="input-stats">
                                         <span id="charCount" class="stat-item">
                                             <i class="fas fa-font"></i> Characters: 0
                                         </span>
@@ -4128,14 +4128,14 @@ Example: Hello World! This will be converted to Grade 1 Braille format."
                                         <span id="lineCount" class="stat-item">
                                             <i class="fas fa-list-ol"></i> Lines: 0
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
 
                         <!-- Conversion Controls -->
                         <div class="conversion-controls">
-                            <button class="convert-text-btn" id="convertTextBtn" onclick="convertTextToBraille()">
+                            <button class="convert-text-btn" id="convertTextBtn" onclick="simpleConvertToBraille()">
                                 <!-- <i class="fas fa-magic"></i> -->
                                 <span class="btn-text">Convert to Braille</span>
                             </button>
@@ -5189,6 +5189,279 @@ amazing phases!  isn't that cool?
     // Load sidebar state on page load
     document.addEventListener('DOMContentLoaded', function() {
         loadSidebarState();
+    });
+
+    // Text to Braille conversion functionality
+    // Braille character mapping
+    const brailleMap = {
+        'a': '⠁', 'b': '⠃', 'c': '⠉', 'd': '⠙', 'e': '⠑', 'f': '⠋', 'g': '⠛', 'h': '⠓', 'i': '⠊', 'j': '⠚',
+        'k': '⠅', 'l': '⠇', 'm': '⠍', 'n': '⠝', 'o': '⠕', 'p': '⠏', 'q': '⠟', 'r': '⠗', 's': '⠎', 't': '⠞',
+        'u': '⠥', 'v': '⠧', 'w': '⠺', 'x': '⠭', 'y': '⠽', 'z': '⠵',
+        '1': '⠼⠁', '2': '⠼⠃', '3': '⠼⠉', '4': '⠼⠙', '5': '⠼⠑', '6': '⠼⠋', '7': '⠼⠛', '8': '⠼⠓', '9': '⠼⠊', '0': '⠼⠚',
+        ' ': '⠀', '.': '⠲', ',': '⠂', '?': '⠦', '!': '⠖', ';': '⠆', ':': '⠒', '-': '⠤', '(': '⠐⠣', ')': '⠐⠜',
+        '"': '⠐⠦', "'": '⠄', '/': '⠸⠌', '\\': '⠸⠡', '@': '⠈⠁', '#': '⠼', '$': '⠈⠎', '%': '⠨⠴', '^': '⠘⠇',
+        '&': '⠈⠯', '*': '⠈⠔', '+': '⠬', '=': '⠨⠅', '[': '⠨⠣', ']': '⠨⠜', '{': '⠸⠣', '}': '⠸⠜',
+        '<': '⠈⠣', '>': '⠈⠜', '|': '⠸⠳', '~': '⠸⠤', '`': '⠈⠄'
+    };
+
+    // Braille contractions for common words and letter combinations
+    const brailleContractions = {
+        'and': '⠯', 'for': '⠿', 'of': '⠷', 'the': '⠮', 'with': '⠾',
+        'ch': '⠡', 'gh': '⠣', 'sh': '⠩', 'th': '⠹', 'wh': '⠱', 'ed': '⠫', 'er': '⠻', 'ou': '⠳', 'ow': '⠪',
+        'will': '⠺', 'have': '⠓', 'just': '⠚', 'more': '⠍', 'very': '⠧', 'can': '⠉', 'had': '⠓', 'her': '⠓',
+        'was': '⠺', 'one': '⠐⠕', 'were': '⠶', 'been': '⠃', 'his': '⠓', 'that': '⠞', 'which': '⠱',
+        'their': '⠮', 'said': '⠎', 'each': '⠑', 'would': '⠺', 'there': '⠮', 'could': '⠉', 'into': '⠔'
+    };
+
+    // Main text to Braille conversion function
+    function convertTextToBraille() {
+        console.log('convertTextToBraille function called');
+        
+        const textInput = document.getElementById('textInput');
+        const brailleOutput = document.getElementById('unicodeBraille'); // Changed to correct ID
+        const convertBtn = document.getElementById('convertTextBtn');
+        
+        console.log('Elements in conversion function:', {
+            textInput: !!textInput,
+            brailleOutput: !!brailleOutput,
+            convertBtn: !!convertBtn
+        });
+        
+        if (!textInput || !brailleOutput) {
+            console.error('Required elements not found');
+            showToast('Interface elements not found', 'error');
+            return;
+        }
+        
+        const inputText = textInput.value.trim();
+        console.log('Input text:', inputText);
+        
+        if (!inputText) {
+            showToast('Please enter some text to convert', 'error');
+            return;
+        }
+        
+        // Show loading state
+        if (convertBtn) {
+            convertBtn.disabled = true;
+            convertBtn.innerHTML = '<span class="btn-text"><i class="fas fa-spinner fa-spin"></i> Converting...</span>';
+        }
+        
+        try {
+            // Convert text to Braille
+            const brailleText = performTextToBrailleConversion(inputText);
+            console.log('Braille text:', brailleText);
+            
+            // Display result
+            brailleOutput.value = brailleText;
+            
+            // Show the results section
+            const resultsSection = document.getElementById('conversionResults');
+            if (resultsSection) {
+                resultsSection.style.display = 'block';
+            }
+            
+            // Update statistics if elements exist
+            updateTextConversionStats(inputText, brailleText);
+            
+            showToast('Text converted to Braille successfully!', 'success');
+            
+        } catch (error) {
+            console.error('Conversion error:', error);
+            showToast('Error converting text to Braille', 'error');
+        } finally {
+            // Reset button state
+            if (convertBtn) {
+                convertBtn.disabled = false;
+                convertBtn.innerHTML = '<span class="btn-text">Convert to Braille</span>';
+            }
+        }
+    }
+
+    // Core conversion logic
+    function performTextToBrailleConversion(text) {
+        if (!text) return '';
+        
+        let result = '';
+        const words = text.toLowerCase().split(' ');
+        
+        for (let wordIndex = 0; wordIndex < words.length; wordIndex++) {
+            let word = words[wordIndex];
+            let brailleWord = '';
+            
+            // Check for full word contractions first
+            if (brailleContractions[word]) {
+                brailleWord = brailleContractions[word];
+            } else {
+                // Process character by character with contractions
+                let j = 0;
+                while (j < word.length) {
+                    let found = false;
+                    
+                    // Check for 2-character contractions first
+                    if (j < word.length - 1) {
+                        const twoChar = word.substring(j, j + 2);
+                        if (brailleContractions[twoChar]) {
+                            brailleWord += brailleContractions[twoChar];
+                            j += 2;
+                            found = true;
+                        }
+                    }
+                    
+                    // If no contraction found, use individual character
+                    if (!found) {
+                        const char = word[j];
+                        if (brailleMap[char]) {
+                            brailleWord += brailleMap[char];
+                        } else {
+                            // Keep unknown characters as is or replace with space
+                            brailleWord += char;
+                        }
+                        j++;
+                    }
+                }
+            }
+            
+            result += brailleWord;
+            
+            // Add space between words (except for the last word)
+            if (wordIndex < words.length - 1) {
+                result += brailleMap[' '];
+            }
+        }
+        
+        return result;
+    }
+
+    // Update conversion statistics
+    function updateTextConversionStats(originalText, brailleText) {
+        const charCount = document.getElementById('charCount');
+        const wordCount = document.getElementById('wordCount');
+        const brailleCharCount = document.getElementById('brailleCharCount');
+        
+        if (charCount) charCount.textContent = originalText.length;
+        if (wordCount) wordCount.textContent = originalText.split(/\s+/).filter(word => word.length > 0).length;
+        if (brailleCharCount) brailleCharCount.textContent = brailleText.length;
+    }
+
+    // Copy to clipboard function
+    function copyBrailleToClipboard() {
+        const brailleOutput = document.getElementById('unicodeBraille'); // Changed to correct ID
+        if (!brailleOutput || !brailleOutput.value) {
+            showToast('No Braille text to copy', 'error');
+            return;
+        }
+        
+        navigator.clipboard.writeText(brailleOutput.value).then(() => {
+            showToast('Braille text copied to clipboard!', 'success');
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = brailleOutput.value;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showToast('Braille text copied to clipboard!', 'success');
+        });
+    }
+
+    // Print Braille function
+    function printBrailleText() {
+        const brailleOutput = document.getElementById('unicodeBraille'); // Changed to correct ID
+        if (!brailleOutput || !brailleOutput.value) {
+            showToast('No Braille text to print', 'error');
+            return;
+        }
+        
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+                <head>
+                    <title>Braille Text - Print</title>
+                    <style>
+                        body { 
+                            font-family: 'Arial Unicode MS', 'DejaVu Sans', sans-serif; 
+                            font-size: 14pt; 
+                            line-height: 1.8; 
+                            margin: 20px;
+                            color: #000;
+                        }
+                        .braille-content {
+                            white-space: pre-wrap;
+                            word-break: break-word;
+                            font-size: 16pt;
+                            line-height: 2;
+                        }
+                        @media print {
+                            body { margin: 0; }
+                            .braille-content { font-size: 14pt; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h2>Braille Text Output</h2>
+                    <div class="braille-content">${brailleOutput.value}</div>
+                </body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    // Initialize event listeners when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, setting up Text to Braille converter...');
+        
+        // Text to Braille conversion button - Override any existing handlers
+        const convertTextBtn = document.getElementById('convertTextBtn');
+        const inputElement = document.getElementById('textInput');
+        const outputElement = document.getElementById('unicodeBraille');
+        
+        console.log('Elements found:', {
+            button: !!convertTextBtn,
+            textInput: !!inputElement,
+            brailleOutput: !!outputElement
+        });
+        
+        if (convertTextBtn) {
+            // Remove any existing event listeners by cloning the element
+            const newBtn = convertTextBtn.cloneNode(true);
+            convertTextBtn.parentNode.replaceChild(newBtn, convertTextBtn);
+            
+            // Add our event listener to the new button
+            newBtn.addEventListener('click', function(e) {
+                console.log('Convert button clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                convertTextToBraille();
+            });
+            
+            console.log('Event listener attached to convert button');
+        } else {
+            console.error('Convert button not found!');
+        }
+        
+        // Copy button for Braille text
+        const copyBrailleBtn = document.getElementById('copyBrailleBtn');
+        if (copyBrailleBtn) {
+            copyBrailleBtn.addEventListener('click', copyBrailleToClipboard);
+        }
+        
+        // Print button for Braille text
+        const printBrailleBtn = document.getElementById('printBrailleBtn');
+        if (printBrailleBtn) {
+            printBrailleBtn.addEventListener('click', printBrailleText);
+        }
+        
+        // Auto-resize textarea for text input
+        const textInput = document.getElementById('textInput');
+        if (textInput) {
+            textInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = this.scrollHeight + 'px';
+            });
+        }
     });
 
     // Braille Art Editor functionality
@@ -6789,6 +7062,8 @@ This sample text demonstrates various features including paragraphs, headings, a
         showToast('Text cleared', 'info');
     };
 
+    // Commented out API-based conversion function to use local conversion instead
+    /*
     window.convertTextToBraille = async function() {
         const textInput = document.getElementById('textInput');
         const text = textInput.value.trim();
@@ -6897,6 +7172,7 @@ This sample text demonstrates various features including paragraphs, headings, a
             convertBtn.innerHTML = '<i class="fas fa-magic"></i> <span class="btn-text">Convert to Braille</span>';
         }
     };
+    */ // End of commented out API-based conversion function
 
     function updateConversionProgress(percentage, status) {
         const progressFill = document.getElementById('progressFill');
@@ -7024,6 +7300,53 @@ This sample text demonstrates various features including paragraphs, headings, a
             showToast('BRF file prepared for vendor printing services', 'success');
         }, 1000);
     };
+
+    // Simple Text to Braille conversion function
+    function simpleConvertToBraille() {
+        // Get input text
+        const textInput = document.getElementById('textInput');
+        const inputText = textInput ? textInput.value.trim() : '';
+        
+        if (!inputText) {
+            showToast('Please enter some text to convert', 'error');
+            return;
+        }
+        
+        // Simple Braille mapping
+        const brailleMap = {
+            'a': '⠁', 'b': '⠃', 'c': '⠉', 'd': '⠙', 'e': '⠑', 'f': '⠋', 'g': '⠛', 'h': '⠓', 'i': '⠊', 'j': '⠚',
+            'k': '⠅', 'l': '⠇', 'm': '⠍', 'n': '⠝', 'o': '⠕', 'p': '⠏', 'q': '⠟', 'r': '⠗', 's': '⠎', 't': '⠞',
+            'u': '⠥', 'v': '⠧', 'w': '⠺', 'x': '⠭', 'y': '⠽', 'z': '⠵',
+            '1': '⠼⠁', '2': '⠼⠃', '3': '⠼⠉', '4': '⠼⠙', '5': '⠼⠑', '6': '⠼⠋', '7': '⠼⠛', '8': '⠼⠓', '9': '⠼⠊', '0': '⠼⠚',
+            ' ': '⠀', '.': '⠲', ',': '⠂', '?': '⠦', '!': '⠖', ';': '⠆', ':': '⠒', '-': '⠤'
+        };
+        
+        // Convert text to braille
+        let brailleText = '';
+        for (let i = 0; i < inputText.length; i++) {
+            const char = inputText[i].toLowerCase();
+            brailleText += brailleMap[char] || char;
+        }
+        
+        // Display result
+        const brailleOutput = document.getElementById('unicodeBraille');
+        if (brailleOutput) {
+            brailleOutput.value = brailleText;
+            
+            // Show results section
+            const resultsSection = document.getElementById('conversionResults');
+            if (resultsSection) {
+                resultsSection.style.display = 'block';
+            }
+            
+            showToast('Text converted to Braille successfully!', 'success');
+        } else {
+            alert('Output area not found');
+        }
+    }
+
+    // Make function globally available
+    window.simpleConvertToBraille = simpleConvertToBraille;
 
     // ============================================================================
     // END TEXT TO BRAILLE CONVERTER FUNCTIONS
