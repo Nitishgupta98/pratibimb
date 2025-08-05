@@ -1,0 +1,217 @@
+/* BrailleArtEditor Component Styles */
+.braille-art-editor {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  color: #7b2cbf;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.editor-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tool-panel,
+.pattern-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.panel-title {
+  color: #7b2cbf;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #7b2cbf;
+}
+
+.tool-grid,
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.tool-btn,
+.pattern-btn {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.tool-btn:hover,
+.pattern-btn:hover {
+  border-color: #7b2cbf;
+  background: #f8f9fa;
+}
+
+.tool-btn.active,
+.pattern-btn.active {
+  border-color: #7b2cbf;
+  background: #7b2cbf;
+  color: white;
+}
+
+.canvas-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.canvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.canvas-title {
+  color: #7b2cbf;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.canvas-info {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.braille-canvas {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  gap: 1px;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.braille-cell {
+  aspect-ratio: 1;
+  background: white;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Braille', 'Segoe UI Symbol', Arial, sans-serif;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.braille-cell:hover {
+  background: #e9ecef;
+}
+
+.braille-cell.filled {
+  background: #7b2cbf;
+  color: white;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.action-btn {
+  background: #7b2cbf;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn:hover {
+  background: #5a189a;
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary {
+  background: #6c757d;
+}
+
+.action-btn.secondary:hover {
+  background: #545b62;
+}
+
+.action-btn.danger {
+  background: #dc3545;
+}
+
+.action-btn.danger:hover {
+  background: #c82333;
+}
+
+@media (max-width: 1024px) {
+  .editor-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .tool-panel,
+  .pattern-panel {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .braille-canvas {
+    grid-template-columns: repeat(20, 1fr);
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

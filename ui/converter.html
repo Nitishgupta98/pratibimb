@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratibimb - True Reflection of Digital World!</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%237B2CBF' d='M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h12v2H3v-2zm0 4h18v2H3v-2zm0 4h12v2H3v-2z'/%3E%3Ccircle cx='18' cy='12' r='3' fill='%237B2CBF'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar collapsed" id="sidebar">
+        <!-- Past Conversions Section -->
+        <div class="past-conversions-section">
+            <div class="section-header" id="pastConversionsToggle">
+                <h3><i class="fas fa-history"></i> History</h3>
+                <i class="fas fa-chevron-down toggle-icon" id="toggleIcon"></i>
+            </div>
+            <div class="conversions-list" id="conversionsList">
+                <!-- Conversions will be loaded here dynamically -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Pratibimb <span class="separator">|</span> True Reflection of Digital World!</h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span class="user-name">Bhupinder Singh Chawla</span>
+                    <span class="role-badge" id="userRole">School Admin</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content-area">
+            <section id="dashboard" class="content-section active">
+                <!-- YouTube to Braille Converter -->
+                <div class="converter-section">
+                    <div class="section-header">
+                        <h2><i class="fab fa-youtube"></i> YouTube Videos Made Accessible!</h2>
+                        <p>Convert YouTube videos to Braille format instantly</p>
+                    </div>
+                    
+                    <div class="converter-form">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <i class="fab fa-youtube input-icon"></i>
+                                <input 
+                                    type="url" 
+                                    id="youtubeUrl" 
+                                    placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=example)"
+                                    class="url-input"
+                                >
+                                <button type="button" class="convert-btn" id="convertBtn">
+                                    <i class="fas fa-magic"></i>
+                                    Convert to Braille
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Indicator -->
+                    <div class="progress-container" id="progressContainer" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Processing...</div>
+                    </div>
+
+                    <!-- Results Area -->
+                    <div class="results-area" id="resultsArea" style="display: none;">
+                        <div class="result-tabs">
+                            <button class="tab-btn active" data-tab="transcript">
+                                <i class="fas fa-download"></i> Download Transcript
+                            </button>
+                            <button class="tab-btn" data-tab="preview">
+                                <i class="fas fa-eye"></i> Process Transcript
+                            </button>
+                            <button class="tab-btn" data-tab="braille">
+                                <i class="fas fa-braille"></i> Braille Output
+                            </button>
+                            <button class="tab-btn" data-tab="embosser">
+                                <i class="fas fa-print"></i> Embosser Format
+                            </button>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="transcript">
+                                <div class="result-header">
+                                    <h3><i class="fas fa-file-alt"></i> Raw Transcript</h3>
+                                    <div class="result-actions">
+                                        <button class="action-btn" id="copyTranscript">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button class="action-btn" id="downloadTranscript">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="result-content transcript-content" id="transcriptContent">
+                                    <div class="transcript-text">
+                                        <strong>Youtube Transcript:</strong><br>
+                                        ----<br>
+                                        <strong>The Moon goes through phases</strong><br>
+                                        Okay, I'm getting everything ready for this lesson!<br>
+                                        Awesome!<br>
+                                        I can't wait because we get to talk about the moon again!<br>
+                                        I know we've done that already,<br>
+                                        but that video was about the moon in general.<br>
+                                        We want to have a whole video about the phases of the moon!<br>
+                                        The phases of the moon!<br>
+                                        Ever wonder why sometimes <span class="highlight-yellow">the moon looks like this</span>,<br>
+                                        and you might think, "Hey, that's just what the moon looks like!"<br>
+                                        And other times, the moon might look like a complete circle.<br>
+                                        What's going on?<br>
+                                        Well, the moon goes through phases.<br>
+                                        And what do the phases do?<br>
+                                        The phases change what the moon looks like to us here on Earth!<br>
+                                        Here are the phases of the moon!<br>
+                                        If you count them, you'll see there are eight phases of the moon!<br>
+                                        These are the phases of the moon.<br>
+                                        <span class="highlight-yellow">Notice, in one phase you don't see the moon at all.</span><br>
+                                        And in another phase, you can see the entire moon!<br>
+                                        So, these eight phases have a big impact on what the moon looks like to us!<br>
+                                        Soon, you'll know all eight of them!<br>
+                                        <br>
+                                        <strong>New Moon</strong><br>
+                                        Alright! Let's jump right in and learn these phases of the moon,<br>
+                                        starting with the first phase of the moon.<br>
+                                        It's called a new moon.<br>
+                                        If you're wondering where it is, join the club!<br>
+                                        It's actually right here, <span class="highlight-yellow">where the arrow is pointing</span>.<br>
+                                        And notice, you can't see a new moon.<br>
+                                        That's right!<br>
+                                        It looks like it just isn't there!<br>
+                                        So why can't we see a new moon?<br>
+                                        Well, during a new moon the moon is in between the sun and the earth.<br>
+                                        Because of this, it can't reflect the sun's light toward us.<br>
+                                        So, during a new moon, we can't really see the moon.<br>
+                                        That's pretty interesting!<br>
+                                        Now, after a new moon the moon starts waxing.<br>
+                                        What?<br>
+                                        Yeah!<br>
+                                        Waxing!<br>
+                                        What is that supposed to mean?<br>
+                                        Well, waxing means growing.<br>
+                                        When the moon is waxing, it is getting bigger!<br>
+                                        Notice the moon begins waxing after a new moon and grows until it becomes a full moon.<br>
+                                        Waxing means growing.<br>
+                                        After a new moon, the moon continues waxing until it becomes a full moon.<br>
+                                        Just remember, waxing means growing!<br>
+                                        <br>
+                                        <strong>Waxing crescent</strong><br>
+                                        All right, we're ready for phase number two!<br>
+                                        And look at this two!<br>
+                                        So cool!<br>
+                                        So icy!<br>
+                                        So awesome!<br>
+                                        The second phase of the moon is called a waxing crescent.<br>
+                                        A waxing crescent!<br>
+                                        That's an interesting name for this!<br>
+                                        A waxing crescent.<br>
+                                        Waxing, of course, means that it is growing bigger.<br>
+                                        And it is called a crescent moon because less than half of the moon looks lit.<br>
+                                        If you live in the Northern Hemisphere (the part of the world that is north of the equator),<br>
+                                        a waxing crescent is always lit on the right side.<br>
+                                        Hey!<br>
+                                        Check this out!<br>
+                                        Here is a photo of a waxing crescent!<br>
+                                        Less than half of the moon looks lit!<br>
+                                        If you live in the Northern Hemisphere (north of the equator),<br>
+                                        a waxing crescent is always lit on the right side.<br>
+                                        This crescent moon is waxing because it is growing.<br>
+                                        This is the phase of the moon after a new moon.<br>
+                                        Waxing crescent!<br>
+                                        <br>
+                                        <em>... [Content continues with full transcript including all moon phases and educational content] ...</em>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-panel" id="preview">
+                                <div class="result-header">
+                                    <h3><i class="fas fa-file-text"></i> Enhanced Transcript</h3>
+                                    <div class="result-actions">
+                                        <button class="action-btn" id="copyOriginal">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button class="action-btn" id="downloadOriginal">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="result-textarea" id="originalText" readonly></textarea>
+                            </div>
+                            
+                            <div class="tab-panel" id="braille">
+                                <div class="result-header">
+                                    <h3><i class="fas fa-braille"></i> Braille Unicode</h3>
+                                    <div class="result-actions">
+                                        <button class="action-btn" id="copyBraille">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button class="action-btn" id="downloadBraille">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="result-textarea braille-text" id="brailleText" readonly></textarea>
+                            </div>
+                            
+                            <div class="tab-panel" id="embosser">
+                                <div class="result-header">
+                                    <h3><i class="fas fa-print"></i> Embosser Ready (.brf)</h3>
+                                    <div class="result-actions">
+                                        <button class="action-btn" id="copyEmbosser">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button class="action-btn" id="downloadEmbosser">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="result-textarea monospace-text" id="embosserText" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats" id="quickStats" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="stat-label">Duration:</span>
+                            <span class="stat-value" id="videoDuration">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-align-left"></i>
+                            <span class="stat-label">Characters:</span>
+                            <span class="stat-value" id="charCount">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-font"></i>
+                            <span class="stat-label">Words:</span>
+                            <span class="stat-value" id="wordCount">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-braille"></i>
+                            <span class="stat-label">Braille Characters:</span>
+                            <span class="stat-value" id="brailleCount">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Other sections (placeholder for future content) -->
+            <section id="converter" class="content-section">
+                <h2><i class="fas fa-exchange-alt"></i> Text Converter</h2>
+                <p>Convert plain text to Braille format</p>
+                <!-- Text converter content will go here -->
+            </section>
+
+            <section id="batch" class="content-section">
+                <h2><i class="fas fa-layer-group"></i> Batch Processing</h2>
+                <p>Process multiple files at once</p>
+                <!-- Batch processing content will go here -->
+            </section>
+
+            <!-- Add more sections as needed -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p><i class="fas fa-universal-access"></i> Pratibimb - Open Source Platform to make digital content accessible!</p>
+                </div>
+                <div class="footer-shortcuts">
+                    <button class="shortcuts-toggle" id="shortcutsToggle" title="Keyboard Shortcuts">
+                        <i class="fas fa-keyboard"></i>
+                    </button>
+                    <div class="shortcuts-tooltip" id="shortcutsTooltip">
+                        <h4><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h4>
+                        <div class="shortcut-item">
+                            <kbd>Esc</kbd> Close all modals & reset UI
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>R</kbd> Emergency reset
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>H</kbd> Hide stuck toasts
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>Enter</kbd> Quick convert
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Processing YouTube video...</p>
+        </div>
+    </div>
+
+    <!-- Success/Error Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script-v2.js?v=20250712-fresh"></script>
+</body>
+</html>

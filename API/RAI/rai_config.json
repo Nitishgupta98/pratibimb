@@ -1,0 +1,54 @@
+{
+  "enabled": true,
+  "rai_settings": {
+    "enabled": true,
+    "mode": "development",
+    "strict_mode": false,
+    "log_level": "INFO",
+    "max_content_length": 10000
+  },
+  "content_filters": {
+    "toxicity": {
+      "enabled": true,
+      "threshold": 0.8,
+      "action": "warn",
+      "model": "detoxify"
+    },
+    "hate_speech": {
+      "enabled": true,
+      "threshold": 0.7,
+      "action": "warn"
+    },
+    "bias": {
+      "enabled": true,
+      "threshold": 0.6,
+      "action": "warn"
+    },
+    "privacy": {
+      "enabled": true,
+      "detect_pii": true,
+      "action": "warn"
+    }
+  },
+  "analysis_settings": {
+    "sentiment_analysis": {
+      "enabled": true,
+      "model": "cardiffnlp/twitter-roberta-base-sentiment-latest"
+    },
+    "bias_detection": {
+      "enabled": true,
+      "categories": ["gender", "racial", "age", "religious", "economic"]
+    }
+  },
+  "reporting": {
+    "generate_html_reports": true,
+    "include_charts": true,
+    "detailed_analysis": true,
+    "output_directory": "rai_reports"
+  },
+  "performance": {
+    "max_concurrent_requests": 10,
+    "analysis_timeout": 30,
+    "cache_results": false
+  }
+}

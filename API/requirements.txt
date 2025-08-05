@@ -1,0 +1,67 @@
+# --- Whisper and Speech Recognition ---
+faster-whisper
+# --- Core Web Framework ---
+fastapi
+uvicorn
+starlette
+python-multipart
+requests
+pydantic
+
+# --- YouTube, Video, and Audio Processing ---
+youtube-transcript-api
+yt-dlp
+moviepy
+opencv-python
+
+# --- Vision, ML, and AI ---
+torch
+transformers
+scikit-image
+Pillow
+numpy
+
+# --- Google Generative AI ---
+google-generativeai
+
+# --- Utility and Logging ---
+pyyaml
+loguru
+
+# --- Other (if used in codebase) ---
+packaging
+imageio
+tifffile
+networkx
+sympy
+filelock
+jinja2
+safetensors
+decorator
+imageio-ffmpeg
+hf-xet
+setuptools
+MarkupSafe
+fsspec
+proglog
+
+# For dotenv support (if used)
+python-dotenv
+
+# --- RAI & Data Science Dependencies ---
+aiohttp
+pandas
+faker
+scikit-learn
+matplotlib
+seaborn
+tqdm
+pytest
+pytest-asyncio
+pytest-cov
+python-dateutil
+openpyxl
+xlrd
+xlwt
+tabulate
+plotly

@@ -1,0 +1,2919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Store - Pratibimb</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f8f9fa; 
+            line-height: 1.6; 
+            color: #333;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles - Matching existing UI */
+        .infosys-header { 
+            background: #7B2CBF; 
+            color: white; 
+            padding: 15px 0; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .header-content { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+        }
+        
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            margin-right: 15px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .header-title { 
+            font-size: 1.4em; 
+            font-weight: 600; 
+            color: #fff;
+            margin: 0;
+        }
+        
+        .header-title .separator {
+            margin: 0 10px;
+            opacity: 0.7;
+        }
+        
+        .header-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+        }
+        
+        .user-info { 
+            color: rgba(255,255,255,0.95); 
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar { 
+            width: 35px; 
+            height: 35px; 
+            border-radius: 50%; 
+            background: rgba(255,255,255,0.15); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold; 
+            font-size: 1em;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: relative;
+            margin-right: 20px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+            z-index: 1001;
+        }
+
+        .language-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            justify-content: space-between;
+        }
+
+        .language-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-1px);
+        }
+
+        .language-options {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(123, 44, 191, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(123, 44, 191, 0.15);
+            min-width: 200px;
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .language-options.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .language-options[style*="block"] {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+            visibility: visible !important;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(123, 44, 191, 0.08);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.1), rgba(156, 60, 219, 0.08));
+            color: #7b2cbf;
+            transform: translateX(-2px);
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.15), rgba(156, 60, 219, 0.1));
+            color: #7b2cbf;
+            font-weight: 600;
+        }
+
+        .option-flag {
+            font-size: 18px;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+        }
+
+        .option-name {
+            font-size: 14px;
+            letter-spacing: 0.025em;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: visible !important;
+            z-index: 1000;
+        }
+
+        .role-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: linear-gradient(135deg, #6a1b9a 0%, #7b2cbf 50%, #8e24aa 100%);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 0;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 999;
+        }
+
+        .nav-tabs-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.85);
+            padding: 14px 24px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            position: relative;
+            min-width: fit-content;
+        }
+
+        .nav-tab:hover {
+            color: #ffffff;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .nav-tab.active {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+            background: rgba(255,255,255,0.15);
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        .nav-tab-icon {
+            font-size: 1.1em;
+            color: inherit;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-tab:hover .nav-tab-icon {
+            transform: scale(1.1);
+        }
+        /* Marketplace Layout */
+        .marketplace-container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: calc(100vh - 160px);
+            position: relative;
+        }
+
+        /* Marketplace Sidebar */
+        .marketplace-sidebar {
+            width: 250px;
+            background: white;
+            border-right: 1px solid #e9ecef;
+            padding: 0;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+            position: static;
+            height: auto;
+            min-height: calc(100vh - 160px);
+            overflow-y: auto;
+            transition: width 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        /* Modern Scrollbar for Sidebar */
+        .marketplace-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .marketplace-sidebar::-webkit-scrollbar-track {
+            background: #f8f9fa;
+        }
+
+        .marketplace-sidebar::-webkit-scrollbar-thumb {
+            background: #7b2cbf;
+            border-radius: 6px;
+        }
+
+        .marketplace-sidebar::-webkit-scrollbar-thumb:hover {
+            background: #5a189a;
+        }
+
+        .marketplace-sidebar.collapsed {
+            width: 0;
+            overflow: hidden;
+            border-right: none;
+            box-shadow: none;
+        }
+
+        /* Sidebar Header */
+        .sidebar-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Sidebar Toggle Button */
+        .sidebar-toggle {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1.1em;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background: #e9ecef;
+            color: #7b2cbf;
+        }
+
+        .sidebar-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        /* Floating Toggle Button for Collapsed State */
+        .floating-toggle {
+            position: fixed;
+            top: 220px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background: #7b2cbf;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .floating-toggle:hover {
+            background: #5a189a;
+            transform: scale(1.05);
+        }
+
+        .floating-toggle.show {
+            display: flex;
+        }
+
+        /* Sidebar Content */
+        .sidebar-content {
+            padding: 20px;
+        }
+
+        /* Sidebar Overlay for Mobile */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+        }
+
+        .filter-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+
+        .filter-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #7b2cbf;
+        }
+
+        .filter-toggle {
+            background: none;
+            border: none;
+            color: #7b2cbf;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .filter-options {
+            list-style: none;
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+
+        .filter-options.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .filter-option {
+            padding: 8px 0;
+            cursor: pointer;
+            color: #666;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-option:hover {
+            color: #7b2cbf;
+            padding-left: 5px;
+        }
+
+        .filter-count {
+            font-size: 0.8em;
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        /* Main Content Area */
+        .marketplace-main {
+            flex: 1;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+
+        /* Search and Controls */
+        .marketplace-header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .marketplace-title {
+            font-size: 2em;
+            color: #7b2cbf;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .marketplace-subtitle {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .beckn-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            gap: 6px;
+        }
+
+        .search-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-wrapper {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #7b2cbf;
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            bottom: 2px;
+            background: #7b2cbf;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #5a189a;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+
+        .view-btn {
+            background: none;
+            border: none;
+            padding: 10px 12px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn.active {
+            background: #7b2cbf;
+            color: white;
+        }
+
+        .sort-select {
+            padding: 10px 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        /* Cart and Favorites Icons */
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .action-icon {
+            position: relative;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .action-icon:hover {
+            background: #f8f9fa;
+            color: #7b2cbf;
+        }
+
+        .cart-count, .favorites-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #dc3545;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* Products Grid */
+        .products-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .products-count {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: #7b2cbf;
+        }
+
+        .product-image {
+            height: 120px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7b2cbf;
+            font-size: 2em;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: #28a745;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.4em;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 12px;
+        }
+
+        .product-vendor {
+            color: #666;
+            font-size: 0.7em;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-title {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.75em;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-location {
+            color: #666;
+            font-size: 0.7em;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 0.8em;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 0.7em;
+        }
+
+        .product-price {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #7b2cbf;
+            margin-bottom: 10px;
+        }
+
+        .product-price .currency {
+            font-size: 0.8em;
+        }
+
+        .product-price .unit {
+            font-size: 0.6em;
+            color: #666;
+            font-weight: normal;
+        }
+
+        /* Quantity Selector */
+        .quantity-selector {
+            margin-bottom: 8px;
+        }
+
+        .quantity-label {
+            font-size: 0.7em;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .quantity-options {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .quantity-option {
+            padding: 3px 6px;
+            border: 1px solid #e9ecef;
+            border-radius: 3px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.7em;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-option:hover, .quantity-option.selected {
+            border-color: #7b2cbf;
+            background: #f8f4ff;
+            color: #7b2cbf;
+        }
+
+        /* Product Actions */
+        .product-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            background: #7b2cbf;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .add-to-cart:hover {
+            background: #5a189a;
+            transform: translateY(-1px);
+        }
+
+        .add-to-favorites {
+            background: none;
+            border: 2px solid #e9ecef;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-favorites:hover {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+
+        .add-to-favorites.active {
+            border-color: #dc3545;
+            background: #dc3545;
+            color: white;
+        }
+
+        .view-details-btn {
+            background: none;
+            border: 1px solid #7b2cbf;
+            color: #7b2cbf;
+            padding: 6px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7em;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .view-details-btn:hover {
+            background: #7b2cbf;
+            color: white;
+        }
+
+        /* Product Details Modal */
+        .product-details-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 20px;
+        }
+
+        .product-details-modal.show {
+            display: flex;
+        }
+
+        .product-details-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-details-header {
+            padding: 8px 25px;
+            border-bottom: 1px solid #e9ecef;
+            background: linear-gradient(135deg, #7b2cbf 0%, #8e24aa 100%);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            min-height: auto;
+            flex-shrink: 0;
+        }
+
+        .product-details-close {
+            position: absolute;
+            top: 6px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-details-close:hover {
+            opacity: 1;
+        }
+
+        .product-details-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        /* Modern Scrollbar Styling for Main Content */
+        .product-details-main::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .product-details-main::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .product-details-main::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #7b2cbf 0%, #8e24aa 100%);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .product-details-main::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a189a 0%, #6a1b9a 100%);
+        }
+
+        /* Firefox Scrollbar */
+        .product-details-main {
+            scrollbar-width: thin;
+            scrollbar-color: #7b2cbf #f1f1f1;
+        }
+
+        .product-details-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-details-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7b2cbf;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        /* Product Reviews Section */
+        .product-reviews {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .reviews-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .review-item {
+            background: white;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #7b2cbf;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            font-size: 0.8em;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.75em;
+            margin-top: 6px;
+        }
+
+        .product-details-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-details-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-details-vendor {
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+        }
+
+        .product-details-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-details-rating .stars {
+            font-size: 1.2em;
+        }
+
+        .product-details-price {
+            font-size: 2em;
+            font-weight: 700;
+            color: #7b2cbf;
+            margin-bottom: 20px;
+        }
+
+        .product-details-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .product-details-features {
+            margin-bottom: 20px;
+        }
+
+        .features-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 5px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .product-details-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-details-actions .add-to-cart {
+            flex: 2;
+            padding: 12px 20px;
+            font-size: 1em;
+        }
+
+        .product-details-actions .add-to-favorites {
+            flex: 1;
+            padding: 12px;
+            font-size: 1em;
+        }
+
+        /* Footer */
+        .infosys-footer { 
+            background: #343a40; 
+            color: #fff; 
+            text-align: center; 
+            padding: 15px 0; 
+            border-top: 3px solid #7b2cbf;
+            position: relative;
+            z-index: 100;
+            margin-top: auto;
+        }
+        
+        .footer-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 40px; 
+        }
+        
+        .footer-text { 
+            font-size: 0.9em; 
+            color: #adb5bd; 
+        }
+
+        /* Cart Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Modern Scrollbar for Modal Content */
+        .modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #7b2cbf;
+            border-radius: 6px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #5a189a;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #7b2cbf;
+            font-weight: 600;
+        }
+
+        .cart-total {
+            padding: 20px;
+            border-top: 2px solid #e9ecef;
+            text-align: right;
+        }
+
+        .total-amount {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #7b2cbf;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            border-left: 4px solid #28a745;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast-icon {
+            color: #28a745;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .marketplace-container {
+                flex-direction: column;
+            }
+
+            .marketplace-sidebar {
+                position: fixed;
+                top: 160px;
+                left: 0;
+                width: 280px;
+                height: calc(100vh - 160px);
+                z-index: 1000;
+                transform: translateX(-100%);
+                margin-left: 0;
+            }
+
+            .marketplace-sidebar:not(.collapsed) {
+                transform: translateX(0);
+            }
+
+            .marketplace-main {
+                margin-left: 0;
+                padding: 15px 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 12px;
+            }
+
+            .product-details-main {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .product-details-image {
+                height: 150px;
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .marketplace-sidebar {
+                width: 100%;
+                left: 0;
+            }
+
+            .marketplace-main {
+                padding: 15px 20px;
+            }
+
+            .search-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-wrapper {
+                min-width: auto;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 10px;
+            }
+
+            .nav-tabs-container {
+                padding: 0 10px;
+                gap: 2px;
+            }
+
+            .nav-tab {
+                padding: 10px 14px;
+                font-size: 0.8em;
+                gap: 6px;
+                flex: 1;
+                justify-content: center;
+            }
+
+            .product-details-content {
+                margin: 10px;
+                max-height: calc(100vh - 20px);
+            }
+
+            .product-details-main {
+                padding: 15px;
+            }
+
+            .product-details-image {
+                height: 150px;
+                font-size: 2.5em;
+            }
+
+            .product-details-title {
+                font-size: 1.4em;
+            }
+
+            .product-details-price {
+                font-size: 1.6em;
+            }
+
+            .sidebar-header {
+                padding: 12px 15px;
+            }
+
+            .sidebar-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="infosys-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="header-title">Pratibimb <span class="separator">|</span> True Reflection of Digital World!</h1>
+                </div>
+                <div class="header-right">
+                    <div class="language-selector">
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="language-btn" id="languageBtn">
+                                <i class="fas fa-globe"></i>
+                                <span class="language-flag">🇺🇸</span>
+                                <span class="language-name">English</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="language-options" id="languageOptions">
+                                <div class="language-option" data-language="kannada">
+                                    <span class="option-flag">🇮🇳</span>
+                                    <span class="option-name">ಕನ್ನಡ</span>
+                                </div>
+                                <div class="language-option" data-language="telugu">
+                                    <span class="option-flag">🇮🇳</span>
+                                    <span class="option-name">తెలుగు</span>
+                                </div>
+                                <div class="language-option" data-language="hindi">
+                                    <span class="option-flag">🇮🇳</span>
+                                    <span class="option-name">हिंदी</span>
+                                </div>
+                                <div class="language-option active" data-language="english">
+                                    <span class="option-flag">🇺🇸</span>
+                                    <span class="option-name">English</span>
+                                </div>
+                                <div class="language-option" data-language="french">
+                                    <span class="option-flag">🇫🇷</span>
+                                    <span class="option-name">Français</span>
+                                </div>
+                                <div class="language-option" data-language="german">
+                                    <span class="option-flag">🇩🇪</span>
+                                    <span class="option-name">Deutsch</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Bhupinder Singh Chawla</span>
+                        <span class="role-badge" id="userRole">School Admin</span>
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <div class="nav-tabs-container">
+                <a href="index.html" class="nav-tab">
+                    <i class="fas fa-home nav-tab-icon"></i>
+                    <span data-translate="navigation.dashboard">Dashboard</span>
+                </a>
+                <a href="learn.html" class="nav-tab">
+                    <i class="fas fa-graduation-cap nav-tab-icon"></i>
+                    <span data-translate="navigation.learning_center">Learning Center</span>
+                </a>
+                <a href="marketplace.html" class="nav-tab active">
+                    <i class="fas fa-store nav-tab-icon"></i>
+                    <span data-translate="navigation.accessibility_store">Accessibility Store</span>
+                </a>
+                <a href="community.html" class="nav-tab">
+                    <i class="fas fa-users nav-tab-icon"></i>
+                    <span data-translate="navigation.community_hub">Community Hub</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="marketplace-container">
+            <!-- Floating Toggle Button for Collapsed State -->
+            <button class="floating-toggle" id="floatingToggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Sidebar Filters -->
+            <aside class="marketplace-sidebar" id="marketplaceSidebar">
+                <div class="sidebar-header">
+                    <h3 class="sidebar-title">Filters</h3>
+                    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="sidebar-content">
+                    <div class="filter-section">
+                        <div class="filter-section-header" onclick="toggleFilterSection('categories')">
+                            <h3 class="filter-title">Categories</h3>
+                            <button class="filter-toggle" id="categories-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="filter-options" id="categories-options">
+                            <li class="filter-option" data-category="all">
+                                All Products
+                                <span class="filter-count">24</span>
+                            </li>
+                            <li class="filter-option" data-category="services">
+                                Braille Services
+                                <span class="filter-count">8</span>
+                            </li>
+                            <li class="filter-option" data-category="hardware">
+                                Assistive Hardware
+                                <span class="filter-count">6</span>
+                            </li>
+                            <li class="filter-option" data-category="software">
+                                Accessibility Software
+                                <span class="filter-count">5</span>
+                            </li>
+                            <li class="filter-option" data-category="education">
+                                Learning Tools
+                                <span class="filter-count">3</span>
+                            </li>
+                            <li class="filter-option" data-category="mobility">
+                                Mobility Aids
+                                <span class="filter-count">2</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-header" onclick="toggleFilterSection('price')">
+                            <h3 class="filter-title">Price Range</h3>
+                            <button class="filter-toggle" id="price-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="filter-options" id="price-options">
+                            <li class="filter-option" data-price="0-500">
+                                ₹0 - ₹500
+                                <span class="filter-count">12</span>
+                            </li>
+                            <li class="filter-option" data-price="500-2000">
+                                ₹500 - ₹2,000
+                                <span class="filter-count">8</span>
+                            </li>
+                            <li class="filter-option" data-price="2000-10000">
+                                ₹2,000 - ₹10,000
+                                <span class="filter-count">3</span>
+                            </li>
+                            <li class="filter-option" data-price="10000+">
+                                ₹10,000+
+                                <span class="filter-count">1</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-header" onclick="toggleFilterSection('location')">
+                            <h3 class="filter-title">Location</h3>
+                            <button class="filter-toggle" id="location-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="filter-options" id="location-options">
+                            <li class="filter-option" data-location="bangalore">
+                                Bangalore
+                                <span class="filter-count">8</span>
+                            </li>
+                            <li class="filter-option" data-location="mysore">
+                                Mysore
+                                <span class="filter-count">6</span>
+                            </li>
+                            <li class="filter-option" data-location="delhi">
+                                Delhi
+                                <span class="filter-count">5</span>
+                            </li>
+                            <li class="filter-option" data-location="mumbai">
+                                Mumbai
+                                <span class="filter-count">3</span>
+                            </li>
+                            <li class="filter-option" data-location="chennai">
+                                Chennai
+                                <span class="filter-count">2</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-section-header" onclick="toggleFilterSection('rating')">
+                            <h3 class="filter-title">Rating</h3>
+                            <button class="filter-toggle" id="rating-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="filter-options" id="rating-options">
+                            <li class="filter-option" data-rating="4+">
+                                <span class="stars">★★★★☆</span> & Up
+                                <span class="filter-count">18</span>
+                            </li>
+                            <li class="filter-option" data-rating="3+">
+                                <span class="stars">★★★☆☆</span> & Up
+                                <span class="filter-count">21</span>
+                            </li>
+                            <li class="filter-option" data-rating="2+">
+                                <span class="stars">★★☆☆☆</span> & Up
+                                <span class="filter-count">24</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="marketplace-main" id="marketplaceMain">
+                <!-- Marketplace Header -->
+                <div class="marketplace-header">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div style="flex: 1;">
+                            <h1 class="marketplace-title">Accessibility Marketplace</h1>
+                            <p class="marketplace-subtitle">Discover innovative assistive technologies and services to enhance accessibility and independence</p>
+                        </div>
+                        <div class="beckn-badge" style="margin-bottom: 0; margin-top: 5px;">
+                            <i class="fas fa-network-wired"></i>
+                            Powered by Beckn Protocol & ONDC Network
+                        </div>
+                    </div>
+
+                    <div class="search-controls">
+                        <div class="search-wrapper">
+                            <input type="text" class="search-input" placeholder="Search for assistive products, services, or vendors..." id="searchInput">
+                            <button class="search-btn" onclick="searchProducts()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+
+                        <select class="sort-select" id="sortSelect">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Customer Rating</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+
+                        <div class="header-actions">
+                            <button class="action-icon" onclick="toggleCart()" title="View Cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count" id="cartCount">0</span>
+                            </button>
+                            <button class="action-icon" onclick="toggleFavorites()" title="View Favorites">
+                                <i class="fas fa-heart"></i>
+                                <span class="favorites-count" id="favoritesCount">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="products-section">
+                    <div class="products-header">
+                        <div class="products-count">
+                            Showing <span id="productsShown">24</span> of <span id="totalProducts">24</span> products
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Product 1: BraaS -->
+                        <div class="product-card" data-category="services" data-price="10" data-location="mysore" data-rating="4.8" onclick="showProductDetails('braas')">
+                            <div class="product-image">
+                                <i class="fas fa-braille"></i>
+                                <div class="product-badge">Popular</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    Divya Jyothi Trust
+                                </div>
+                                <h3 class="product-title">BraaS - Braille as a Service</h3>
+                                <p class="product-description">Professional Braille transcription services with quick turnaround. Convert any text to Grade 1 or Grade 2 Braille with expert accuracy.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Mysore, Karnataka
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.8 (156)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>10<span class="unit">/page</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('braas')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">Select quantity:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="50">50 pages</span>
+                                        <span class="quantity-option" data-qty="100">100 pages</span>
+                                        <span class="quantity-option" data-qty="500">500 pages</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('braas', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('braas', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2: Screen Reader -->
+                        <div class="product-card" data-category="software" data-price="1500" data-location="bangalore" data-rating="4.5" onclick="showProductDetails('screenreader')">
+                            <div class="product-image">
+                                <i class="fas fa-desktop"></i>
+                                <div class="product-badge">Featured</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    AccessTech Solutions
+                                </div>
+                                <h3 class="product-title">Advanced Screen Reader Pro</h3>
+                                <p class="product-description">Powerful screen reading software with AI-enhanced voice synthesis, multi-language support, and advanced navigation features.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Bangalore, Karnataka
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.5 (89)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>1,500<span class="unit">/license</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('screenreader')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">License type:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="1">Personal</span>
+                                        <span class="quantity-option" data-qty="3">Family</span>
+                                        <span class="quantity-option" data-qty="10">Business</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('screenreader', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('screenreader', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3: Braille Display -->
+                        <div class="product-card" data-category="hardware" data-price="25000" data-location="delhi" data-rating="4.7" onclick="showProductDetails('brailledisplay')">
+                            <div class="product-image">
+                                <i class="fas fa-keyboard"></i>
+                                <div class="product-badge">Premium</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    Braille Tech India
+                                </div>
+                                <h3 class="product-title">40-Cell Braille Display</h3>
+                                <p class="product-description">Professional-grade refreshable Braille display with 40 cells, Bluetooth connectivity, and ergonomic design for extended use.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Delhi, NCR
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.7 (34)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>25,000<span class="unit">/unit</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('brailledisplay')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">Warranty:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="1">1 Year</span>
+                                        <span class="quantity-option" data-qty="2">2 Years</span>
+                                        <span class="quantity-option" data-qty="3">3 Years</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('brailledisplay', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('brailledisplay', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4: Voice Assistant -->
+                        <div class="product-card" data-category="software" data-price="800" data-location="bangalore" data-rating="4.3" onclick="showProductDetails('voiceassistant')">
+                            <div class="product-image">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    VoiceTech Solutions
+                                </div>
+                                <h3 class="product-title">AI Voice Assistant for Accessibility</h3>
+                                <p class="product-description">Smart voice assistant with accessibility features, natural language processing, and integration with screen readers.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Bangalore, Karnataka
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.3 (67)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>800<span class="unit">/month</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('voiceassistant')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">Subscription:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="1">1 Month</span>
+                                        <span class="quantity-option" data-qty="6">6 Months</span>
+                                        <span class="quantity-option" data-qty="12">12 Months</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('voiceassistant', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('voiceassistant', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5: Tactile Maps -->
+                        <div class="product-card" data-category="education" data-price="300" data-location="mysore" data-rating="4.6" onclick="showProductDetails('tactilemaps')">
+                            <div class="product-image">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    Learning Aids Mysore
+                                </div>
+                                <h3 class="product-title">3D Tactile Geography Maps</h3>
+                                <p class="product-description">High-quality tactile maps with raised textures for geography education, perfect for hands-on learning experiences.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Mysore, Karnataka
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-text">4.6 (23)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>300<span class="unit">/set</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('tactilemaps')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">Map set:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="india">India</span>
+                                        <span class="quantity-option" data-qty="world">World</span>
+                                        <span class="quantity-option" data-qty="states">States</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('tactilemaps', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('tactilemaps', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6: Smart Cane -->
+                        <div class="product-card" data-category="mobility" data-price="12000" data-location="mumbai" data-rating="4.4" onclick="showProductDetails('smartcane')">
+                            <div class="product-image">
+                                <i class="fas fa-walking"></i>
+                                <div class="product-badge">New</div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-vendor">
+                                    <i class="fas fa-store"></i>
+                                    MobilityTech Mumbai
+                                </div>
+                                <h3 class="product-title">Smart Navigation Cane with GPS</h3>
+                                <p class="product-description">Advanced mobility cane with GPS navigation, obstacle detection sensors, and smartphone connectivity for enhanced independence.</p>
+                                <div class="product-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Mumbai, Maharashtra
+                                </div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-text">4.4 (18)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="currency">₹</span>12,000<span class="unit">/unit</span>
+                                </div>
+                                <button class="view-details-btn" onclick="event.stopPropagation(); showProductDetails('smartcane')">
+                                    <i class="fas fa-info-circle"></i> View Details
+                                </button>
+                                <div class="quantity-selector">
+                                    <div class="quantity-label">Color:</div>
+                                    <div class="quantity-options">
+                                        <span class="quantity-option selected" data-qty="white">White</span>
+                                        <span class="quantity-option" data-qty="black">Black</span>
+                                        <span class="quantity-option" data-qty="red">Red & White</span>
+                                    </div>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('smartcane', this)">
+                                        <i class="fas fa-cart-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                    <button class="add-to-favorites" onclick="event.stopPropagation(); toggleFavorite('smartcane', this)">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Product Details Modal -->
+        <div class="product-details-modal" id="productDetailsModal">
+            <div class="product-details-content">
+                <div class="product-details-header">
+                    <h2 id="modalProductTitle">Product Details</h2>
+                    <button class="product-details-close" onclick="closeProductDetails()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="product-details-main">
+                    <div class="product-details-left">
+                        <div class="product-details-image" id="modalProductImage">
+                            <i class="fas fa-braille"></i>
+                        </div>
+                        <div class="product-reviews" id="modalProductReviews">
+                            <div class="reviews-title">
+                                <i class="fas fa-star"></i>
+                                Customer Reviews
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">Rajesh Kumar</div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                                <div class="review-text">Excellent service! Quick turnaround and very accurate Braille conversion. Highly recommended for professional documents.</div>
+                                <div class="review-date">2 days ago</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">Priya Sharma</div>
+                                    <div class="review-rating">★★★★☆</div>
+                                </div>
+                                <div class="review-text">Good quality service. The team is very responsive and helpful with any questions.</div>
+                                <div class="review-date">1 week ago</div>
+                            </div>
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-author">Dr. Anita Singh</div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                                <div class="review-text">Perfect for educational materials. Professional formatting and timely delivery.</div>
+                                <div class="review-date">2 weeks ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details-right">
+                        <h3 class="product-details-title" id="modalProductName">BraaS - Braille as a Service</h3>
+                        <div class="product-details-vendor" id="modalProductVendor">
+                            <i class="fas fa-store"></i>
+                            Divya Jyothi Trust
+                        </div>
+                        <div class="product-details-rating">
+                            <span class="stars" id="modalProductStars">★★★★★</span>
+                            <span id="modalProductRating">4.8 (156 reviews)</span>
+                        </div>
+                        <div class="product-details-price" id="modalProductPrice">₹10/page</div>
+                        <div class="product-details-description" id="modalProductDescription">
+                            Professional Braille transcription services with quick turnaround. Convert any text to Grade 1 or Grade 2 Braille with expert accuracy and professional formatting.
+                        </div>
+                        <div class="product-details-features">
+                            <h4 class="features-title">Key Features</h4>
+                            <ul class="features-list" id="modalProductFeatures">
+                                <li>Professional Grade 1 and Grade 2 Braille conversion</li>
+                                <li>24-48 hour turnaround time</li>
+                                <li>Expert quality assurance</li>
+                                <li>Multiple format delivery options</li>
+                                <li>Custom formatting available</li>
+                            </ul>
+                        </div>
+                        <div class="product-details-actions">
+                            <button class="add-to-cart" onclick="addToCartFromModal()">
+                                <i class="fas fa-cart-plus"></i>
+                                Add to Cart
+                            </button>
+                            <button class="add-to-favorites" onclick="toggleFavoriteFromModal()">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Modal -->
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Shopping Cart</h2>
+                    <button class="close-modal" onclick="toggleCart()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="cartItems">
+                    <p style="text-align: center; color: #666; padding: 40px;">Your cart is empty</p>
+                </div>
+                <div class="cart-total" id="cartTotal" style="display: none;">
+                    <div class="total-amount">Total: ₹<span id="totalAmount">0</span></div>
+                    <button class="add-to-cart" style="width: 200px; margin-top: 15px;">
+                        <i class="fas fa-credit-card"></i>
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Modal -->
+        <div class="modal" id="favoritesModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">My Favorites</h2>
+                    <button class="close-modal" onclick="toggleFavorites()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="favoriteItems">
+                    <p style="text-align: center; color: #666; padding: 40px;">No favorites added yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast">
+            <div class="toast-content">
+                <i class="fas fa-check-circle toast-icon"></i>
+                <span id="toastMessage">Item added to cart!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="infosys-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                Pratibimb v2.1 - Accessibility Innovation Platform | Powered by Infosys | © 2025 All Rights Reserved
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Cart and Favorites data
+    let cart = [];
+    let favorites = [];
+    let cartCount = 0;
+    let favoritesCount = 0;
+    let currentProductId = null;
+
+    // Product data for details modal
+    const productData = {
+        braas: {
+            title: "BraaS - Braille as a Service",
+            vendor: "Divya Jyothi Trust",
+            price: "₹10/page",
+            rating: "4.8 (156 reviews)",
+            stars: "★★★★★",
+            icon: "fas fa-braille",
+            description: "Professional Braille transcription services with quick turnaround. Convert any text to Grade 1 or Grade 2 Braille with expert accuracy and professional formatting. Our experienced team ensures high-quality output suitable for educational materials, books, documents, and more.",
+            features: [
+                "Professional Grade 1 and Grade 2 Braille conversion",
+                "24-48 hour turnaround time for standard orders",
+                "Expert quality assurance and proofreading",
+                "Multiple format delivery options (.brl, .brf, embossed)",
+                "Custom formatting and layout services",
+                "Support for mathematical and scientific notation",
+                "Bulk order discounts available",
+                "Free revision within 7 days"
+            ],
+            reviews: [
+                {
+                    author: "Rajesh Kumar",
+                    rating: "★★★★★",
+                    text: "Excellent service! Quick turnaround and very accurate Braille conversion. Highly recommended for professional documents.",
+                    date: "2 days ago"
+                },
+                {
+                    author: "Priya Sharma",
+                    rating: "★★★★☆",
+                    text: "Good quality service. The team is very responsive and helpful with any questions.",
+                    date: "1 week ago"
+                },
+                {
+                    author: "Dr. Anita Singh",
+                    rating: "★★★★★",
+                    text: "Perfect for educational materials. Professional formatting and timely delivery.",
+                    date: "2 weeks ago"
+                }
+            ]
+        },
+        screenreader: {
+            title: "Advanced Screen Reader Pro",
+            vendor: "AccessTech Solutions",
+            price: "₹1,500/license",
+            rating: "4.5 (89 reviews)",
+            stars: "★★★★☆",
+            icon: "fas fa-desktop",
+            description: "Powerful screen reading software with AI-enhanced voice synthesis, multi-language support, and advanced navigation features. Compatible with all major operating systems and applications.",
+            features: [
+                "AI-powered natural voice synthesis",
+                "Support for 15+ Indian languages",
+                "Advanced web navigation tools",
+                "OCR text recognition capabilities",
+                "Customizable speech settings",
+                "Braille display compatibility",
+                "Application-specific scripts",
+                "Regular software updates"
+            ]
+        },
+        brailledisplay: {
+            title: "40-Cell Braille Display",
+            vendor: "Braille Tech India",
+            price: "₹25,000/unit",
+            rating: "4.7 (34 reviews)",
+            stars: "★★★★★",
+            icon: "fas fa-keyboard",
+            description: "Professional-grade refreshable Braille display with 40 cells, Bluetooth connectivity, and ergonomic design for extended use. Perfect for students, professionals, and daily computer use.",
+            features: [
+                "40 high-quality piezo-electric Braille cells",
+                "Bluetooth and USB connectivity",
+                "18-hour battery life",
+                "Ergonomic design with cursor routing keys",
+                "Compatible with all major screen readers",
+                "Lightweight and portable (850g)",
+                "2-year comprehensive warranty",
+                "Free training and support"
+            ]
+        },
+        voiceassistant: {
+            title: "AI Voice Assistant for Accessibility",
+            vendor: "VoiceTech Solutions",
+            price: "₹800/month",
+            rating: "4.3 (67 reviews)",
+            stars: "★★★★☆",
+            icon: "fas fa-microphone",
+            description: "Smart voice assistant with accessibility features, natural language processing, and integration with screen readers. Designed specifically for users with visual impairments.",
+            features: [
+                "Natural language voice commands",
+                "Screen reader integration",
+                "Smart home device control",
+                "Calendar and reminder management",
+                "Email and message dictation",
+                "Web search and news reading",
+                "Accessibility app launcher",
+                "Offline mode available"
+            ]
+        },
+        tactilemaps: {
+            title: "3D Tactile Geography Maps",
+            vendor: "Learning Aids Mysore",
+            price: "₹300/set",
+            rating: "4.6 (23 reviews)",
+            stars: "★★★★★",
+            icon: "fas fa-map",
+            description: "High-quality tactile maps with raised textures for geography education, perfect for hands-on learning experiences. Made from durable materials with clear tactile distinctions.",
+            features: [
+                "Raised relief topographical features",
+                "Braille labels for major cities and landmarks",
+                "Durable thermoformed plastic construction",
+                "Different textures for water, land, and borders",
+                "Educational guide booklet included",
+                "Suitable for all age groups",
+                "Available in multiple languages",
+                "Easy to clean and maintain"
+            ]
+        },
+        smartcane: {
+            title: "Smart Navigation Cane with GPS",
+            vendor: "MobilityTech Mumbai",
+            price: "₹12,000/unit",
+            rating: "4.4 (18 reviews)",
+            stars: "★★★★☆",
+            icon: "fas fa-walking",
+            description: "Advanced mobility cane with GPS navigation, obstacle detection sensors, and smartphone connectivity for enhanced independence. Features voice guidance and emergency alerts.",
+            features: [
+                "GPS navigation with voice guidance",
+                "Ultrasonic obstacle detection sensors",
+                "Smartphone app connectivity",
+                "Emergency SOS button",
+                "Rechargeable battery (10-day life)",
+                "Waterproof and lightweight design",
+                "Customizable vibration alerts",
+                "24/7 customer support"
+            ]
+        }
+    };
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('marketplaceSidebar');
+        const toggle = document.getElementById('sidebarToggle');
+        const floatingToggle = document.getElementById('floatingToggle');
+        
+        sidebar.classList.toggle('collapsed');
+        
+        if (sidebar.classList.contains('collapsed')) {
+            if (toggle) toggle.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            if (floatingToggle) floatingToggle.classList.add('show');
+        } else {
+            if (toggle) toggle.innerHTML = '<i class="fas fa-bars"></i>';
+            if (floatingToggle) floatingToggle.classList.remove('show');
+        }
+    }
+
+    function toggleFilterSection(sectionName) {
+        const options = document.getElementById(sectionName + '-options');
+        const toggle = document.getElementById(sectionName + '-toggle');
+        
+        options.classList.toggle('collapsed');
+        toggle.classList.toggle('collapsed');
+    }
+
+    function showProductDetails(productId) {
+        currentProductId = productId;
+        const product = productData[productId];
+        if (!product) return;
+
+        // Update modal content
+        document.getElementById('modalProductTitle').textContent = product.title;
+        document.getElementById('modalProductName').textContent = product.title;
+        document.getElementById('modalProductVendor').innerHTML = `<i class="fas fa-store"></i> ${product.vendor}`;
+        document.getElementById('modalProductPrice').textContent = product.price;
+        document.getElementById('modalProductRating').textContent = product.rating;
+        document.getElementById('modalProductStars').textContent = product.stars;
+        document.getElementById('modalProductDescription').textContent = product.description;
+        
+        // Update icon
+        const modalIcon = document.getElementById('modalProductImage');
+        modalIcon.innerHTML = `<i class="${product.icon}"></i>`;
+        
+        // Update features list
+        const featuresList = document.getElementById('modalProductFeatures');
+        featuresList.innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
+        
+        // Update reviews
+        const reviewsContainer = document.getElementById('modalProductReviews');
+        if (product.reviews && product.reviews.length > 0) {
+            const reviewsHTML = `
+                <div class="reviews-title">
+                    <i class="fas fa-star"></i>
+                    Customer Reviews
+                </div>
+                ${product.reviews.map(review => `
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-author">${review.author}</div>
+                            <div class="review-rating">${review.rating}</div>
+                        </div>
+                        <div class="review-text">${review.text}</div>
+                        <div class="review-date">${review.date}</div>
+                    </div>
+                `).join('')}
+            `;
+            reviewsContainer.innerHTML = reviewsHTML;
+        } else {
+            reviewsContainer.innerHTML = `
+                <div class="reviews-title">
+                    <i class="fas fa-star"></i>
+                    Customer Reviews
+                </div>
+                <div class="review-item">
+                    <div class="review-text" style="text-align: center; color: #999;">No reviews yet. Be the first to review this product!</div>
+                </div>
+            `;
+        }
+        
+        // Show modal
+        document.getElementById('productDetailsModal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductDetails() {
+        document.getElementById('productDetailsModal').classList.remove('show');
+        document.body.style.overflow = 'auto';
+        currentProductId = null;
+    }
+
+    function addToCartFromModal() {
+        if (currentProductId) {
+            const product = productData[currentProductId];
+            const cartItem = {
+                id: currentProductId,
+                title: product.title,
+                vendor: product.vendor.replace('🏪 ', ''),
+                price: parseFloat(product.price.replace('₹', '').split('/')[0]),
+                quantity: '1',
+                total: parseFloat(product.price.replace('₹', '').split('/')[0])
+            };
+
+            cart.push(cartItem);
+            cartCount++;
+            updateCartCount();
+            showToast(`${product.title} added to cart!`);
+            updateCartDisplay();
+        }
+    }
+
+    function toggleFavoriteFromModal() {
+        if (currentProductId) {
+            const product = productData[currentProductId];
+            const existingIndex = favorites.findIndex(item => item.id === currentProductId);
+            
+            if (existingIndex > -1) {
+                favorites.splice(existingIndex, 1);
+                favoritesCount--;
+                showToast('Removed from favorites');
+            } else {
+                const favoriteItem = {
+                    id: currentProductId,
+                    title: product.title,
+                    vendor: product.vendor,
+                    price: product.price
+                };
+                favorites.push(favoriteItem);
+                favoritesCount++;
+                showToast('Added to favorites!');
+            }
+            
+            updateFavoritesCount();
+            updateFavoritesDisplay();
+        }
+    }
+
+    // Navigation tab functionality
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            // Navigation will be handled by href, but we can add additional logic here if needed
+        });
+    });
+
+    // Menu toggle functionality
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        // Menu toggle functionality can be added here
+        console.log('Menu toggle clicked');
+    });
+
+    // Marketplace functionality
+    function updateCartCount() {
+        document.getElementById('cartCount').textContent = cartCount;
+    }
+
+    function updateFavoritesCount() {
+        document.getElementById('favoritesCount').textContent = favoritesCount;
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    function addToCart(productId, button) {
+        const productCard = button.closest('.product-card');
+        const title = productCard.querySelector('.product-title').textContent;
+        const vendor = productCard.querySelector('.product-vendor').textContent.replace('🏪 ', '');
+        const price = productCard.querySelector('.product-price').textContent.replace('₹', '').split('/')[0];
+        const selectedQty = productCard.querySelector('.quantity-option.selected');
+        
+        const cartItem = {
+            id: productId,
+            title: title,
+            vendor: vendor,
+            price: parseFloat(price),
+            quantity: selectedQty ? selectedQty.textContent : '1',
+            total: parseFloat(price)
+        };
+
+        cart.push(cartItem);
+        cartCount++;
+        updateCartCount();
+        showToast(`${title} added to cart!`);
+        
+        // Update cart display
+        updateCartDisplay();
+    }
+
+    function toggleFavorite(productId, button) {
+        const productCard = button.closest('.product-card');
+        const title = productCard.querySelector('.product-title').textContent;
+        const vendor = productCard.querySelector('.product-vendor').textContent;
+        const price = productCard.querySelector('.product-price').textContent;
+        
+        const existingIndex = favorites.findIndex(item => item.id === productId);
+        
+        if (existingIndex > -1) {
+            // Remove from favorites
+            favorites.splice(existingIndex, 1);
+            button.classList.remove('active');
+            favoritesCount--;
+            showToast('Removed from favorites');
+        } else {
+            // Add to favorites
+            const favoriteItem = {
+                id: productId,
+                title: title,
+                vendor: vendor,
+                price: price
+            };
+            favorites.push(favoriteItem);
+            button.classList.add('active');
+            favoritesCount++;
+            showToast('Added to favorites!');
+        }
+        
+        updateFavoritesCount();
+        updateFavoritesDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const totalAmount = document.getElementById('totalAmount');
+        
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">Your cart is empty</p>';
+            cartTotal.style.display = 'none';
+            return;
+        }
+        
+        let total = 0;
+        let cartHTML = '';
+        
+        cart.forEach((item, index) => {
+            total += item.total;
+            cartHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-vendor">${item.vendor}</div>
+                        <div class="cart-item-quantity">Quantity: ${item.quantity}</div>
+                    </div>
+                    <div class="cart-item-price">₹${item.price}</div>
+                    <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #dc3545; cursor: pointer; padding: 5px;">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+        });
+        
+        cartItems.innerHTML = cartHTML;
+        totalAmount.textContent = total.toFixed(2);
+        cartTotal.style.display = 'block';
+    }
+
+    function updateFavoritesDisplay() {
+        const favoriteItems = document.getElementById('favoriteItems');
+        
+        if (favorites.length === 0) {
+            favoriteItems.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No favorites added yet</p>';
+            return;
+        }
+        
+        let favoritesHTML = '';
+        
+        favorites.forEach((item, index) => {
+            favoritesHTML += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-vendor">${item.vendor}</div>
+                    </div>
+                    <div class="cart-item-price">${item.price}</div>
+                    <button onclick="removeFromFavorites(${index})" style="background: none; border: none; color: #dc3545; cursor: pointer; padding: 5px;">
+                        <i class="fas fa-heart-broken"></i>
+                    </button>
+                </div>
+            `;
+        });
+        
+        favoriteItems.innerHTML = favoritesHTML;
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        cartCount--;
+        updateCartCount();
+        updateCartDisplay();
+        showToast('Item removed from cart');
+    }
+
+    function removeFromFavorites(index) {
+        const removedItem = favorites[index];
+        favorites.splice(index, 1);
+        favoritesCount--;
+        updateFavoritesCount();
+        updateFavoritesDisplay();
+        
+        // Update the heart button in the product card
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            const title = card.querySelector('.product-title').textContent;
+            if (title === removedItem.title) {
+                const heartButton = card.querySelector('.add-to-favorites');
+                heartButton.classList.remove('active');
+            }
+        });
+        
+        showToast('Removed from favorites');
+    }
+
+    function toggleCart() {
+        const modal = document.getElementById('cartModal');
+        modal.classList.toggle('show');
+    }
+
+    function toggleFavorites() {
+        const modal = document.getElementById('favoritesModal');
+        modal.classList.toggle('show');
+    }
+
+    function searchProducts() {
+        const searchInput = document.getElementById('searchInput');
+        const searchTerm = searchInput.value.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+        let visibleCount = 0;
+        
+        productCards.forEach(card => {
+            const title = card.querySelector('.product-title').textContent.toLowerCase();
+            const vendor = card.querySelector('.product-vendor').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || vendor.includes(searchTerm)) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        document.getElementById('productsShown').textContent = visibleCount;
+        
+        if (visibleCount === 0) {
+            document.querySelector('.products-grid').innerHTML += '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;"><i class="fas fa-search" style="font-size: 3em; margin-bottom: 20px; opacity: 0.5;"></i><br>No products found matching your search.</div>';
+        }
+    }
+
+    // Quantity selector functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('quantity-option')) {
+            const parent = e.target.parentElement;
+            parent.querySelectorAll('.quantity-option').forEach(opt => opt.classList.remove('selected'));
+            e.target.classList.add('selected');
+        }
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const filterType = this.dataset.category || this.dataset.price || this.dataset.location || this.dataset.rating;
+            const productCards = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            
+            // Reset all filters visual state
+            this.parentElement.querySelectorAll('.filter-option').forEach(opt => {
+                opt.style.background = '';
+                opt.style.color = '';
+            });
+            
+            // Highlight selected filter
+            this.style.background = '#f8f4ff';
+            this.style.color = '#7b2cbf';
+            
+            if (filterType === 'all') {
+                productCards.forEach(card => {
+                    card.style.display = 'block';
+                    visibleCount++;
+                });
+            } else {
+                productCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const price = parseFloat(card.dataset.price);
+                    const location = card.dataset.location;
+                    const rating = parseFloat(card.dataset.rating);
+                    
+                    let shouldShow = false;
+                    
+                    // Category filter
+                    if (this.dataset.category && category === this.dataset.category) {
+                        shouldShow = true;
+                    }
+                    
+                    // Price filter
+                    if (this.dataset.price) {
+                        const priceRange = this.dataset.price;
+                        if (priceRange === '0-500' && price <= 500) shouldShow = true;
+                        if (priceRange === '500-2000' && price > 500 && price <= 2000) shouldShow = true;
+                        if (priceRange === '2000-10000' && price > 2000 && price <= 10000) shouldShow = true;
+                        if (priceRange === '10000+' && price > 10000) shouldShow = true;
+                    }
+                    
+                    // Location filter
+                    if (this.dataset.location && location === this.dataset.location) {
+                        shouldShow = true;
+                    }
+                    
+                    // Rating filter
+                    if (this.dataset.rating) {
+                        const minRating = parseFloat(this.dataset.rating.replace('+', ''));
+                        if (rating >= minRating) shouldShow = true;
+                    }
+                    
+                    if (shouldShow) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            document.getElementById('productsShown').textContent = visibleCount;
+        });
+    });
+
+    // Sort functionality
+    document.getElementById('sortSelect').addEventListener('change', function() {
+        const sortValue = this.value;
+        const productsGrid = document.getElementById('productsGrid');
+        const productCards = Array.from(productsGrid.querySelectorAll('.product-card'));
+        
+        productCards.sort((a, b) => {
+            switch (sortValue) {
+                case 'price-low':
+                    return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+                case 'price-high':
+                    return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+                case 'rating':
+                    return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                case 'newest':
+                    // For demo purposes, we'll randomize
+                    return Math.random() - 0.5;
+                default:
+                    return 0;
+            }
+        });
+        
+        // Re-append sorted cards
+        productCards.forEach(card => productsGrid.appendChild(card));
+    });
+
+    // View toggle functionality
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const view = this.dataset.view;
+            const productsGrid = document.getElementById('productsGrid');
+            
+            if (view === 'list') {
+                productsGrid.style.gridTemplateColumns = '1fr';
+                productsGrid.style.gap = '10px';
+            } else {
+                productsGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+                productsGrid.style.gap = '20px';
+            }
+        });
+    });
+
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        const cartModal = document.getElementById('cartModal');
+        const favoritesModal = document.getElementById('favoritesModal');
+        const productDetailsModal = document.getElementById('productDetailsModal');
+        const sidebar = document.getElementById('marketplaceSidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        
+        if (e.target === cartModal) {
+            cartModal.classList.remove('show');
+        }
+        
+        if (e.target === favoritesModal) {
+            favoritesModal.classList.remove('show');
+        }
+        
+        if (e.target === productDetailsModal) {
+            closeProductDetails();
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        if (window.innerWidth <= 992 && 
+            !sidebar.contains(e.target) && 
+            !sidebarToggle?.contains(e.target) && 
+            !sidebar.classList.contains('collapsed')) {
+            toggleSidebar();
+        }
+    });
+
+    // Close modals on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('cartModal').classList.remove('show');
+            document.getElementById('favoritesModal').classList.remove('show');
+            closeProductDetails();
+        }
+    });
+
+    // Search on Enter key
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchProducts();
+        }
+    });
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+        updateCartCount();
+        updateFavoritesCount();
+        
+        // Initialize sidebar state based on screen size
+        if (window.innerWidth <= 992) {
+            const sidebar = document.getElementById('marketplaceSidebar');
+            const main = document.getElementById('marketplaceMain');
+            const toggle = document.getElementById('sidebarToggle');
+            
+            sidebar.classList.add('collapsed');
+            main.classList.add('expanded');
+            toggle.classList.remove('expanded');
+            toggle.classList.add('collapsed');
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        const sidebar = document.getElementById('marketplaceSidebar');
+        const main = document.getElementById('marketplaceMain');
+        const toggle = document.getElementById('sidebarToggle');
+        const overlay = document.getElementById('sidebarOverlay');
+        
+        if (window.innerWidth > 992) {
+            // Desktop mode - show sidebar by default
+            sidebar.classList.remove('collapsed');
+            main.classList.remove('expanded');
+            toggle.classList.add('expanded');
+            toggle.classList.remove('collapsed');
+            overlay.classList.remove('show');
+        } else {
+            // Mobile mode - hide sidebar by default
+            sidebar.classList.add('collapsed');
+            main.classList.add('expanded');
+            toggle.classList.remove('expanded');
+            toggle.classList.add('collapsed');
+            overlay.classList.remove('show');
+        }
+    });
+</script>
+
+<!-- Language Dropdown Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageBtn = document.getElementById('languageBtn');
+    const languageOptions = document.getElementById('languageOptions');
+    
+    if (languageBtn && languageOptions) {
+        // Simple dropdown toggle
+        languageBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const isVisible = languageOptions.style.display === 'block';
+            languageOptions.style.display = isVisible ? 'none' : 'block';
+            languageOptions.classList.toggle('show', !isVisible);
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!languageBtn.contains(e.target) && !languageOptions.contains(e.target)) {
+                languageOptions.style.display = 'none';
+                languageOptions.classList.remove('show');
+            }
+        });
+        
+        // Handle language selection
+        const languageOptionsElements = languageOptions.querySelectorAll('.language-option');
+        languageOptionsElements.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Update button display
+                const flagSpan = languageBtn.querySelector('.language-flag');
+                const nameSpan = languageBtn.querySelector('.language-name');
+                const optionFlag = this.querySelector('.option-flag').textContent;
+                const optionName = this.querySelector('.option-name').textContent;
+                
+                if (flagSpan) flagSpan.textContent = optionFlag;
+                if (nameSpan) nameSpan.textContent = optionName;
+                
+                // Update active state
+                languageOptionsElements.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Close dropdown
+                languageOptions.style.display = 'none';
+                languageOptions.classList.remove('show');
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>
