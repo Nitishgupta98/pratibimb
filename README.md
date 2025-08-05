@@ -243,6 +243,13 @@ The Apache License 2.0 is a permissive open-source license that allows you to:
 
 under the condition that you include the original copyright and license notice.
 
+## ⚠️ Third-Party AI Services Disclaimer
+
+This project uses the Gemini API, a proprietary AI service provided by Google. You must obtain your own API key and comply with [Google’s Gemini API Terms of Service](https://ai.google.dev/terms).
+
+The use of the Gemini API in this project does not imply that Gemini or its outputs are licensed under the Apache License 2.0. Only the code written by the Pratibimb team is covered by the Apache 2.0 license.
+
+
 ## 🙏 Acknowledgments
 
 - [Salesforce BLIP Model](https://github.com/salesforce/BLIP)
